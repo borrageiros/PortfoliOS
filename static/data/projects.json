@@ -30,7 +30,7 @@
         {
           "name": "PortfoliOS",
           "description": "Esta página web",
-          "image": "/data/images/projects/user.svg",
+          "image": "https://raw.githubusercontent.com/borrageiros/PortfoliOS/main/readme/screenshot.png",
           "url": "https://github.com/borrageiros/PortfoliOS"
         },
         {
@@ -137,7 +137,7 @@
         {
           "name": "PortfoliOS",
           "description": "This webpage",
-          "image": "/data/images/projects/user.svg",
+          "image": "https://raw.githubusercontent.com/borrageiros/PortfoliOS/main/readme/screenshot.png",
           "url": "https://github.com/borrageiros/PortfoliOS"
         },
         {
