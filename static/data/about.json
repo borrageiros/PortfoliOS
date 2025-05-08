@@ -1,0 +1,38 @@
+{
+  "es": {
+    "title": "Sobre mí",
+    "description": "Soy una persona altamente motivada y con una profunda pasión por la informática.\nCuento con experiencia en varios lenguajes de programación, entre ellos TypeScript, JavaScript, Python, Bash y SQL.\nAdemás, poseo sólidos conocimientos en HTML y CSS, y he desarrollado pequeños proyectos utilizando C# y PHP.\nTrabajo habitualmente con frameworks y tecnologías modernas como React, Svelte, NestJS, Next.js, Express, Node.js y Vite.\n\nCuento con experiencia en desarrollo tanto frontend como backend, siendo este último mi favorito.\nHe trabajado con bases de datos relacionales (MySQL, PostgreSQL, SQLite) y no relacionales (MongoDB, Redis, Firebase, Cassandra).\nTambién me desenvuelvo con soltura en tareas de automatización y scripting, utilizando Bash, Python y herramientas CLI para optimizar flujos de trabajo y despliegues.",
+    "description2": "En el ámbito de infraestructura y DevOps, tengo conocimientos en Docker, Git, GitHub Actions, CI/CD, Nginx, Apache y administración avanzada de servidores, especialmente en entornos Linux.\nAdemás de mi enfoque profesional en la programación, también me interesan el networking, el hardware y la ciberseguridad, áreas que estudio por iniciativa propia.\n\nActualmente trabajo como desarrollador full stack.\nMás allá del trabajo, la informática es también mi principal hobby.\nDedico gran parte de mi tiempo libre a desarrollar proyectos personales, explorar nuevas tecnologías y buscar soluciones creativas a problemas reales.\n\nConfío en mis habilidades técnicas, en mi capacidad para aprender con rapidez y adaptarme a nuevos entornos, así como en mi determinación para afrontar desafíos.\nMe considero una persona resolutiva, curiosa y comprometida, siempre orientada a aportar valor real a cualquier equipo o proyecto.",
+    "interests": [
+      "Desarrollo Full Stack con enfoque en backend",
+      "Automatización y DevOps",
+      "Interfaces web modernas",
+      "Integración con nuevas tecnologías y herramientas",
+      "Crecimiento personal, profesional y técnico",
+      "Proyectos personales y aprendizaje continuo"
+    ],
+    "professionalGoals": [
+      "Creación de aplicaciones web de alta calidad",
+      "Contribuir a proyectos de código abierto",
+      "Compartir conocimientos"
+    ]
+  },
+  "en": {
+    "title": "Sobre mí",
+    "description": "I am a highly motivated person with a deep passion for computer science.\nI have experience with various programming languages, including TypeScript, JavaScript, Python, Bash, and SQL.\nIn addition, I possess strong knowledge of HTML and CSS, and I’ve developed small projects using C# and PHP.\nI regularly work with modern frameworks and technologies such as React, Svelte, NestJS, Next.js, Express, Node.js, and Vite.\n\nI have experience in both frontend and backend development, with a particular preference for the latter.\nI’ve worked with relational databases (MySQL, PostgreSQL, SQLite) and non-relational databases (MongoDB, Redis, Firebase, Cassandra).\nI’m also proficient in automation and scripting tasks, using Bash, Python, and CLI tools to optimize workflows and deployments.",
+    "description2": "In the field of infrastructure and DevOps, I have knowledge of Docker, Git, GitHub Actions, CI/CD, Nginx, Apache, and advanced server administration, particularly in Linux environments.\nBesides my professional focus on programming, I’m also interested in networking, hardware, and cybersecurity—areas I study on my own initiative.\n\nI currently work as a full-stack developer.\nBeyond my job, computing is also my main hobby.\nI dedicate a large part of my free time to developing personal projects, exploring new technologies, and seeking creative solutions to real-world problems.\n\nI trust in my technical skills, my ability to learn quickly and adapt to new environments, and my determination to take on challenges.\nI consider myself a resourceful, curious, and committed individual, always focused on bringing real value to any team or project.",
+    "interests": [
+      "Development of Full Stack with a focus on backend",
+      "Automation and DevOps",
+      "Modern web interfaces",
+      "Integration with new technologies and tools",
+      "Personal growth, professional and technical",
+      "Personal projects and continuous learning"
+    ],
+    "professionalGoals": [
+      "Create high-quality web applications",
+      "Contribute to open source projects",
+      "Share knowledge"
+    ]
+  }
+}

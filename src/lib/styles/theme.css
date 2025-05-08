@@ -1,0 +1,67 @@
+:root, .dark-theme {
+  /* Dark Theme Colors */
+  --win-blue: #0078D7;
+  --win-accent: #0078D7;
+  --win-start-hover: #2b5797;
+  
+  /* Interface Colors */
+  --taskbar-bg: #202020;
+  --taskbar-bg-rgb: 32, 32, 32;
+  --taskbar-hover: #303030;
+  --taskbar-active: #383838;
+  --start-menu-bg: #202020;
+  --app-tile-hover: #333333;
+  --window-bg: #1F1F1F;
+  --window-header: #2D2D2D;
+  
+  /* Input Elements */
+  --input-bg: #2D2D2D;
+  --input-text: #FFFFFF;
+  --overlay-bg: rgba(32, 32, 32, 0.9);
+  --border-light: #444444;
+  
+  /* Text Colors */
+  --text-primary: #FFFFFF;
+  --text-secondary: #BBBBBB;
+  --text-disabled: #888888;
+  
+  /* Alert Colors */
+  --alert-error: #E81123;
+  --alert-warning: #FFB900;
+  --alert-success: #10893E;
+  --alert-info: #0078D7;
+}
+
+.light-theme {
+  /* Light Theme Colors */
+  --win-blue: #0078D7;
+  --win-accent: #0078D7;
+  --win-start-hover: #2b5797;
+  
+  /* Interface Colors */
+  --taskbar-bg: #F0F0F0;
+  --taskbar-bg-rgb: 240, 240, 240;
+  --taskbar-hover: #E0E0E0;
+  --taskbar-active: #D0D0D0;
+  --start-menu-bg: #FFFFFF;
+  --app-tile-hover: #F5F5F5;
+  --window-bg: #FFFFFF;
+  --window-header: #F0F0F0;
+  
+  /* Input Elements */
+  --input-bg: #FFFFFF;
+  --input-text: #333333;
+  --overlay-bg: rgba(255, 255, 255, 0.9);
+  --border-light: #DDDDDD;
+  
+  /* Text Colors */
+  --text-primary: #333333;
+  --text-secondary: #666666;
+  --text-disabled: #999999;
+  
+  /* Alert Colors */
+  --alert-error: #E81123;
+  --alert-warning: #FFB900;
+  --alert-success: #10893E;
+  --alert-info: #0078D7;
+} 

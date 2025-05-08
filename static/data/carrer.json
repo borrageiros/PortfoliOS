@@ -1,0 +1,90 @@
+{
+  "es": {
+    "steps": [
+      {
+        "type": "school",
+        "where": "IES Fernando Wirtz Suarez",
+        "url": "https://www.fernandowirtz.com/",
+        "what": "Sistemas microinformáticos y redes",
+        "from": "11/09/2018",
+        "to": "20/06/2020"
+      },
+      {
+        "type": "school",
+        "where": "Centro de Formación Profesional Afundación",
+        "url": "https://www.afundacion.org/es/centros/centro/sede_afundacion_a_coruna",
+        "what": "Desarrollo de Aplicaciones Web",
+        "from": "11/09/2021",
+        "to": "20/06/2023"
+      },
+      {
+        "type": "work",
+        "where": "NetexLearning",
+        "url": "https://www.netexlearning.com/",
+        "what": "Desarrollador Full Stack en prácticas",
+        "from": "01/03/2023",
+        "to": "01/06/2023"
+      },
+      {
+        "type": "work",
+        "where": "NetexLearning",
+        "url": "https://www.netexlearning.com/",
+        "what": "Desarrollador Full Stack en prácticas con beca",
+        "from": "01/06/2023",
+        "to": "01/01/2024"
+      },
+      {
+        "type": "work",
+        "where": "NetexLearning",
+        "url": "https://www.netexlearning.com/",
+        "what": "Desarrollador Full Stack",
+        "from": "01/01/2024",
+        "to": "Presente"
+      }
+    ]
+  },
+  "en": {
+    "steps": [
+      {
+        "type": "school",
+        "where": "IES Fernando Wirtz Suarez",
+        "url": "https://www.fernandowirtz.com/",
+        "what": "Microcomputer Systems and Networks",
+        "from": "11/09/2018",
+        "to": "20/06/2020"
+      },
+      {
+        "type": "school",
+        "where": "Centro de Formación Profesional Afundación",
+        "url": "https://www.afundacion.org/es/centros/centro/sede_afundacion_a_coruna",
+        "what": "Web Development Applications",
+        "from": "11/09/2021",
+        "to": "20/06/2023"
+      },
+      {
+        "type": "work",
+        "where": "NetexLearning",
+        "url": "https://www.netexlearning.com/",
+        "what": "Full Stack Developer in practice",
+        "from": "01/03/2023",
+        "to": "01/06/2023"
+      },
+      {
+        "type": "work",
+        "where": "NetexLearning",
+        "url": "https://www.netexlearning.com/",
+        "what": "Full Stack Developer in practice with scholarship",
+        "from": "01/06/2023",
+        "to": "01/01/2024"
+      },
+      {
+        "type": "work",
+        "where": "NetexLearning",
+        "url": "https://www.netexlearning.com/",
+        "what": "Full Stack Developer",
+        "from": "01/01/2024",
+        "to": "Presente"
+      }
+    ]
+  }
+}

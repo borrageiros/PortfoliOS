@@ -1,0 +1,222 @@
+{
+  "es": {
+    "relevant": {
+      "title": "Proyectos relevantes",
+      "projects": [
+        {
+          "name": "easy-cloudflare-ddns",
+          "description": "Interface web - Servicio de DNS dinámico para actualizar automáticamente los registros de CloudFlare! ",
+          "image": "https://raw.githubusercontent.com/borrageiros/easy-cloudflare-ddns/refs/heads/main/readme/screenshot.png",
+          "url": "https://github.com/borrageiros/easy-cloudflare-ddns"
+        },
+        {
+          "name": "DiscordAudioUI",
+          "description": "Bot de música de Discord con interfaz web en tiempo real usando WebSockets",
+          "image": "https://raw.githubusercontent.com/borrageiros/discord-music-bot-with-web-interface/main/readme/screenshot.jpg",
+          "url": "https://github.com/borrageiros/discord-music-bot-with-web-interface"
+        },
+        {
+          "name": "CloudShot",
+          "description": "Aplicación de captura de pantalla moderna, potente y liviana para Windows que combina funciones avanzadas como OCR y subida automática mediante SCP.",
+          "image": "https://raw.githubusercontent.com/borrageiros/CloudShot/refs/heads/main/app.ico",
+          "url": "https://github.com/borrageiros/CloudShot"
+        },
+        {
+          "name": "Windows Terminal Profile Selector",
+          "description": "Aplicación de Windows Forms simple que muestra perfiles disponibles de Windows Terminal y permite lanzarlos con un solo clic.",
+          "image": "https://raw.githubusercontent.com/borrageiros/WTProfile/refs/heads/main/icon.png",
+          "url": "https://github.com/borrageiros/WTProfile"
+        },
+        {
+          "name": "PortfoliOS",
+          "description": "Esta página web",
+          "image": "/data/images/projects/user.svg",
+          "url": "https://github.com/borrageiros/PortfoliOS"
+        },
+        {
+          "name": "ApaxyGallery",
+          "description": "Tema de galería de estilo moderno y elegante para listados de directorios de Apache, transformando directorios de archivos estándar en una galería visualmente atractiva.",
+          "image": "https://raw.githubusercontent.com/borrageiros/apaxy-gallery/main/.theme/screenshots/dark.png",
+          "url": "https://github.com/borrageiros/apaxy-gallery"
+        },
+        {
+          "name": "AuthAPI",
+          "description": "API básica para autenticación de usuarios, gestión y mantenimiento",
+          "image": "https://camo.githubusercontent.com/4b0000b8e7a6449a924fe0212093b9f3936ef80cc8fdfbb770baad58f58b8c2c/68747470733a2f2f6e6573746a732e636f6d2f696d672f6c6f676f2d736d616c6c2e737667",
+          "url": "https://github.com/borrageiros/auth-api"
+        },
+        {
+          "name": "DockerTokenViewer",
+          "description": "Alternativa al frontend de DockerHub, diseñada para permitir a los usuarios ver imágenes y sus respectivas etiquetas mediante un token de acceso",
+          "image": "/data/images/projects/docker.svg",
+          "url": "https://github.com/borrageiros/DockerTokenViewer"
+        }
+      ]
+    },
+    "personal": {
+      "title": "Proyectos personales",
+      "projects": [
+        {
+          "name": "DescriptionAboveBoard",
+          "description": "Este proyecto es un plugin para el proyecto Kanboard. Muestra la descripción del proyecto encima del tablero de tareas y permite editar directamente desde allí.",
+          "image": "https://raw.githubusercontent.com/borrageiros/DescriptionAboveBoard/main/readme/screenshot.jpg",
+          "url": "https://github.com/borrageiros/DescriptionAboveBoard"
+        },
+        {
+          "name": "System Monitor API",
+          "description": "Esta es una API REST muy simple desplegada para Docker que devuelve información básica de sistema.",
+          "image": "/data/images/projects/monitor.svg",
+          "url": "https://github.com/borrageiros/sys-monitor-api"
+        },
+        {
+          "name": "MecoLand",
+          "description": "Exacta replica de 'O Grove' a escala 1:1 – servidor para el juego 'Rust'",
+          "image": "/data/images/projects/mecoland.png",
+          "url": "https://cadenaser.com/emisora/2021/03/22/radio_pontevedra/1616429546_474920.html"
+        },
+        {
+          "name": "SaLOLnes",
+          "description": "Torneo Provincial de League of Legends del Salnés – Página web full-stack con integraciones automáticas con redes sociales y la API oficial de League of Legends.",
+          "image": "/data/images/projects/salolnes.png",
+          "url": "https://cadenaser.com/emisora/2021/03/22/radio_pontevedra/1616429546_474920.html"
+        },
+        {
+          "name": "Discord Countdown Channel Rename",
+          "description": "El proyecto consiste en un bot de Discord diseñado para facilitar un reloj de cuenta regresiva, renombrando automáticamente un canal cada 5 minutos.",
+          "image": "https://raw.githubusercontent.com/borrageiros/discord-countdown-channel/main/README/countdown.jpg",
+          "url": "https://github.com/borrageiros/discord-countdown-channel"
+        },
+        {
+          "name": "Electron Svelte Express Boilerplate",
+          "description": "Esta plantilla proporciona una base sólida para desarrollar aplicaciones de Windows utilizando una aplicación web full-stack desarrollada con HTML, CSS y JavaScript (front-end, back-end y base de datos local).",
+          "image": "https://raw.githubusercontent.com/borrageiros/electron-svelte-express-boilerplate/main/screenshot.jpg",
+          "url": "https://github.com/borrageiros/electron-svelte-express-boilerplate"
+        }
+      ]
+    },
+    "professional": {
+      "title": "Proyectos contratados",
+      "projects": [
+        {
+          "name": "Netex webpage",
+          "description": "Varias páginas web, APIs y scripts para una empresa que ofrece servicios privados.",
+          "image": "https://ccdn.netexlearning.com/wp-content/uploads/2023/04/netex-learning-logo.svg",
+          "url": "https://www.netexlearning.com/"
+        }
+      ]
+    }
+  },
+  "en": {
+    "relevant": {
+      "title": "Relevant projects",
+      "projects": [
+        {
+          "name": "easy-cloudflare-ddns",
+          "description": "Web Interface - Dynamic DNS service to automatically update CloudFlare records! ",
+          "image": "https://raw.githubusercontent.com/borrageiros/easy-cloudflare-ddns/refs/heads/main/readme/screenshot.png",
+          "url": "https://github.com/borrageiros/easy-cloudflare-ddns"
+        },
+        {
+          "name": "DiscordAudioUI",
+          "description": "Discord Music Bot with Real-Time Web Interface Using WebSockets",
+          "image": "https://raw.githubusercontent.com/borrageiros/discord-music-bot-with-web-interface/main/readme/screenshot.jpg",
+          "url": "https://github.com/borrageiros/discord-music-bot-with-web-interface"
+        },
+        {
+          "name": "CloudShot",
+          "description": "A modern, powerful, and lightweight screenshot application for Windows that combines advanced features like OCR and automatic uploading via SCP.",
+          "image": "/data/images/projects/cloudshot.svg",
+          "url": "https://github.com/borrageiros/CloudShot"
+        },
+        {
+          "name": "Windows Terminal Profile Selector",
+          "description": "A simple Windows Forms application that displays available Windows Terminal profiles and allows you to launch them with a single click.",
+          "image": "/data/images/projects/WTProfile.svg",
+          "url": "https://github.com/borrageiros/WTProfile"
+        },
+        {
+          "name": "PortfoliOS",
+          "description": "This webpage",
+          "image": "/data/images/projects/user.svg",
+          "url": "https://github.com/borrageiros/PortfoliOS"
+        },
+        {
+          "name": "ApaxyGallery",
+          "description": "A modern and elegant gallery-style theme for Apache directory listings, transforming standard file directories into a visually appealing image gallery. ",
+          "image": "https://raw.githubusercontent.com/borrageiros/apaxy-gallery/main/.theme/screenshots/dark.png",
+          "url": "https://github.com/borrageiros/apaxy-gallery"
+        },
+        {
+          "name": "AuthAPI",
+          "description": "Basic API for User Authentication, Management, and Maintenance",
+          "image": "https://camo.githubusercontent.com/4b0000b8e7a6449a924fe0212093b9f3936ef80cc8fdfbb770baad58f58b8c2c/68747470733a2f2f6e6573746a732e636f6d2f696d672f6c6f676f2d736d616c6c2e737667",
+          "url": "https://github.com/borrageiros/auth-api"
+        },
+        {
+          "name": "DockerTokenViewer",
+          "description": "Alternative to the DockerHub frontend, designed to allow users to view images and their respective tags by access token ",
+          "image": "/data/images/projects/docker.svg",
+          "url": "https://github.com/borrageiros/DockerTokenViewer"
+        }
+      ]
+    },
+    "personal": {
+      "title": "Personal projects",
+      "projects": [
+        {
+          "name": "DescriptionAboveBoard",
+          "description": "This project is a plugin for the Kanboard project. It displays the project's description above the task board and allows for editing directly from there.",
+          "image": "https://raw.githubusercontent.com/borrageiros/DescriptionAboveBoard/main/readme/screenshot.jpg",
+          "url": "https://github.com/borrageiros/DescriptionAboveBoard"
+        },
+        {
+          "name": "System Monitor API",
+          "description": "This is a very simple REST API deployed for Docker that returns basic system information.",
+          "image": "/data/images/projects/monitor.svg",
+          "url": "https://github.com/borrageiros/sys-monitor-api"
+        },
+        {
+          "name": "MecoLand",
+          "description": "Exact replica of 'O Grove' at 1:1 scale – server for the game 'Rust'",
+          "image": "/data/images/projects/mecoland.png",
+          "url": "https://cadenaser.com/emisora/2021/03/22/radio_pontevedra/1616429546_474920.html"
+        },
+        {
+          "name": "SaLOLnes",
+          "description": "Salnés Provincial League of Legends Tournament – Full-stack website with automatic integrations with social media and the official League of Legends API.",
+          "image": "/data/images/projects/salolnes.png",
+          "url": "https://cadenaser.com/emisora/2021/03/22/radio_pontevedra/1616429546_474920.html"
+        },
+        {
+          "name": "Clickity",
+          "description": "Several webpages and integrations for a company that provides private services.",
+          "image": "https://avatars.githubusercontent.com/u/180670230",
+          "url": "https://getclickity.com"
+        },
+        {
+          "name": "Discord Countdown Channel Rename",
+          "description": "The project involves the development of a Discord bot designed to facilitate countdowns by automatically renaming a designated Discord channel every 5 minutes.",
+          "image": "https://raw.githubusercontent.com/borrageiros/discord-countdown-channel/main/README/countdown.jpg",
+          "url": "https://github.com/borrageiros/discord-countdown-channel"
+        },
+        {
+          "name": "Electron Svelte Express Boilerplate",
+          "description": "This boilerplate provides a solid foundation for developing Windows applications using a full-stack web application developed with HTML, CSS, and JavaScript (front-end, back-end, and local database).",
+          "image": "https://raw.githubusercontent.com/borrageiros/electron-svelte-express-boilerplate/main/screenshot.jpg",
+          "url": "https://github.com/borrageiros/electron-svelte-express-boilerplate"
+        }
+      ]
+    },
+    "professional": {
+      "title": "Contracted projects",
+      "projects": [
+        {
+          "name": "Netex webpage",
+          "description": "Several webpages, apis and scripts for a company that provides private services.",
+          "image": "https://ccdn.netexlearning.com/wp-content/uploads/2023/04/netex-learning-logo.svg",
+          "url": "https://www.netexlearning.com/"
+        }
+      ]
+    }
+  }
+}

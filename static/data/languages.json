@@ -1,0 +1,76 @@
+{
+  "es": {
+    "languages": [
+      {
+        "name": "Español",
+        "level": "Nativo",
+        "percentage": 100,
+        "skills": {
+          "oral_comprehension": 100,
+          "speaking": 100,
+          "reading_comprehension": 100,
+          "writing": 100
+        }
+      },
+      {
+        "name": "Gallego",
+        "level": "Nativo",
+        "percentage": 100,
+        "skills": {
+          "oral_comprehension": 100,
+          "speaking": 100,
+          "reading_comprehension": 100,
+          "writing": 95
+        }
+      },
+      {
+        "name": "Inglés",
+        "level": "Avanzado (C1)",
+        "percentage": 85,
+        "skills": {
+          "oral_comprehension": 80,
+          "speaking": 65,
+          "reading_comprehension": 90,
+          "writing": 90
+        }
+      }
+    ]
+  },
+  "en": {
+    "languages": [
+      {
+        "name": "Spanish",
+        "level": "Native",
+        "percentage": 100,
+        "skills": {
+          "oral_comprehension": 100,
+          "speaking": 100,
+          "reading_comprehension": 100,
+          "writing": 100
+        }
+      },
+      {
+        "name": "Galician",
+        "level": "Native",
+        "percentage": 100,
+        "skills": {
+          "oral_comprehension": 100,
+          "speaking": 100,
+          "reading_comprehension": 100,
+          "writing": 95
+        }
+      },
+      {
+        "name": "English",
+        "level": "Advanced (C1)",
+        "percentage": 85,
+        "skills": {
+          "oral_comprehension": 80,
+          "speaking": 65,
+          "reading_comprehension": 90,
+          "writing": 90
+        }
+      }
+    ]
+  }
+}

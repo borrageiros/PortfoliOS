@@ -1,0 +1,130 @@
+:root {
+    /* Principal Colors */
+    --win-blue: #0078D7;
+    --win-accent: #0078D7;
+    --win-start-hover: #2b5797;
+    
+    /* Interface Colors */
+    --taskbar-bg: #202020;
+    --taskbar-hover: #303030;
+    --taskbar-active: #383838;
+    --start-menu-bg: #202020;
+    --app-tile-hover: #333333;
+    
+    /* Windows Logo Icon Colors */
+    --win-logo-blue: #00A4EF;
+    --win-logo-green: #7FBA00;
+    --win-logo-yellow: #FFB900;
+    --win-logo-red: #F25022;
+    
+    /* Text Colors */
+    --text-primary: #FFFFFF;
+    --text-secondary: #BBBBBB;
+    --text-disabled: #888888;
+    
+    /* Alert Colors */
+    --alert-error: #E81123;
+    --alert-warning: #FFB900;
+    --alert-success: #10893E;
+    --alert-info: #0078D7;
+    
+    /* Shadows */
+    --shadow-light: 0 2px 4px rgba(0, 0, 0, 0.1);
+    --shadow-medium: 0 4px 8px rgba(0, 0, 0, 0.2);
+    --shadow-heavy: 0 8px 16px rgba(0, 0, 0, 0.3);
+    
+    /* Borders */
+    --border-light: 1px solid rgba(255, 255, 255, 0.1);
+    --border-medium: 1px solid rgba(255, 255, 255, 0.2);
+    
+    /* Standard Sizes */
+    --taskbar-height: 4vh;
+    --taskbar-min-height: 48px;
+    --start-button-size: 4vh;
+    --start-button-min-size: 48px;
+    --icon-size: 2vh;
+    --icon-min-size: 24px;
+}
+
+/* Global Basic Styles */
+html, body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    color: var(--text-primary);
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+}
+
+* {
+    box-sizing: border-box;
+    /* NO SELECT */
+    user-select: none;           /* Standard */
+    -webkit-user-select: none;   /* Safari/Chrome */
+    -moz-user-select: none;      /* Firefox */
+    -ms-user-select: none;       /* IE/Edge */
+}
+
+/* Global scrollbar styles */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: var(--taskbar-active) transparent;
+}
+
+*::-webkit-scrollbar {
+    width: 8px;
+}
+
+*::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+    background-color: var(--taskbar-active);
+    border-radius: 4px;
+    border: 2px solid transparent;
+    background-clip: content-box;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+    background-color: var(--win-accent);
+    background-clip: content-box;
+}
+
+/* Utility Classes for Colors */
+.bg-taskbar {
+    background-color: var(--taskbar-bg);
+}
+
+.bg-win-blue {
+    background-color: var(--win-blue);
+}
+
+.text-primary {
+    color: var(--text-primary);
+}
+
+.text-secondary {
+    color: var(--text-secondary);
+}
+
+/* Common Animations */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideUp {
+    from { transform: translateY(20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+/* Utility Classes for Animations */
+.fade-in {
+    animation: fadeIn 0.3s ease forwards;
+}
+
+.slide-up {
+    animation: slideUp 0.3s ease forwards;
+} 

@@ -1,0 +1,32 @@
+{
+  "es": {
+    "complementary": [
+      {
+        "title": "Adicional",
+        "items": [
+          "Cusros en UDEMY",
+          "Formaciones y charlas sobre trabajo en equipo",
+          "Licencias de conducir B y A2",
+          "Licencia de manipulador de alimentos",
+          "Edición de vídeo y fotografía nivel intermedio",
+          "Carnet de voluntario"
+        ]
+      }
+    ]
+  },
+  "en": {
+    "complementary": [
+      {
+        "title": "Additional",
+        "items": [
+          "Courses in UDEMY",
+          "Formations and talks about teamwork",
+          "Driving licenses B and A2",
+          "Food handler's license",
+          "Video and photography editing at intermediate level",
+          "Volunteer badge"
+        ]
+      }
+    ]
+  }
+}

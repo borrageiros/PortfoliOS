@@ -1,0 +1,452 @@
+export type Locale = 'es' | 'en';
+
+export const translations = {
+  en: {
+    system: {
+      loading: 'Starting...',
+    },
+    folder: {
+      search: 'Search',
+      quickAccess: 'Quick access',
+      thisPC: 'This PC'
+    },
+    login: {
+      title: 'Portfolio',
+      subtitle: 'Choose a profile to continue',
+      users: {
+        recruiter: 'Recruiter',
+        developer: 'Developer',
+        stalker: 'Stalker',
+        adventurer: 'Adventurer'
+      },
+      welcomeMessage: 'Welcome, {user}'
+    },
+    mobile: {
+      desktopRecommendation: {
+        title: 'Desktop Experience',
+        message: 'This website is designed to provide a better experience on desktop devices.',
+        continueMobile: 'Continue on Mobile'
+      },
+      preferences: {
+        title: 'Preferences',
+        language: 'Language',
+        english: 'English',
+        spanish: 'Spanish',
+        theme: 'Theme',
+        light: 'Light',
+        dark: 'Dark',
+        continue: 'Continue'
+      }
+    },
+    taskbar: {
+      search: 'Search',
+      language: 'Language',
+      theme: 'Toggle theme'
+    },
+    window: {
+      minimize: 'Minimize',
+      maximize: 'Maximize',
+      restore: 'Restore',
+      close: 'Close',
+      resize: 'Resize'
+    },
+    profile: {
+      title: 'Profile',
+      information: 'Information',
+      about: 'About',
+      carrer: 'Carrer',
+      projects: 'Projects',
+      languages: 'Languages',
+      skills: 'Skills',
+      informatic: 'Informatic',
+      certifications: 'Certifications',
+      contact: 'Contact',
+      complementary: 'Complementary',
+      reviews: 'Reviews',
+      age: 'Age',
+      country: 'Country',
+      job: 'Job',
+      email: 'Email',
+      currentJob: 'Current job',
+      phone: 'Phone',
+      location: 'Location',
+      interests: 'Interests',
+      professionalGoals: 'Professional Goals',
+      programmingLanguages: 'Programming Languages',
+      softwareTools: 'Software & Tools',
+      viewCredential: 'View credential',
+      loading: 'Loading data...',
+      oralComprehension: 'Oral Comprehension',
+      speaking: 'Speaking',
+      readingComprehension: 'Reading Comprehension',
+      writing: 'Writing',
+      expires: 'Expires',
+      contactForm: 'Contact Form',
+      name: 'Name',
+      namePlaceholder: 'Enter your name',
+      emailPlaceholder: 'yourname@example.com',
+      phonePlaceholder: '+34 XXX XXX XXX',
+      company: 'Company',
+      companyPlaceholder: 'Your company name',
+      message: 'Message',
+      messagePlaceholder: 'Write your message here...',
+      requiredFields: '* Required fields',
+      send: 'Send Message',
+      socialNetworks: 'Connect with me',
+      sending: 'Sending...',
+      messageSent: 'Your message has been sent successfully.',
+      errorSending: 'There was an error sending your message. Please try again later.'
+    },
+    games: {
+      title: 'Games',
+      minesweeper: {
+        title: 'Minesweeper',
+        beginner: 'Beginner',
+        intermediate: 'Intermediate',
+        expert: 'Expert',
+        flagModeEnabled: 'Enabled',
+        flagModeDisabled: 'Disabled'
+      },
+      snake: {
+        title: 'Snake',
+        beginner: 'Beginner',
+        intermediate: 'Intermediate',
+        expert: 'Expert',
+        gameover: 'Game Over',
+        victory: 'Victory',
+        paused: 'Paused'
+      },
+      tetris: {
+        title: 'Tetris',
+        score: 'Score',
+        level: 'Level',
+        lines: 'Lines',
+        time: 'Time',
+        easy: 'Easy',
+        normal: 'Normal',
+        hard: 'Hard',
+        reset: 'Reset',
+        pause: 'Pause',
+        resume: 'Resume',
+        gameover: 'Game Over',
+        playagain: 'Play Again',
+        paused: 'Paused',
+        next: 'Next Piece',
+        controls: 'Controls',
+        moveleft: 'Move Left',
+        moveright: 'Move Right',
+        movedown: 'Move Down',
+        rotate: 'Rotate',
+        harddrop: 'Hard Drop'
+      },
+      dino: {
+        title: 'Dino Runner',
+        pause: 'Pause',
+        resume: 'Resume',
+        restart: 'Restart',
+        resetScore: 'Reset High Score',
+        howToPlay: 'How to Play:',
+        jump: 'Jump',
+        duck: 'Duck',
+        gameover: 'Game Over'
+      },
+      comingSoon: 'Coming Soon'
+    },
+    softwares: {
+      title: 'Softwares',
+      paint: {
+        title: 'Paint',
+        size: 'Size',
+        colors: 'Colors',
+        customColorPicker: 'Custom color picker',
+        newFile: 'New File',
+        open: 'Open',
+        save: 'Save',
+        saveAs: 'Save As',
+        pencil: 'Pencil',
+        line: 'Line',
+        rectangle: 'Rectangle',
+        circle: 'Circle',
+        eraser: 'Eraser',
+        fill: 'Fill'
+      },
+      calculator: {
+        title: 'Calculator',
+        clear: 'Clear',
+        equals: 'Equals',
+        add: 'Add',
+        subtract: 'Subtract',
+        multiply: 'Multiply',
+        divide: 'Divide',
+        decimal: 'Decimal',
+        percent: 'Percent',
+        negate: 'Negate',
+        backspace: 'Backspace'
+      },
+      terminal: {
+        title: 'Terminal',
+        welcome: 'Welcome. Type \'help\' for available commands.',
+        noSuchDirectory: 'No such directory',
+        noSuchFile: 'No such file',
+        missingFileOperand: 'cat: missing file operand',
+        commandNotFound: 'Command not found',
+        typeHelp: 'Type \'help\' for available commands',
+        errorExecuting: 'Error executing command',
+        unknownError: 'Unknown error',
+        commands: {
+          help: 'Show list of available commands',
+          clear: 'Clear terminal screen',
+          echo: 'Echo a message',
+          whoami: 'Display current user',
+          ls: 'List directory contents',
+          cd: 'Change directory',
+          pwd: 'Print working directory',
+          cat: 'Concatenate and display file content',
+          profile: 'Display profile information',
+          projects: 'List all projects',
+          skills: 'List all skills',
+          contact: 'Display contact information',
+          date: 'Display current date and time',
+          open: 'Open portfolio website',
+          input: 'Command input'
+        }
+      },
+      browser: {
+        title: 'Browser',
+        back: 'Back',
+        forward: 'Forward',
+        reload: 'Reload',
+        enterUrl: 'Enter URL',
+        addressBar: 'Address bar',
+        go: 'Go',
+        loading: 'Loading...',
+        content: 'Browser content',
+        errorLoading: 'Error loading page'
+      }
+    }
+  },
+  es: {
+    system: {
+      loading: 'Iniciando...',
+    },
+    folder: {
+      search: 'Buscar',
+      quickAccess: 'Acceso rápido',
+      thisPC: 'Este equipo'
+    },
+    login: {
+      title: 'Portfolio',
+      subtitle: 'Elige un perfil para continuar',
+      users: {
+        recruiter: 'Reclutador',
+        developer: 'Desarrollador',
+        stalker: 'Investigador',
+        adventurer: 'Aventurero'
+      },
+      welcomeMessage: 'Bienvenido, {user}'
+    },
+    mobile: {
+      desktopRecommendation: {
+        title: 'Experiencia de Escritorio',
+        message: 'Esta web está diseñada para ofrecer una mejor experiencia en dispositivos de escritorio.',
+        continueMobile: 'Continuar en Móvil'
+      },
+      preferences: {
+        title: 'Preferencias',
+        language: 'Idioma',
+        english: 'Inglés',
+        spanish: 'Español',
+        theme: 'Tema',
+        light: 'Claro',
+        dark: 'Oscuro',
+        continue: 'Continuar'
+      }
+    },
+    taskbar: {
+      search: 'Buscar',
+      language: 'Idioma',
+      theme: 'Cambiar tema'
+    },
+    window: {
+      minimize: 'Minimizar',
+      maximize: 'Maximizar',
+      restore: 'Restaurar',
+      close: 'Cerrar',
+      resize: 'Redimensionar'
+    },
+    profile: {
+      title: 'Perfil',
+      information: 'Información',
+      about: 'Sobre mí',
+      carrer: 'Carrera',
+      projects: 'Proyectos',
+      languages: 'Idiomas',
+      skills: 'Habilidades',
+      informatic: 'Informática',
+      certifications: 'Certificaciones',
+      contact: 'Contacto',
+      complementary: 'Complementario',
+      reviews: 'Reseñas',
+      age: 'Edad',
+      country: 'País',
+      job: 'Trabajo',
+      email: 'Correo electrónico',
+      currentJob: 'Trabajo actual',
+      phone: 'Teléfono',
+      location: 'Ubicación',
+      interests: 'Intereses',
+      professionalGoals: 'Objetivos Profesionales',
+      programmingLanguages: 'Lenguajes de Programación',
+      softwareTools: 'Software y Herramientas',
+      viewCredential: 'Ver credencial',
+      loading: 'Cargando datos...',
+      oralComprehension: 'Comprensión Oral',
+      speaking: 'Expresión Oral',
+      readingComprehension: 'Comprensión Lectora',
+      writing: 'Expresión Escrita',
+      expires: 'Expira',
+      contactForm: 'Formulario de contacto',
+      name: 'Nombre',
+      namePlaceholder: 'Introduce tu nombre',
+      emailPlaceholder: 'tunombre@ejemplo.com',
+      phonePlaceholder: '+34 XXX XXX XXX',
+      company: 'Empresa',
+      companyPlaceholder: 'Nombre de tu empresa',
+      message: 'Mensaje',
+      messagePlaceholder: 'Escribe tu mensaje aquí...',
+      requiredFields: '* Campos obligatorios',
+      send: 'Enviar mensaje',
+      socialNetworks: 'Conéctate conmigo',
+      sending: 'Enviando...',
+      messageSent: 'Tu mensaje se ha enviado correctamente.',
+      errorSending: 'Hubo un error al enviar tu mensaje. Por favor, inténtalo más tarde.'
+    },
+    games: {
+      title: 'Juegos',
+      minesweeper: {
+        title: 'Buscaminas',
+        beginner: 'Principiante',
+        intermediate: 'Intermedio',
+        expert: 'Experto',
+        flagModeEnabled: 'Activado',
+        flagModeDisabled: 'Desactivado'
+      },
+      snake: {
+        title: 'Snake',
+        beginner: 'Principiante',
+        intermediate: 'Intermedio',
+        expert: 'Experto',
+        gameover: '¡Has perdido!',
+        victory: '¡Has ganado!',
+        paused: 'Pausa'
+      },
+      tetris: {
+        title: 'Tetris',
+        score: 'Puntuación',
+        level: 'Nivel',
+        lines: 'Líneas',
+        time: 'Tiempo',
+        easy: 'Fácil',
+        normal: 'Normal',
+        hard: 'Difícil',
+        reset: 'Reiniciar',
+        pause: 'Pausa',
+        resume: 'Continuar',
+        gameover: '¡Juego terminado!',
+        playagain: 'Jugar de nuevo',
+        paused: 'Pausado',
+        next: 'Siguiente pieza',
+        controls: 'Controles',
+        moveleft: 'Mover izquierda',
+        moveright: 'Mover derecha',
+        movedown: 'Mover abajo',
+        rotate: 'Rotar',
+        harddrop: 'Caída rápida'
+      },
+      dino: {
+        title: 'Dino Runner',
+        pause: 'Pausar',
+        resume: 'Continuar',
+        restart: 'Reiniciar',
+        resetScore: 'Reiniciar Puntuación',
+        howToPlay: 'Cómo jugar:',
+        jump: 'Saltar',
+        duck: 'Agacharse',
+        gameover: 'Juego Terminado'
+      },
+      comingSoon: 'Próximamente'
+    },
+    softwares: {
+      title: 'Softwares',
+      paint: {
+        title: 'Paint',
+        size: 'Size',
+        colors: 'Colors',
+        customColorPicker: 'Custom color picker',
+        newFile: 'New File',
+        open: 'Open',
+        save: 'Save',
+        saveAs: 'Save As',
+        pencil: 'Pencil',
+        line: 'Line',
+        rectangle: 'Rectangle',
+        circle: 'Circle',
+        eraser: 'Eraser',
+        fill: 'Fill'
+      },
+      calculator: {
+        title: 'Calculadora',
+        clear: 'Limpiar',
+        equals: 'Igual',
+        add: 'Sumar',
+        subtract: 'Restar',
+        multiply: 'Multiplicar',
+        divide: 'Dividir',
+        decimal: 'Decimal',
+        percent: 'Porcentaje',
+        negate: 'Negativo',
+        backspace: 'Retroceso'
+      },
+      terminal: {
+        title: 'Terminal',
+        welcome: 'Bienvenido. Escribe \'help\' para ver los comandos disponibles.',
+        noSuchDirectory: 'No existe el directorio',
+        noSuchFile: 'No existe el archivo',
+        missingFileOperand: 'cat: falta el operando del archivo',
+        commandNotFound: 'Comando no encontrado',
+        typeHelp: 'Escribe \'help\' para ver los comandos disponibles',
+        errorExecuting: 'Error al ejecutar el comando',
+        unknownError: 'Error desconocido',
+        commands: {
+          help: 'Mostrar lista de comandos disponibles',
+          clear: 'Limpiar pantalla de la terminal',
+          echo: 'Mostrar un mensaje',
+          whoami: 'Mostrar usuario actual',
+          ls: 'Listar contenido del directorio',
+          cd: 'Cambiar directorio',
+          pwd: 'Mostrar directorio de trabajo actual',
+          cat: 'Concatenar y mostrar contenido de archivo',
+          profile: 'Mostrar información del perfil',
+          projects: 'Listar todos los proyectos',
+          skills: 'Listar todas las habilidades',
+          contact: 'Mostrar información de contacto',
+          date: 'Mostrar fecha y hora actual',
+          open: 'Abrir sitio web del portfolio',
+          input: 'Entrada de comandos'
+        },
+      },
+      browser: {
+        title: 'Navegador',
+        back: 'Atrás',
+        forward: 'Adelante',
+        reload: 'Recargar',
+        enterUrl: 'Introduce URL',
+        addressBar: 'Barra de direcciones',
+        go: 'Ir',
+        loading: 'Cargando...',
+        content: 'Contenido del navegador',
+        errorLoading: 'Error al cargar la página'
+      },
+    }
+  }
+}; 

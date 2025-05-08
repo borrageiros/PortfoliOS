@@ -1,0 +1,49 @@
+{
+  "rrss": [
+    {
+      "name": "GitHub",
+      "icon": "github",
+      "color": "#24292e",
+      "url": "https://github.com/borrageiros"
+    },
+    {
+      "name": "LinkedIn",
+      "icon": "linkedin",
+      "color": "#0077B5",
+      "url": "https://www.linkedin.com/in/borrageiros/"
+    },
+    {
+      "name": "Discord",
+      "icon": "discord",
+      "viewBox": "0 0 256 199",
+      "color": "#5865F2",
+      "url": "https://discord.borrageiros.com/"
+    },
+    {
+      "name": "WhatsApp",
+      "icon": "whatsapp",
+      "viewBox": "0 0 256 258",
+      "color": "#25D366",
+      "url": "https://borrageiros.com/whatsapp"
+    },
+    {
+      "name": "Telegram",
+      "icon": "telegram",
+      "viewBox": "0 0 256 256",
+      "color": "#0088cc",
+      "url": "https://borrageiros.com/telegram"
+    },
+    {
+      "name": "Credly",
+      "icon": "credly",
+      "color": "#FF6B00",
+      "url": "https://www.credly.com/users/adrian-borrageiros-mourelos/badges"
+    },
+    {
+      "name": "Email",
+      "icon": "mail",
+      "color": "#EA4335",
+      "url": "mailto:adrianborrageirosmourelos@gmail.com"
+    }
+  ]
+}

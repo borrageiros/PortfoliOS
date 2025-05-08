@@ -1,0 +1,40 @@
+{
+  "es": {
+    "photo": "/data/images/personal_photo.jpg",
+    "name": "Adrián Borrageiros Mourelos",
+    "birthDate": "26/04/1999",
+    "country": "España",
+    "job": "Desarrollador full stack",
+    "email": "adrianborrageirosmourelos@gmail.com",
+    "currentJob": {
+      "url": "https://netexlearning.com",
+      "label": "NetexLearning"
+    },
+    "phone": "+34 *********",
+    "location": "O Grove, Galicia, España",
+    "coordinates": {
+      "location": "O Grove",
+      "lat": 42.496332,
+      "lng": -8.8652147
+    }
+  },
+  "en": {
+    "photo": "/data/images/personal_photo.jpg",
+    "name": "Adrián Borrageiros Mourelos",
+    "birthDate": "26/04/1999",
+    "country": "Spain",
+    "job": "Full stack developer",
+    "email": "adrianborrageirosmourelos@gmail.com",
+    "currentJob": {
+      "url": "https://netexlearning.com",
+      "label": "NetexLearning"
+    },
+    "phone": "+34 *********",
+    "location": "O Grove, Galicia, Spain",
+    "coordinates": {
+      "location": "O Grove",
+      "lat": 42.496332,
+      "lng": -8.8652147
+    }
+  }
+}

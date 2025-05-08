@@ -1,0 +1,99 @@
+{
+  "certifications": {
+    "Google": [
+      {
+        "name": "Analytics Academy for Beginners",
+        "important": true,
+        "date": "19/12/2023",
+        "expires": "19/12/2026",
+        "url": "https://analytics.google.com/analytics/academy/certificate/leXD7Nx9QaCuBuW1Ls8zSg",
+        "icon": "/data/images/certifications/google/google_analytics_academy_beginners.jpg"
+      }
+    ],
+    "MongoDB": [
+      {
+        "name": "MongoDB Node.js Developer Path",
+        "important": true,
+        "date": "20/12/2023",
+        "url": "https://learn.mongodb.com/c/VYF34DA_SEmyAYq7Z8zYbg",
+        "icon": "/data/images/certifications/mongodb/mongodb_nodejs_certification.jpg"
+      }
+    ],
+    "FreeCodeCamp": [
+      {
+        "name": "Responsive Web Design",
+        "date": "20/10/2023",
+        "url": "https://www.freecodecamp.org/certification/borrageiros/responsive-web-design",
+        "icon": "/data/images/certifications/freecodecamp/responsive_web_design.svg"
+      },
+      {
+        "name": "Legacy JavaScript Algorithms and Data Structures",
+        "date": "20/10/2023",
+        "url": "https://www.freecodecamp.org/certification/borrageiros/legacy-javascript-algorithms-and-data-structures",
+        "icon": "/data/images/certifications/freecodecamp/legacy_javascript_algorithms_and_data_structures.svg"
+      },
+      {
+        "name": "Front End Development Libraries",
+        "date": "20/10/2023",
+        "url": "https://www.freecodecamp.org/certification/borrageiros/front-end-development-libraries",
+        "icon": "/data/images/certifications/freecodecamp/front_end_development_libraries.svg"
+      },
+      {
+        "name": "Data Visualization",
+        "date": "20/10/2023",
+        "url": "https://www.freecodecamp.org/certification/borrageiros/data-visualization",
+        "icon": "/data/images/certifications/freecodecamp/data_visualization.svg"
+      },
+      {
+        "name": "Back End Development and APIs",
+        "date": "20/10/2023",
+        "url": "https://www.freecodecamp.org/certification/borrageiros/back-end-development-and-apis",
+        "icon": "/data/images/certifications/freecodecamp/back_end_development_and_apis.svg"
+      }
+    ],
+    "Cisco": [
+      {
+        "name": "Python Essentials",
+        "date": "12/12/2022",
+        "url": "https://www.credly.com/badges/5e5d75af-58cf-411c-a206-730857d1e062",
+        "icon": "/data/images/certifications/cisco/python1.png"
+      },
+      {
+        "name": "Python Essentials 2",
+        "date": "20/01/2023",
+        "url": "https://www.credly.com/badges/a81b510a-4c33-4782-9661-703682bfd789",
+        "icon": "/data/images/certifications/cisco/python2.png"
+      },
+      {
+        "name": "Endpoint Security",
+        "date": "20/01/2023",
+        "url": "https://www.credly.com/badges/c3810562-cc68-4f93-8b0a-c6021d79549d",
+        "icon": "/data/images/certifications/cisco/EndpointSecurity.png"
+      },
+      {
+        "name": "Networking Basics",
+        "date": "24/01/2023",
+        "url": "https://www.credly.com/badges/6759f37a-a10d-4bc3-a365-7c811bcf6861",
+        "icon": "/data/images/certifications/cisco/NetworkingBasics.png"
+      },
+      {
+        "name": "Introduction to Cybersecurity",
+        "date": "19/01/2023",
+        "url": "https://www.credly.com/badges/d707e447-cb87-41d2-b658-3c9cfd60f25d",
+        "icon": "/data/images/certifications/cisco/IntroductionSecurity.png"
+      },
+      {
+        "name": "Introduction to Data Science",
+        "date": "20/01/2023",
+        "url": "https://www.credly.com/badges/1a5984f3-e118-4eeb-abed-4ed3570584b4",
+        "icon": "/data/images/certifications/cisco/IntroductionDataScience.png"
+      },
+      {
+        "name": "Introduction to Cisco Packet Tracer",
+        "date": "20/01/2023",
+        "url": "https://skillsforall.com/es/course/getting-started-cisco-packet-tracer?courseLang=es-XL",
+        "icon": "/data/images/certifications/cisco/PacketTracer.png"
+      }
+    ]
+  }
+}

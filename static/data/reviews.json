@@ -1,0 +1,52 @@
+{
+  "es": {
+    "reviews": [
+      {
+        "name": "Breixo Mato Martínez",
+        "job": "Desarrollador de software",
+        "review": "Siempre propone soluciones rápidas a problemas comunes. Enorme creatividad.",
+        "url": "https://www.linkedin.com/in/breimato/",
+        "avatar": "/data/images/reviews/breixo.jpg"
+      },
+      {
+        "name": "Néstor Amador Cambronero",
+        "job": "Desarrollador de software",
+        "review": "Hace código y tal",
+        "url": "https://www.linkedin.com/in/amadornes",
+        "avatar": "/data/images/reviews/nestor.jpg"
+      },
+      {
+        "name": "Hugo Parapar Sanjurjo",
+        "job": "Propietario de producto en NetexLearning",
+        "review": "Lorem ipsum",
+        "url": "https://www.linkedin.com/in/hugoparapar/",
+        "avatar": "/data/images/reviews/hugo.jpg"
+      }
+    ]
+  },
+  "en": {
+    "reviews": [
+      {
+        "name": "Breixo Mato Martínez",
+        "job": "Software Developer",
+        "review": "Always proposes quick solutions to common problems. Huge creativity.",
+        "url": "https://www.linkedin.com/in/breimato/",
+        "avatar": "/data/images/reviews/breixo.jpg"
+      },
+      {
+        "name": "Néstor Amador Cambronero",
+        "job": "Software Developer",
+        "review": "He makes code and stuff",
+        "url": "https://www.linkedin.com/in/amadornes",
+        "avatar": "/data/images/reviews/nestor.jpg"
+      },
+      {
+        "name": "Hugo Parapar Sanjurjo",
+        "job": "Product Owner at NetexLearning",
+        "review": "Lorem ipsum",
+        "url": "https://www.linkedin.com/in/hugoparapar/",
+        "avatar": "/data/images/reviews/hugo.jpg"
+      }
+    ]
+  }
+}
