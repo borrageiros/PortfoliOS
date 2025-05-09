@@ -50,7 +50,7 @@ ${company ? `<p><strong>Company:</strong> ${company}</p>` : ''}
     await transporter.sendMail(mailOptions);
 
     if (TELEGRAM_TOKEN && PHONE_TO) {
-      const telegramText = `📨 Nuevo contacto en portfolio:\n\n*Nombre:* ${name}\n${email ? `*Email:* ${email}\n` : ''}${phone ? `*Teléfono:* ${phone}\n` : ''}${company ? `*Empresa:* ${company}\n` : ''}\n*Mensaje:*\n${message}`;
+      const telegramText = `📨 New portfolio contact:\n\n*Name:* ${name}\n${email ? `*Email:* ${email}\n` : ''}${phone ? `*Phone:* ${phone}\n` : ''}${company ? `*Company:* ${company}\n` : ''}\n*Message:*\n${message}`;
       
       await fetch(`https://api.telegram.org/bot${TELEGRAM_TOKEN}/sendMessage`, {
         method: 'POST',

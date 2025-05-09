@@ -8,11 +8,12 @@
 	import { goto } from '$app/navigation';
   import { page } from '$app/stores';
   import type { WindowData } from '$lib/types/window';
-  import Profile from '$lib/components/windows/Profile.svelte';
+  import Profile from '$lib/components/windows/profile/Profile.svelte';
+  // @ts-ignore
+  import ChatBot from '$lib/components/ChatBot.svelte';
   import type { SvelteComponent } from 'svelte';
   import { loadData } from '$lib/helpers';
-
-  // Exportar evento para crear ventanas
+  import { profileItems } from '$lib/interfaces/profileItems';
   import { createEventDispatcher } from 'svelte';
   const dispatch = createEventDispatcher();
 
@@ -21,24 +22,23 @@
 	let timeInterval: ReturnType<typeof setInterval> | undefined;
 	let startMenuOpen = false;
   let sessionUser = '';
+  
+  // Search functionality
+  let searchValue = '';
+  let isSearchFocused = false;
+  let searchResults = '';
+  let showSearchResults = false;
+  let isSearching = false;
+  let currentQuery = ''; // Current query to send to ChatBot
+  let chatHistoryContainer: HTMLDivElement; // Reference to chat history container
 
   // Links for the startmenu
   let socialLinks: any;
 
-  // Navigation items
-  const navItems = [
-    { name: $t('profile.information'), icon: 'profile_information', path: 'information' },
-    { name: $t('profile.about'), icon: 'profile_about', path: 'about' },
-    { name: $t('profile.projects'), icon: 'profile_projects', path: 'projects' },
-    { name: $t('profile.carrer'), icon: 'profile_carrer', path: 'carrer' },
-    { name: $t('profile.languages'), icon: 'profile_languages', path: 'languages' },
-    { name: $t('profile.skills'), icon: 'profile_skills', path: 'skills' },
-    { name: $t('profile.informatic'), icon: 'profile_informatic', path: 'informatic' },
-    { name: $t('profile.certifications'), icon: 'profile_certifications', path: 'certifications' },
-    { name: $t('profile.contact'), icon: 'profile_contact', path: 'contact' },
-    { name: $t('profile.reviews'), icon: 'profile_reviews', path: 'reviews' },
-    { name: $t('profile.complementary'), icon: 'profile_complementary', path: 'complementary' }
-  ];
+  // Get chat history from ChatBot
+  let chatHistory: {text: string, isUser: boolean}[] = [];
+
+  let searchBoxRef: HTMLDivElement;
 
 	function formatDate(date: Date): string {
 		const day = String(date.getDate()).padStart(2, '0');
@@ -49,6 +49,10 @@
 
 	function toggleStartMenu() {
 		startMenuOpen = !startMenuOpen;
+    // Close search results if open
+    if (startMenuOpen) {
+      showSearchResults = false;
+    }
 	}
 
   function openURL(url: string) {
@@ -84,6 +88,90 @@
     // Close the start menu if it is open
     startMenuOpen = false;
   }
+  
+  // Function to open the ChatBot window
+  function openChatBotWindow() {
+    const chatBotWindow: WindowData = {
+      id: 0, // Will be overwritten by the Page component
+      title: $t('desktop.chatbot'),
+      icon: 'chat',
+      width: '40vw',
+      height: '70vh',
+      x: 300 + Math.random() * 50, // Random position to avoid exact overlap
+      y: 100 + Math.random() * 50,
+      zIndex: 1,
+      isMaximized: false,
+      isMinimized: false,
+      content: ChatBot as typeof SvelteComponent,
+      props: { }
+    };
+    
+    // Send event to the parent component to create the window
+    dispatch('createWindow', chatBotWindow);
+    
+    // Close search results
+    showSearchResults = false;
+  }
+  
+  // Search functions
+  function handleSearchFocus() {
+    isSearchFocused = true;
+    showSearchResults = true;
+    // Close start menu if open
+    if (startMenuOpen) {
+      startMenuOpen = false;
+    }
+  }
+  
+  function handleSearchBlur() {
+    // Delay to allow clicking on results
+    setTimeout(() => {
+      isSearchFocused = false;
+      if (!isSearching) {
+        showSearchResults = false;
+      }
+    }, 200);
+  }
+  
+  function handleSearchSubmit() {
+    if (searchValue.trim()) {
+      currentQuery = searchValue.trim();
+      isSearching = true;
+      searchValue = '';
+    }
+  }
+  
+  // Function to scroll to the bottom of chat history
+  function scrollChatToBottom() {
+    if (chatHistoryContainer) {
+      setTimeout(() => {
+        chatHistoryContainer.scrollTop = chatHistoryContainer.scrollHeight;
+      }, 100);
+    }
+  }
+  
+  // Get chat history from ChatBot
+  function handleChatHistoryUpdate(history: {text: string, isUser: boolean}[]) {
+    chatHistory = history;
+    // Scroll to bottom when history updates
+    scrollChatToBottom();
+  }
+  
+  // Handle ChatBot response
+  function handleChatResponse(response: string) {
+    searchResults = response;
+    isSearching = false;
+    currentQuery = ''; // Clear query after response
+    // Scroll to bottom when response arrives
+    scrollChatToBottom();
+  }
+  
+  // Reset search
+  function resetSearch() {
+    searchValue = '';
+    showSearchResults = false;
+    searchResults = '';
+  }
 
 	onMount(async () => {
     const contact = await loadData('contact');
@@ -97,29 +185,92 @@
     
     // Get session parameter from URL
     sessionUser = $page.url.searchParams.get('session') || '';
+    
+    // Add global click handler to detect clicks outside searchbox
+    // Only in browser environment
+    if (typeof window !== 'undefined') {
+      document.addEventListener('click', handleGlobalClick);
+      document.addEventListener('mousedown', handleGlobalMouseDown);
+    }
 	});
 
 	onDestroy(() => {
 		// Clean the interval when the component is unmounted
 		if (timeInterval) clearInterval(timeInterval);
+		
+		// Remove global click handler
+    // Only in browser environment
+    if (typeof window !== 'undefined') {
+		  document.removeEventListener('click', handleGlobalClick);
+      document.removeEventListener('mousedown', handleGlobalMouseDown);
+    }
 	});
 
 	function handleKeydown(event: KeyboardEvent) {
 		if (event.key === 'Enter') {
-			//
+      if (isSearchFocused) {
+        handleSearchSubmit();
+      }
 		}
 	}
+
+  // Handle clicks outside of searchbox
+  function handleGlobalClick(event: MouseEvent) {
+    // If search results are showing and click is outside searchbox
+    if (showSearchResults && searchBoxRef && !searchBoxRef.contains(event.target as Node)) {
+      // Check if the click was on the open chatbot button before closing
+      const target = event.target as HTMLElement;
+      const isOpenChatbotButton = target.closest('.open-chatbot-button');
+      
+      if (isOpenChatbotButton) {
+        // If clicking on the open chatbot button, let the click event propagate
+        // before closing the search results
+        setTimeout(() => {
+          isSearchFocused = false;
+          showSearchResults = false;
+        }, 100);
+      } else {
+        // Otherwise close immediately
+        isSearchFocused = false;
+        showSearchResults = false;
+      }
+    }
+  }
+  
+  // Add a mousedown handler on the window to catch drag operations
+  function handleGlobalMouseDown(event: MouseEvent) {
+    // If we're starting a drag on a window (likely has window-header class)
+    const target = event.target as HTMLElement;
+    if (showSearchResults && target.closest('.window-header, .window')) {
+      // Close the search results when a window drag likely starts
+      isSearchFocused = false;
+      showSearchResults = false;
+    }
+  }
 </script>
 
 <div class="taskbar">
 	<div class="start-button" class:active={startMenuOpen} on:click={toggleStartMenu} on:keydown={handleKeydown} role="button" tabindex="0">
 		<Icon name="windows" viewBox="0 0 256 256"/>
 	</div>
-	<div class="search-box" role="searchbox" tabindex="0">
+	<div class="search-box" class:focused={isSearchFocused} role="searchbox" tabindex="0" bind:this={searchBoxRef}>
 		<div class="search-icon">
       <Icon name="search" />
     </div>
-		<div class="search-text">{$t('taskbar.search')}</div>
+		<input 
+      type="text" 
+      class="search-input" 
+      placeholder={$t('taskbar.search')} 
+      bind:value={searchValue}
+      on:focus={handleSearchFocus}
+      on:blur={handleSearchBlur}
+      on:keydown={handleKeydown}
+    />
+    {#if searchValue}
+      <button class="clear-button" on:click={resetSearch}>
+        <Icon name="close" size="14" />
+      </button>
+    {/if}
 	</div>
 
 	<div class="taskbar-items">
@@ -140,6 +291,59 @@
 		<div class="date-button"></div>
 	</div>
 </div>
+
+{#if showSearchResults}
+<div class="search-results-container" transition:slide={{ duration: 200 }}>  
+  <div class="search-results-content">
+    {#if chatHistory.length > 0}
+      <div class="chat-history" bind:this={chatHistoryContainer}>
+        {#each chatHistory as message}
+          <div class="message {message.isUser ? 'user-message' : 'bot-message'}">
+            <div class="message-content">
+              {message.text}
+            </div>
+          </div>
+        {/each}
+        {#if isSearching}
+          <div class="message bot-message">
+            <div class="message-content">
+              <span class="loading-dots">
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+              </span>
+            </div>
+          </div>
+        {/if}
+      </div>
+    {:else if isSearching}
+      <div class="chat-history" bind:this={chatHistoryContainer}>
+        <div class="message bot-message">
+          <div class="message-content">
+            <span class="loading-dots">
+              <span class="dot"></span>
+              <span class="dot"></span>
+              <span class="dot"></span>
+            </span>
+          </div>
+        </div>
+      </div>
+    {:else}
+      <div class="empty-results">{$t('taskbar.typeToSearch')}</div>
+    {/if}
+  </div>
+  
+  <!-- Hidden ChatBot component to process search queries -->
+  <div class="hidden-chatbot">
+    <ChatBot 
+      hideInput={true} 
+      externalText={currentQuery} 
+      onResponse={handleChatResponse}
+      onHistoryUpdate={handleChatHistoryUpdate}
+    />
+  </div>
+</div>
+{/if}
 
 {#if startMenuOpen}
 <div class="start-menu" transition:slide={{ duration: 200 }}>
@@ -169,7 +373,7 @@
   <div class="start-menu-content">
     <div class="start-menu-left">
       <div class="nav-section">
-        {#each navItems as item}
+        {#each profileItems as item}
           <div 
             class="nav-item" 
             on:click={() => openProfileWindow(item.path)} 
@@ -180,7 +384,7 @@
             <div class="nav-icon">
               <Icon name={item.icon} size="18" />
             </div>
-            <div class="nav-label">{item.name}</div>
+            <div class="nav-label">{$t(item.label)}</div>
           </div>
         {/each}
       </div>
@@ -261,10 +465,17 @@
 		padding: 0 0.8vw;
 		background-color: var(--taskbar-hover);
 		border-radius: 4px;
-		cursor: pointer;
-		max-width: 16vw;
-		min-width: 180px;
+		cursor: text;
+		max-width: 20vw;
+		min-width: 200px;
+    transition: all 0.2s ease;
+    position: relative;
 	}
+  
+  .search-box.focused {
+    background-color: var(--taskbar-active);
+    box-shadow: 0 0 0 1px var(--win-accent);
+  }
 
 	.search-icon {
 		margin-right: 0.5vw;
@@ -272,10 +483,150 @@
 		color: var(--text-primary);
 	}
 
-	.search-text {
-		color: var(--text-disabled);
-		font-size: 0.9rem;
-	}
+	.search-input {
+    flex: 1;
+    border: none;
+    background: transparent;
+    color: var(--text-primary);
+    outline: none;
+    font-size: 0.9rem;
+    width: 100%;
+  }
+  
+  .search-input::placeholder {
+    color: var(--text-disabled);
+  }
+  
+  .clear-button {
+    background: none;
+    border: none;
+    color: var(--text-primary);
+    cursor: pointer;
+    padding: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+  }
+  
+  .clear-button:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+  
+  .search-results-container {
+    position: fixed;
+    bottom: var(--taskbar-min-height);
+    left: var(--start-button-min-size);
+    width: 50vw;
+    max-width: 600px;
+    background-color: var(--start-menu-bg);
+    border-radius: 8px 8px 0 0;
+    box-shadow: var(--shadow-medium);
+    z-index: 10000;
+    display: flex;
+    flex-direction: column;
+    max-height: 50vh;
+    overflow: hidden;
+  }
+  
+  .search-results-content {
+    padding: 16px;
+    overflow-y: auto;
+    max-height: calc(50vh - 120px);
+    min-height: 150px;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .chat-history {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    max-height: 100%;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: var(--taskbar-active) var(--start-menu-bg);
+    padding-right: 4px;
+  }
+  
+  .chat-history::-webkit-scrollbar {
+    width: 6px;
+  }
+  
+  .chat-history::-webkit-scrollbar-track {
+    background: var(--start-menu-bg);
+  }
+  
+  .chat-history::-webkit-scrollbar-thumb {
+    background-color: var(--taskbar-active);
+    border-radius: 3px;
+  }
+  
+  .message {
+    max-width: 80%;
+    padding: 8px 12px;
+    border-radius: 16px;
+    margin-bottom: 4px;
+    word-break: break-word;
+  }
+  
+  .user-message {
+    background-color: var(--win-accent);
+    color: var(--text-primary);
+    align-self: flex-end;
+    border-bottom-right-radius: 4px;
+  }
+  
+  .bot-message {
+    background-color: var(--taskbar-active);
+    color: var(--text-primary);
+    align-self: flex-start;
+    border-bottom-left-radius: 4px;
+  }
+  
+  .empty-results {
+    color: var(--text-secondary);
+    text-align: center;
+    padding: 24px;
+    font-style: italic;
+  }
+  
+  .hidden-chatbot {
+    display: none;
+  }
+  
+  .loading-dots {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+  }
+  
+  .dot {
+    width: 8px;
+    height: 8px;
+    background-color: var(--text-secondary);
+    border-radius: 50%;
+    display: inline-block;
+    animation: dot-flashing 1s infinite alternate;
+  }
+  
+  .dot:nth-child(2) {
+    animation-delay: 0.2s;
+  }
+  
+  .dot:nth-child(3) {
+    animation-delay: 0.4s;
+  }
+  
+  @keyframes dot-flashing {
+    0% {
+      opacity: 0.2;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
 
 	.taskbar-items {
 		flex: 1;

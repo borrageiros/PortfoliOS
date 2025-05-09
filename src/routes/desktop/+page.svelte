@@ -3,7 +3,8 @@
   import Icon from '$lib/components/Icon.svelte';
   import Taskbar from '$lib/components/Taskbar.svelte';
   import type { WindowData } from '$lib/types/window';
-  import Profile from '$lib/components/windows/Profile.svelte';
+  import Profile from '$lib/components/windows/profile/Profile.svelte';
+  import ChatBot from '$lib/components/ChatBot.svelte';
   import Browser from '$lib/components/windows/softwares/Browser.svelte';
   import Folder from '$lib/components/windows/Folder.svelte';
   import Paint from '$lib/components/windows/softwares/Paint.svelte';
@@ -15,6 +16,7 @@
   import Snake from '$lib/components/windows/games/Snake.svelte';
   import Tetris from '$lib/components/windows/games/Tetris.svelte';
   import Dino from '$lib/components/windows/games/Dino.svelte';
+  import Sudoku from '$lib/components/windows/games/Sudoku.svelte';
   
   // ICONS
   const desktopIcons = [
@@ -45,6 +47,12 @@
       )
     },
     {
+      name: 'softwares.terminal.title',
+      icon: 'terminal',
+      color: '#34495e',
+      onClick: () => createNewWindow(terminalWindow)
+    },
+    {
       name: 'softwares.paint.title',
       icon: 'paint',
       color: '#f39c12',
@@ -57,10 +65,10 @@
       onClick: () => createNewWindow(calculatorWindow)
     },
     {
-      name: 'softwares.terminal.title',
-      icon: 'terminal',
-      color: '#34495e',
-      onClick: () => createNewWindow(terminalWindow)
+      name: 'chatbot.title',
+      icon: 'message-circle',
+      color: '#000',
+      onClick: () => createNewWindow(chatbotWindow)
     }
   ]
 
@@ -78,6 +86,20 @@
     isMinimized: false,
     content: Profile as typeof SvelteComponent,
     props: { initialTab: 'information' }
+  }
+
+  const chatbotWindow = {
+    id: 8,
+    title: 'chatbot.title',
+    icon: 'user',
+    width: '30vw',
+    height: '80vh',
+    x: 300,
+    y: 50,
+    zIndex: 10,
+    isMaximized: false,
+    isMinimized: false,
+    content: ChatBot as typeof SvelteComponent
   }
 
   const browserWindow = {
@@ -163,6 +185,20 @@
           isMaximized: false,
           isMinimized: false,
           content: Dino as typeof SvelteComponent
+        },
+        {
+          id: 12,
+          title: "games.sudoku.title",
+          icon: 'sudoku',
+          color: '#f39c12',
+          width: '',
+          height: '',
+          x: 400,
+          y: 350,
+          zIndex: 100,
+          isMaximized: false,
+          isMinimized: false,
+          content: Sudoku as typeof SvelteComponent
         }
       ]
     }
@@ -215,6 +251,9 @@
   // Variables to manage the state of the windows
   let nextId = 8;
   let activeWindowIndex = 0;
+
+  // Array to store window component references
+  let windowRefs: any[] = [];
 
   // Functions to manage the windows
   function bringToFront(index: number): void {
@@ -282,6 +321,22 @@
     bringToFront(index);
   }
 
+  // Function to restore the window from the taskbar
+  function restoreWindowFromTaskbar(index: number): void {
+    if (windowRefs[index] && typeof windowRefs[index].restore === 'function') {
+      windowRefs[index].restore();
+      windows = windows.map((win, i) => {
+        if (i === index) {
+          win.isMinimized = false;
+        }
+        return win;
+      });
+      bringToFront(index);
+    } else {
+      restoreWindow(index);
+    }
+  }
+
   function handleKeydown(event: KeyboardEvent) {
 		if (event.key === 'Enter') {
 			//
@@ -295,9 +350,81 @@
     const newWindowIndex = windows.length - 1;
     bringToFront(newWindowIndex);
   }
+
+  // Selection rectangle variables
+  let isSelecting = false;
+  let selectionRect = {
+    startX: 0,
+    startY: 0,
+    width: 0,
+    height: 0,
+    left: 0,
+    top: 0,
+    display: 'none'
+  };
+
+  function handleDesktopMouseDown(event: MouseEvent) {
+    // Only start selection if it's a left click directly on the desktop
+    if (event.button === 0 && (event.target as HTMLElement).classList.contains('desktop') || 
+        (event.target as HTMLElement).classList.contains('desktop-icons')) {
+      isSelecting = true;
+      
+      // Get the position of the mouse relative to the desktop
+      const initialX = event.clientX;
+      const initialY = event.clientY;
+      selectionRect.startX = initialX;
+      selectionRect.startY = initialY;
+      selectionRect.left = initialX;
+      selectionRect.top = initialY;
+      selectionRect.width = 0;
+      selectionRect.height = 0;
+      selectionRect.display = 'block';
+    }
+  }
+
+  function handleDesktopMouseMove(event: MouseEvent) {
+    if (isSelecting) {
+      // Calculate the dimensions of the selection rectangle
+      const currentX = event.clientX;
+      const currentY = event.clientY;
+      
+      // Calculate width and position based on drag direction
+      if (currentX < selectionRect.startX) {
+        selectionRect.width = selectionRect.startX - currentX;
+        selectionRect.left = currentX;
+      } else {
+        selectionRect.width = currentX - selectionRect.startX;
+        selectionRect.left = selectionRect.startX;
+      }
+      
+      // Calculate height and position based on drag direction
+      if (currentY < selectionRect.startY) {
+        selectionRect.height = selectionRect.startY - currentY;
+        selectionRect.top = currentY;
+      } else {
+        selectionRect.height = currentY - selectionRect.startY;
+        selectionRect.top = selectionRect.startY;
+      }
+    }
+  }
+
+  function handleDesktopMouseUp() {
+    if (isSelecting) {
+      isSelecting = false;
+      selectionRect.display = 'none';
+    }
+  }
 </script>
 
-<div class="desktop">
+<div 
+  class="desktop" 
+  on:mousedown={handleDesktopMouseDown}
+  on:mousemove={handleDesktopMouseMove}
+  on:mouseup={handleDesktopMouseUp}
+  on:mouseleave={handleDesktopMouseUp}
+  role="button"
+  tabindex="0"
+>
   <div class="desktop-icons">
     {#each desktopIcons as icon}
       <div class="desktop-icon" on:click={icon.onClick} on:keydown={handleKeydown} role="button" tabindex="0">
@@ -308,6 +435,18 @@
       </div>
     {/each}
   </div>
+
+  {#if selectionRect.display === 'block'}
+    <div 
+      class="selection-box"
+      style="
+        left: {selectionRect.left}px;
+        top: {selectionRect.top}px;
+        width: {selectionRect.width}px;
+        height: {selectionRect.height}px;
+      "
+    ></div>
+  {/if}
 
   {#each windows as window, index (window.id)}
     <Window
@@ -322,11 +461,13 @@
       on:minimize={() => minimizeWindow(index)}
       on:maximize={e => maximizeWindow(index, e.detail.isMaximized)}
       on:focus={() => bringToFront(index)}
+      on:restore={() => bringToFront(index)}
       on:createWindow={handleCreateWindow}
       bind:x={window.x}
       bind:y={window.y}
       bind:width={window.width}
       bind:height={window.height}
+      bind:this={windowRefs[index]}
     />
   {/each}
 
@@ -336,7 +477,7 @@
         <div 
           class="taskbar-items" 
           class:active={!window.isMinimized}
-          on:click={() => window.isMinimized ? restoreWindow(index) : minimizeWindow(index)}
+          on:click={() => window.isMinimized ? restoreWindowFromTaskbar(index) : minimizeWindow(index)}
           on:keydown={handleKeydown}
           role="button"
           tabindex="0"
@@ -423,6 +564,14 @@
     margin-top: 5px;
     text-align: center;
     color: var(--text-primary);
+  }
+
+  .selection-box {
+    position: absolute;
+    border: 1px dashed rgba(0, 120, 215, 0.8);
+    background-color: rgba(0, 120, 215, 0.2);
+    pointer-events: none;
+    z-index: 1;
   }
 
   .taskbar-items {

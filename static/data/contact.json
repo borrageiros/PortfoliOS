@@ -24,14 +24,14 @@
       "icon": "whatsapp",
       "viewBox": "0 0 256 258",
       "color": "#25D366",
-      "url": "https://borrageiros.com/whatsapp"
+      "url": "/whatsapp"
     },
     {
       "name": "Telegram",
       "icon": "telegram",
       "viewBox": "0 0 256 256",
       "color": "#0088cc",
-      "url": "https://borrageiros.com/telegram"
+      "url": "/telegram"
     },
     {
       "name": "Credly",

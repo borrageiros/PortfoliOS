@@ -1,21 +1,18 @@
 import { locale } from "$lib/i18n/i18n";
 import { get } from 'svelte/store';
 
-export function calculateAge(dateString: string): number {
-  // Format expected: dd/mm/yyyy
-  const [day, month, year] = dateString.split('/').map(Number);
-  
-  const birthDate = new Date(year, month - 1, day);
-  const today = new Date();
-  
-  let age = today.getFullYear() - birthDate.getFullYear();
-  const monthDiff = today.getMonth() - birthDate.getMonth();
-  
-  if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birthDate.getDate())) {
-    age--;
-  }
-  
-  return age;
+function isMobileUserAgent() {
+  if (typeof navigator === 'undefined') return false;
+  return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+};
+
+function isMobileScreen() {
+  if (typeof window === 'undefined') return false;
+  return window.innerWidth <= 768;
+};
+
+export function isMobile() {
+  return isMobileUserAgent() || isMobileScreen();
 }
 
 export async function loadData(section: string) {

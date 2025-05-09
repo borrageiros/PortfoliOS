@@ -1,30 +1,20 @@
 <script lang="ts">
   import { onMount } from 'svelte';
+  import { isMobile } from '$lib/helpers';
   import { goto } from '$app/navigation';
   import Icon from '$lib/components/Icon.svelte';
   import { t } from '$lib/i18n/i18n';
 
   let loading = true;
 
-  const isMobileUserAgent = () => {
-    if (typeof navigator === 'undefined') return false;
-    return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-  };
-
-  const isMobileScreen = () => {
-    if (typeof window === 'undefined') return false;
-    return window.innerWidth <= 768;
-  };
-
   onMount(() => {
-    const isMobile = isMobileUserAgent() || isMobileScreen();
-    if (isMobile) {
+    if (isMobile()) {
       goto('/mobile');
       return;
     }
     setTimeout(() => {
       loading = false;      
-      if (!isMobile) {
+      if (!isMobile()) {
         goto('/login');
       }
     }, 3000);

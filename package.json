@@ -36,6 +36,7 @@
 	},
 	"dependencies": {
 		"@types/nodemailer": "^6.4.17",
+		"compromise": "^14.14.4",
 		"nodemailer": "^7.0.3"
 	}
 }

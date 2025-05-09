@@ -37,9 +37,22 @@ interface TranslationObject {
   [key: string]: string | TranslationObject;
 }
 
+// Define types for translation values
+type TranslationValue = string | number | boolean;
+type TranslationValues = Record<string, TranslationValue>;
+
+// Utility function to replace variables in strings
+function replaceVariables(str: string, values?: TranslationValues): string {
+  if (!values) return str;
+  
+  return str.replace(/{([^}]+)}/g, (_, key) => {
+    return values[key] !== undefined ? String(values[key]) : `{${key}}`;
+  });
+}
+
 // Derived store that contains the translations for the current language
 export const t = derived(locale, $locale => {
-  return (key: string): string => {
+  return (key: string, options?: { values?: TranslationValues }): string => {
     const parts = key.split('.');
     let result: unknown = translations[$locale];
     
@@ -51,7 +64,14 @@ export const t = derived(locale, $locale => {
       }
     }
     
-    return typeof result === 'string' ? result : key;
+    let translatedText = typeof result === 'string' ? result : key;
+    
+    // Replace variables in the translated text if provided
+    if (options?.values) {
+      translatedText = replaceVariables(translatedText, options.values);
+    }
+    
+    return translatedText;
   };
 });
 

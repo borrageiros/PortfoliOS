@@ -2,6 +2,7 @@
   "es": {
     "photo": "/data/images/personal_photo.jpg",
     "name": "Adrián Borrageiros Mourelos",
+    "alias": "borrageiros",
     "birthDate": "26/04/1999",
     "country": "España",
     "job": "Desarrollador full stack",
@@ -21,6 +22,7 @@
   "en": {
     "photo": "/data/images/personal_photo.jpg",
     "name": "Adrián Borrageiros Mourelos",
+    "alias": "borrageiros",
     "birthDate": "26/04/1999",
     "country": "Spain",
     "job": "Full stack developer",

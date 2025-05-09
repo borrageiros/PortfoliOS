@@ -9,3 +9,12 @@ export async function sendEmail(name: string, message: string, email?: string, p
   
   return await response.json();
 }
+
+export async function sendReview(formData: FormData) {
+  const response = await fetch(`/api/sendReview`, {
+    method: 'POST',
+    body: formData
+  });
+  
+  return await response.json();
+}

@@ -18,11 +18,15 @@ export const icons: Record<string, string> = {
   send: '<path d="M22 2L11 13"/><path d="M22 2L15 22L11 13L2 9L22 2z"/>',
   'check-circle': '<path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/>',
   'alert-circle': '<circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/>',
-  
+  school: '<path d="M22 9.99997L12 4.99997L2 9.99997L12 14.9999L22 9.99997ZM22 9.99997V14.9999"></path><path d="M6 12V17C6 17.7956 6.31607 18.5587 6.87868 19.1213C7.44129 19.6839 8.20435 20 9 20H15C15.7956 20 16.5587 19.6839 17.1213 19.1213C17.6839 18.5587 18 17.7956 18 17V12"></path><path d="M12 14.9999V20.0199"></path>',
+  briefcase: '<rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>',
+  'message-circle': '<path xmlns="http://www.w3.org/2000/svg" d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>',
+
   // Games
   snake: '<polyline xmlns="http://www.w3.org/2000/svg" points="22 12 18 12 15 21 9 3 6 12 2 12"/>',
   mine: '<circle xmlns="http://www.w3.org/2000/svg" cx="12" cy="12" r="10"/><path xmlns="http://www.w3.org/2000/svg" d="M8 14s1.5 2 4 2 4-2 4-2"/><line xmlns="http://www.w3.org/2000/svg" x1="9" y1="9" x2="9.01" y2="9"/><line xmlns="http://www.w3.org/2000/svg" x1="15" y1="9" x2="15.01" y2="9"/>',
   tetris: '<defs><linearGradient id="orangeGradient" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="currentColor"/><stop offset="100%" stop-color="currentColor"/></linearGradient><filter id="shadow" x="-0.1" y="-0.1" width="1.2" height="1.2"><feDropShadow dx="0.533" dy="0.533" stdDeviation="0.533" flood-color="currentColor" flood-opacity="0.3"/></filter></defs><rect x="4.667" y="4.667" width="5.333" height="5.333" rx="0.8" ry="0.8" fill="url(#orangeGradient)" stroke="currentColor" stroke-width="0.267" filter="url(#shadow)"/><rect x="4.667" y="10" width="5.333" height="5.333" rx="0.8" ry="0.8" fill="url(#orangeGradient)" stroke="currentColor" stroke-width="0.267" filter="url(#shadow)"/><rect x="4.667" y="15.333" width="5.333" height="5.333" rx="0.8" ry="0.8" fill="url(#orangeGradient)" stroke="currentColor" stroke-width="0.267" filter="url(#shadow)"/><rect x="10" y="15.333" width="5.333" height="5.333" rx="0.8" ry="0.8" fill="url(#orangeGradient)" stroke="currentColor" stroke-width="0.267" filter="url(#shadow)"/>',
+  sudoku: '<rect xmlns="http://www.w3.org/2000/svg" x="3" y="3" width="7" height="7"/><rect xmlns="http://www.w3.org/2000/svg" x="14" y="3" width="7" height="7"/><rect xmlns="http://www.w3.org/2000/svg" x="14" y="14" width="7" height="7"/><rect xmlns="http://www.w3.org/2000/svg" x="3" y="14" width="7" height="7"/>',
 
   // Social icons
   github: '<path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>',
@@ -54,7 +58,4 @@ export const icons: Record<string, string> = {
   target: '<circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle>',
   tool: '<path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path>',
   
-  // Timeline icons
-  school: '<path d="M22 9.99997L12 4.99997L2 9.99997L12 14.9999L22 9.99997ZM22 9.99997V14.9999"></path><path d="M6 12V17C6 17.7956 6.31607 18.5587 6.87868 19.1213C7.44129 19.6839 8.20435 20 9 20H15C15.7956 20 16.5587 19.6839 17.1213 19.1213C17.6839 18.5587 18 17.7956 18 17V12"></path><path d="M12 14.9999V20.0199"></path>',
-  briefcase: '<rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>',
 };
