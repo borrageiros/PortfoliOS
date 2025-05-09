@@ -75,6 +75,10 @@
   // Function to change the active menu
   function setActiveMenu(menu: ProfileProps['initialTab']) {
     activeMenu = menu;
+    const contentArea = document.querySelector('.content-area');
+    if (contentArea) {
+      contentArea.scrollTop = 0;
+    }
   }
 
   // Function to generate Google Maps URL
