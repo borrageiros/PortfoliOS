@@ -62,11 +62,11 @@
       },
       {
         "name": "English",
-        "level": "Advanced (C1)",
+        "level": "Intermediate-Advanced",
         "percentage": 85,
         "skills": {
           "oral_comprehension": 80,
-          "speaking": 65,
+          "speaking": 60,
           "reading_comprehension": 90,
           "writing": 90
         }
