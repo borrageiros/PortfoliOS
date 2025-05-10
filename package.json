@@ -5,9 +5,9 @@
 	"type": "module",
 	"scripts": {
 		"dev": "vite dev",
+		"start": "node build",
 		"build": "vite build",
 		"preview": "vite preview",
-		"serve": "vite preview",
 		"prepare": "svelte-kit sync || echo ''",
 		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
 		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",

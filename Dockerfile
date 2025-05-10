@@ -3,5 +3,5 @@ WORKDIR /app
 COPY . .
 RUN yarn
 RUN yarn build
-EXPOSE 4173
-CMD ["yarn", "serve"]
+EXPOSE 3000
+CMD ["yarn", "start"]
