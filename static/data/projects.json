@@ -69,6 +69,12 @@
           "url": "https://github.com/borrageiros/sys-monitor-api"
         },
         {
+          "name": "Steam Deck Theme",
+          "description": "Tema personalizado apra SteamDeck/SteamBigPicture.",
+          "image": "https://raw.githubusercontent.com/borrageiros/steam-deck-theme/main/README/screenshot_1.png",
+          "url": "https://github.com/borrageiros/steam-deck-theme"
+        },
+        {
           "name": "MecoLand",
           "description": "Exacta replica de 'O Grove' a escala 1:1 – servidor para el juego 'Rust'",
           "image": "/data/images/projects/mecoland.png",
@@ -174,6 +180,12 @@
           "description": "This is a very simple REST API deployed for Docker that returns basic system information.",
           "image": "/data/images/projects/monitor.svg",
           "url": "https://github.com/borrageiros/sys-monitor-api"
+        },
+        {
+          "name": "Steam Deck Theme",
+          "description": "Custom theme for Steam Deck/Steam Big Picture.",
+          "image": "https://raw.githubusercontent.com/borrageiros/steam-deck-theme/main/README/screenshot_1.png",
+          "url": "https://github.com/borrageiros/steam-deck-theme"
         },
         {
           "name": "MecoLand",
