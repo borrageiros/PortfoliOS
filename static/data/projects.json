@@ -75,6 +75,12 @@
           "url": "https://github.com/borrageiros/steam-deck-theme"
         },
         {
+          "name": "Pokeguex",
+          "description": "¿Cuál es este POKÉMON?",
+          "image": "https://raw.githubusercontent.com/borrageiros/Pokeguex/refs/heads/main/app/favicon.ico",
+          "url": "https://github.com/borrageiros/Pokeguex"
+        },
+        {
           "name": "MecoLand",
           "description": "Exacta replica de 'O Grove' a escala 1:1 – servidor para el juego 'Rust'",
           "image": "/data/images/projects/mecoland.png",
@@ -186,6 +192,12 @@
           "description": "Custom theme for Steam Deck/Steam Big Picture.",
           "image": "https://raw.githubusercontent.com/borrageiros/steam-deck-theme/main/README/screenshot_1.png",
           "url": "https://github.com/borrageiros/steam-deck-theme"
+        },
+        {
+          "name": "Pokeguex",
+          "description": "Who is that Pokémon?",
+          "image": "https://raw.githubusercontent.com/borrageiros/Pokeguex/refs/heads/main/app/favicon.ico",
+          "url": "https://github.com/borrageiros/Pokeguex"
         },
         {
           "name": "MecoLand",
