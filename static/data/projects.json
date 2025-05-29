@@ -50,6 +50,12 @@
           "description": "Alternativa al frontend de DockerHub, diseñada para permitir a los usuarios ver imágenes y sus respectivas etiquetas mediante un token de acceso",
           "image": "/data/images/projects/docker.svg",
           "url": "https://github.com/borrageiros/DockerTokenViewer"
+        },
+        {
+          "name": "webhook-git-script",
+          "description": "Este proyecto proporciona un servidor webhook simple para ejecutar scripts automáticamente con cambios en repositorios Git.",
+          "image": "/data/images/projects/git.png",
+          "url": "https://github.com/borrageiros/webhook-git-script"
         }
       ]
     },
@@ -169,6 +175,12 @@
           "description": "Alternative to the DockerHub frontend, designed to allow users to view images and their respective tags by access token ",
           "image": "/data/images/projects/docker.svg",
           "url": "https://github.com/borrageiros/DockerTokenViewer"
+        },
+        {
+          "name": "webhook-git-script",
+          "description": "This project provides a simple webhook server to automatically execute scripts with changes in Git repositories.",
+          "image": "/data/images/projects/git.png",
+          "url": "https://github.com/borrageiros/webhook-git-script"
         }
       ]
     },
