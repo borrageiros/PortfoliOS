@@ -4,6 +4,15 @@
 	export let projects: any;
 
 	export let isMobileVersion = false;
+
+	// Helper to get project categories dynamically
+	const getProjectCategories = (proj: any) => {
+		return Object.keys(proj).map((key) => ({
+			key,
+			title: proj[key].title,
+			items: proj[key].projects
+		}));
+	};
 </script>
 
 <div class="projects-section" class:mobile={isMobileVersion}>
@@ -13,113 +22,34 @@
 	</h2>
 
 	<div class="projects-container" class:mobile={isMobileVersion}>
-		{#if projects.relevant && projects.relevant.projects.length > 0}
-			<h2 class="project-category-title" class:mobile={isMobileVersion}>
-				{projects.relevant.title}
-			</h2>
-			<div class="projects-list" class:mobile={isMobileVersion}>
-				{#each projects.relevant.projects as project}
-					<a
-						href={project.url}
-						target="_blank"
-						rel="noopener noreferrer"
-						class="project-card-link"
-						class:mobile={isMobileVersion}
-					>
-						<div class="project-card" class:mobile={isMobileVersion}>
-							<div class="project-image" class:mobile={isMobileVersion}>
-								<img src={project.image} alt={project.name} class:mobile={isMobileVersion} />
+		{#each getProjectCategories(projects) as category}
+			{#if category.items && category.items.length > 0}
+				<h2 class="project-category-title" class:mobile={isMobileVersion}>
+					{category.title}
+				</h2>
+				<div class="projects-list" class:mobile={isMobileVersion}>
+					{#each category.items as project}
+						<a
+							href={project.url}
+							target="_blank"
+							rel="noopener noreferrer"
+							class="project-card-link"
+							class:mobile={isMobileVersion}
+						>
+							<div class="project-card" class:mobile={isMobileVersion}>
+								<div class="project-image" class:mobile={isMobileVersion}>
+									<img src={project.image} alt={project.name} class:mobile={isMobileVersion} />
+								</div>
+								<div class="project-details" class:mobile={isMobileVersion}>
+									<h3 class:mobile={isMobileVersion}>{project.name}</h3>
+									<p class:mobile={isMobileVersion}>{project.description}</p>
+								</div>
 							</div>
-							<div class="project-details" class:mobile={isMobileVersion}>
-								<h3 class:mobile={isMobileVersion}>{project.name}</h3>
-								<p class:mobile={isMobileVersion}>{project.description}</p>
-							</div>
-						</div>
-					</a>
-				{/each}
-			</div>
-		{/if}
-
-		{#if projects.personal && projects.personal.projects.length > 0}
-			<h2 class="project-category-title" class:mobile={isMobileVersion}>
-				{projects.personal.title}
-			</h2>
-			<div class="projects-list" class:mobile={isMobileVersion}>
-				{#each projects.personal.projects as project}
-					<a
-						href={project.url}
-						target="_blank"
-						rel="noopener noreferrer"
-						class="project-card-link"
-						class:mobile={isMobileVersion}
-					>
-						<div class="project-card" class:mobile={isMobileVersion}>
-							<div class="project-image" class:mobile={isMobileVersion}>
-								<img src={project.image} alt={project.name} class:mobile={isMobileVersion} />
-							</div>
-							<div class="project-details" class:mobile={isMobileVersion}>
-								<h3 class:mobile={isMobileVersion}>{project.name}</h3>
-								<p class:mobile={isMobileVersion}>{project.description}</p>
-							</div>
-						</div>
-					</a>
-				{/each}
-			</div>
-		{/if}
-
-		{#if projects.collaborations && projects.collaborations.projects.length > 0}
-			<h2 class="project-category-title" class:mobile={isMobileVersion}>
-				{projects.collaborations.title}
-			</h2>
-			<div class="projects-list" class:mobile={isMobileVersion}>
-				{#each projects.collaborations.projects as project}
-					<a
-						href={project.url}
-						target="_blank"
-						rel="noopener noreferrer"
-						class="project-card-link"
-						class:mobile={isMobileVersion}
-					>
-						<div class="project-card" class:mobile={isMobileVersion}>
-							<div class="project-image" class:mobile={isMobileVersion}>
-								<img src={project.image} alt={project.name} class:mobile={isMobileVersion} />
-							</div>
-							<div class="project-details" class:mobile={isMobileVersion}>
-								<h3 class:mobile={isMobileVersion}>{project.name}</h3>
-								<p class:mobile={isMobileVersion}>{project.description}</p>
-							</div>
-						</div>
-					</a>
-				{/each}
-			</div>
-		{/if}
-
-		{#if projects.professional && projects.professional.projects.length > 0}
-			<h2 class="project-category-title" class:mobile={isMobileVersion}>
-				{projects.professional.title}
-			</h2>
-			<div class="projects-list" class:mobile={isMobileVersion}>
-				{#each projects.professional.projects as project}
-					<a
-						href={project.url}
-						target="_blank"
-						rel="noopener noreferrer"
-						class="project-card-link"
-						class:mobile={isMobileVersion}
-					>
-						<div class="project-card" class:mobile={isMobileVersion}>
-							<div class="project-image" class:mobile={isMobileVersion}>
-								<img src={project.image} alt={project.name} class:mobile={isMobileVersion} />
-							</div>
-							<div class="project-details" class:mobile={isMobileVersion}>
-								<h3 class:mobile={isMobileVersion}>{project.name}</h3>
-								<p class:mobile={isMobileVersion}>{project.description}</p>
-							</div>
-						</div>
-					</a>
-				{/each}
-			</div>
-		{/if}
+						</a>
+					{/each}
+				</div>
+			{/if}
+		{/each}
 	</div>
 </div>
 
