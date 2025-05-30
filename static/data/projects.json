@@ -112,11 +112,22 @@
         }
       ]
     },
+    "collaborations": {
+      "title": "Colaboraciones",
+      "projects": [
+        {
+          "name": "GuessDle - by breimato",
+          "description": "GuessDle is a web app to play the classic Wordle, but with a themed twist.",
+          "image": "https://raw.githubusercontent.com/breimato/GuessDle/refs/heads/master/static/img/favicon.png",
+          "url": "https://github.com/breimato/GuessDle"
+        }
+      ]
+    },
     "professional": {
       "title": "Proyectos contratados",
       "projects": [
         {
-          "name": "Netex webpage",
+          "name": "NetexLearnig",
           "description": "Varias páginas web, APIs y scripts para una empresa que ofrece servicios privados.",
           "image": "https://ccdn.netexlearning.com/wp-content/uploads/2023/04/netex-learning-logo.svg",
           "url": "https://www.netexlearning.com/"
@@ -237,11 +248,22 @@
         }
       ]
     },
+    "collaborations": {
+      "title": "Collaborations",
+      "projects": [
+        {
+          "name": "GuessDle - by breimato",
+          "description": "GuessDle es una aplicación web para jugar al clásico Wordle, pero con un giro temático.",
+          "image": "https://raw.githubusercontent.com/breimato/GuessDle/refs/heads/master/static/img/favicon.png",
+          "url": "https://github.com/breimato/GuessDle"
+        }
+      ]
+    },
     "professional": {
       "title": "Contracted projects",
       "projects": [
         {
-          "name": "Netex webpage",
+          "name": "NetexLearnig",
           "description": "Several webpages, apis and scripts for a company that provides private services.",
           "image": "https://ccdn.netexlearning.com/wp-content/uploads/2023/04/netex-learning-logo.svg",
           "url": "https://www.netexlearning.com/"
