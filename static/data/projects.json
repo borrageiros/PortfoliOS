@@ -117,7 +117,7 @@
       "projects": [
         {
           "name": "GuessDle - by breimato",
-          "description": "GuessDle is a web app to play the classic Wordle, but with a themed twist.",
+          "description": "GuessDle is a web app to play the classic Wordle, but with a themed twist: 🌊 One Piece, ⚡ Harry Potter, 🧬 Pokémon, 🧠 League of Legends... and many more!",
           "image": "https://raw.githubusercontent.com/breimato/GuessDle/refs/heads/master/static/img/favicon.png",
           "url": "https://github.com/breimato/GuessDle"
         }
@@ -253,7 +253,7 @@
       "projects": [
         {
           "name": "GuessDle - by breimato",
-          "description": "GuessDle es una aplicación web para jugar al clásico Wordle, pero con un giro temático.",
+          "description": "GuessDle es una aplicación web para jugar al clásico Wordle, pero con un giro temático: 🌊 One Piece, ⚡ Harry Potter, 🧬 Pokémon, 🧠 League of Legends... ¡y muchos más!",
           "image": "https://raw.githubusercontent.com/breimato/GuessDle/refs/heads/master/static/img/favicon.png",
           "url": "https://github.com/breimato/GuessDle"
         }
