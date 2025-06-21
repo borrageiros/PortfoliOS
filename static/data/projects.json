@@ -16,6 +16,12 @@
           "url": "https://github.com/borrageiros/discord-music-bot-with-web-interface"
         },
         {
+          "name": "Draw",
+          "description": "Una herramienta colaborativa en tiempo real para crear diagramas, esquemas y presentaciones interactivas. Ideal para planificar proyectos, visualizar estructuras y trabajar en equipo.",
+          "image": "/data/images/projects/excalidraw.png",
+          "url": "https://github.com/borrageiros/draw"
+        },
+        {
           "name": "CloudShot",
           "description": "Aplicación de captura de pantalla moderna, potente y liviana para Windows que combina funciones avanzadas como OCR y subida automática mediante SCP.",
           "image": "https://raw.githubusercontent.com/borrageiros/CloudShot/refs/heads/main/app.ico",
@@ -71,7 +77,7 @@
         {
           "name": "System Monitor API",
           "description": "Esta es una API REST muy simple desplegada para Docker que devuelve información básica de sistema.",
-          "image": "/data/images/projects/monitor.svg",
+          "image": "/data/images/projects/sysmonitor.png",
           "url": "https://github.com/borrageiros/sys-monitor-api"
         },
         {
@@ -152,15 +158,21 @@
           "url": "https://github.com/borrageiros/discord-music-bot-with-web-interface"
         },
         {
+          "name": "Draw",
+          "description": "A real-time collaborative tool for creating diagrams, flowcharts, and interactive presentations. Perfect for project planning, visualizing structures, and teamwork.",
+          "image": "/data/images/projects/excalidraw.png",
+          "url": "https://github.com/borrageiros/draw"
+        },
+        {
           "name": "CloudShot",
           "description": "A modern, powerful, and lightweight screenshot application for Windows that combines advanced features like OCR and automatic uploading via SCP.",
-          "image": "/data/images/projects/cloudshot.svg",
+          "image": "https://raw.githubusercontent.com/borrageiros/CloudShot/refs/heads/main/app.ico",
           "url": "https://github.com/borrageiros/CloudShot"
         },
         {
           "name": "Windows Terminal Profile Selector",
           "description": "A simple Windows Forms application that displays available Windows Terminal profiles and allows you to launch them with a single click.",
-          "image": "/data/images/projects/WTProfile.svg",
+          "image": "https://raw.githubusercontent.com/borrageiros/WTProfile/refs/heads/main/icon.png",
           "url": "https://github.com/borrageiros/WTProfile"
         },
         {
@@ -207,7 +219,7 @@
         {
           "name": "System Monitor API",
           "description": "This is a very simple REST API deployed for Docker that returns basic system information.",
-          "image": "/data/images/projects/monitor.svg",
+          "image": "/data/images/projects/sysmonitor.png",
           "url": "https://github.com/borrageiros/sys-monitor-api"
         },
         {

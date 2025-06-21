@@ -113,11 +113,16 @@
 		min-width: 220px;
 		height: 140px;
 		overflow: hidden;
+		display: flex;
+		align-items: center;
+		justify-content: center;
 	}
 
 	.project-image img {
-		width: 100%;
-		height: 100%;
+		width: auto;
+		height: auto;
+		max-width: 90%;
+		max-height: 90%;
 		object-fit: contain;
 		transition: transform 0.3s ease;
 	}
@@ -220,12 +225,16 @@
 		width: 100%;
 		height: 160px;
 		overflow: hidden;
+		display: flex;
+		align-items: center;
+		justify-content: center;
 	}
 
 	.project-image.mobile img {
-		width: 100%;
-		height: 100%;
-		margin-top: 10px;
+		width: auto;
+		height: auto;
+		max-width: 90%;
+		max-height: 90%;
 		object-fit: contain;
 		transition: transform 0.3s ease;
 	}
@@ -271,6 +280,9 @@
 			width: 200px;
 			min-width: 200px;
 			height: 140px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
 		}
 	}
 </style>
