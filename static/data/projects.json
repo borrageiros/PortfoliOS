@@ -46,6 +46,18 @@
           "url": "https://github.com/borrageiros/apaxy-gallery"
         },
         {
+          "name": "Dobble Card Game Generator",
+          "description": "Es un script en Python que genera un conjunto de cartas del juego Dobble (Spot It!) a partir de un conjunto de imágenes proporcionado.",
+          "image": "https://raw.githubusercontent.com/borrageiros/dobble-game-generator/refs/heads/main/README/card_example.png",
+          "url": "https://github.com/borrageiros/apaxy-gallery"
+        },
+        {
+          "name": "Discord Who Joined",
+          "description": "Un bot de discord que monitorea los canales de voz y notifica a los usuarios seleccionados con un mensaje privado cada vez que alguien se une o se mueve de canal. Es multi-servidor, admite preferencias por usuario, i18n y ofrece un modelo de permisos: usuarios normales y administradores.",
+          "image": "https://raw.githubusercontent.com/borrageiros/discord-who-joined/refs/heads/main/images/icon.png",
+          "url": "https://github.com/borrageiros/discord-who-joined"
+        },
+        {
           "name": "AuthAPI",
           "description": "API básica para autenticación de usuarios, gestión y mantenimiento",
           "image": "https://camo.githubusercontent.com/4b0000b8e7a6449a924fe0212093b9f3936ef80cc8fdfbb770baad58f58b8c2c/68747470733a2f2f6e6573746a732e636f6d2f696d672f6c6f676f2d736d616c6c2e737667",
@@ -186,6 +198,18 @@
           "description": "A modern and elegant gallery-style theme for Apache directory listings, transforming standard file directories into a visually appealing image gallery. ",
           "image": "https://raw.githubusercontent.com/borrageiros/apaxy-gallery/main/.theme/screenshots/dark.png",
           "url": "https://github.com/borrageiros/apaxy-gallery"
+        },
+        {
+          "name": "Dobble Card Game Generator",
+          "description": "A Python script that generates a set of Dobble (Spot It!) game cards from a provided set of images.",
+          "image": "https://raw.githubusercontent.com/borrageiros/dobble-game-generator/refs/heads/main/README/card_example.png",
+          "url": "https://github.com/borrageiros/apaxy-gallery"
+        },
+        {
+          "name": "Discord Who Joined",
+          "description": "A Discord bot that monitors voice channels and notifies selected users with a private message whenever someone joins or moves channels. It supports multiple servers, per-user preferences, i18n, and offers a clear permission model: regular users and administrators.",
+          "image": "https://raw.githubusercontent.com/borrageiros/discord-who-joined/refs/heads/main/images/icon.png",
+          "url": "https://github.com/borrageiros/discord-who-joined"
         },
         {
           "name": "AuthAPI",
