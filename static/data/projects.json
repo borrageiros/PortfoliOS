@@ -10,10 +10,16 @@
           "url": "https://github.com/borrageiros/easy-cloudflare-ddns"
         },
         {
-          "name": "DiscordAudioUI",
+          "name": "discord-music-bot-with-web-interface",
           "description": "Bot de música de Discord con interfaz web en tiempo real usando WebSockets",
           "image": "https://raw.githubusercontent.com/borrageiros/discord-music-bot-with-web-interface/main/readme/screenshot.jpg",
           "url": "https://github.com/borrageiros/discord-music-bot-with-web-interface"
+        },
+        {
+          "name": "DiscordAudioUI",
+          "description": "Transmite audio desde un escritorio virtual Linux, accesible desde tu navegador, directamente a cualquier canal de voz de Discord",
+          "image": "https://raw.githubusercontent.com/borrageiros/DiscordAudioUI/refs/heads/master/screenshot.png",
+          "url": "https://github.com/borrageiros/DiscordAudioUI"
         },
         {
           "name": "Draw",
@@ -164,10 +170,16 @@
           "url": "https://github.com/borrageiros/easy-cloudflare-ddns"
         },
         {
-          "name": "DiscordAudioUI",
+          "name": "discord-music-bot-with-web-interface",
           "description": "Discord Music Bot with Real-Time Web Interface Using WebSockets",
           "image": "https://raw.githubusercontent.com/borrageiros/discord-music-bot-with-web-interface/main/readme/screenshot.jpg",
           "url": "https://github.com/borrageiros/discord-music-bot-with-web-interface"
+        },
+        {
+          "name": "DiscordAudioUI",
+          "description": "Stream audio from a Linux virtual desktop, accessible from your browser, directly to any Discord voice channel ",
+          "image": "https://raw.githubusercontent.com/borrageiros/DiscordAudioUI/refs/heads/master/screenshot.png",
+          "url": "https://github.com/borrageiros/DiscordAudioUI"
         },
         {
           "name": "Draw",
