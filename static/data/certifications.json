@@ -2,8 +2,13 @@
   "certifications": {
     "Google": [
       {
+        "name": "Cloud Computing",
+        "date": "03/11/2025",
+        "url": "https://skillshop.exceedlms.com/student/award/XCwEKfSDEkmpoNXVc6tUCAcX",
+        "icon": "/data/images/certifications/google/cloud-computing.png"
+      },
+      {
         "name": "Analytics Academy for Beginners",
-        "important": true,
         "date": "19/12/2023",
         "expires": "19/12/2026",
         "url": "https://analytics.google.com/analytics/academy/certificate/leXD7Nx9QaCuBuW1Ls8zSg",
@@ -13,10 +18,31 @@
     "MongoDB": [
       {
         "name": "MongoDB Node.js Developer Path",
-        "important": true,
         "date": "20/12/2023",
         "url": "https://learn.mongodb.com/c/VYF34DA_SEmyAYq7Z8zYbg",
         "icon": "/data/images/certifications/mongodb/mongodb_nodejs_certification.jpg"
+      }
+    ],
+    "GitLab": [
+      {
+        "name": "GitLab 101",
+        "date": "03/11/2025",
+        "url": "https://university.gitlab.com/learn/certificates/gitlab101?id=6191164f-ffe7-4898-9ef4-b8a075805903",
+        "icon": "/data/images/certifications/gitlab/gitlab-101.jpg"
+      },
+      {
+        "name": "Remote Foundation Certification",
+        "date": "15/10/2025",
+        "url": "https://university.gitlab.com/learn/certificates/remote-foundations?id=a136397f-8dce-45ec-8f36-6f487b913236",
+        "icon": "/data/images/certifications/gitlab/remote-foundation.jpg"
+      }
+    ],
+    "Databricks": [
+      {
+        "name": "Generative AI Fundamentals",
+        "date": "03/11/2025",
+        "url": "https://www.databricks.com/resources/learn/training/generative-ai-fundamentals",
+        "icon": "/data/images/certifications/databricks/generative-ai-fundamentals.jpg"
       }
     ],
     "FreeCodeCamp": [
