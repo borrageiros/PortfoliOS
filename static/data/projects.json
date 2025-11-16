@@ -72,7 +72,7 @@
         {
           "name": "DockerTokenViewer",
           "description": "Alternativa al frontend de DockerHub, diseñada para permitir a los usuarios ver imágenes y sus respectivas etiquetas mediante un token de acceso",
-          "image": "/data/images/projects/docker.svg",
+          "image": "https://raw.githubusercontent.com/borrageiros/DockerTokenViewer/refs/heads/main/screenshot.gif",
           "url": "https://github.com/borrageiros/DockerTokenViewer"
         },
         {
@@ -80,18 +80,24 @@
           "description": "Este proyecto proporciona un servidor webhook simple para ejecutar scripts automáticamente con cambios en repositorios Git.",
           "image": "/data/images/projects/git.png",
           "url": "https://github.com/borrageiros/webhook-git-script"
-        }
-      ]
-    },
-    "personal": {
-      "title": "Proyectos personales",
-      "projects": [
+        },
         {
           "name": "DescriptionAboveBoard",
           "description": "Este proyecto es un plugin para el proyecto Kanboard. Muestra la descripción del proyecto encima del tablero de tareas y permite editar directamente desde allí.",
           "image": "https://raw.githubusercontent.com/borrageiros/DescriptionAboveBoard/main/readme/screenshot.jpg",
           "url": "https://github.com/borrageiros/DescriptionAboveBoard"
         },
+        {
+          "name": "LegacyContext",
+          "description": "Script PowerShell para cambiar entre el menú contextual clásico y el nuevo en Windows 11.",
+          "image": "/data/images/projects/legacycontext.png",
+          "url": "https://github.com/borrageiros/LegacyContext"
+        }
+      ]
+    },
+    "personal": {
+      "title": "Proyectos personales",
+      "projects": [
         {
           "name": "System Monitor API",
           "description": "Esta es una API REST muy simple desplegada para Docker que devuelve información básica de sistema.",
@@ -232,7 +238,7 @@
         {
           "name": "DockerTokenViewer",
           "description": "Alternative to the DockerHub frontend, designed to allow users to view images and their respective tags by access token ",
-          "image": "/data/images/projects/docker.svg",
+          "image": "https://raw.githubusercontent.com/borrageiros/DockerTokenViewer/refs/heads/main/screenshot.gif",
           "url": "https://github.com/borrageiros/DockerTokenViewer"
         },
         {
@@ -240,18 +246,24 @@
           "description": "This project provides a simple webhook server to automatically execute scripts with changes in Git repositories.",
           "image": "/data/images/projects/git.png",
           "url": "https://github.com/borrageiros/webhook-git-script"
-        }
-      ]
-    },
-    "personal": {
-      "title": "Personal projects",
-      "projects": [
+        },
         {
           "name": "DescriptionAboveBoard",
           "description": "This project is a plugin for the Kanboard project. It displays the project's description above the task board and allows for editing directly from there.",
           "image": "https://raw.githubusercontent.com/borrageiros/DescriptionAboveBoard/main/readme/screenshot.jpg",
           "url": "https://github.com/borrageiros/DescriptionAboveBoard"
         },
+        {
+          "name": "LegacyContext",
+          "description": "PowerShell script that allows switching between the classic and new context menu in Windows 11.",
+          "image": "/data/images/projects/legacycontext.png",
+          "url": "https://github.com/borrageiros/LegacyContext"
+        }
+      ]
+    },
+    "personal": {
+      "title": "Personal projects",
+      "projects": [
         {
           "name": "System Monitor API",
           "description": "This is a very simple REST API deployed for Docker that returns basic system information.",
