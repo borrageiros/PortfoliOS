@@ -34,6 +34,12 @@
           "url": "https://github.com/borrageiros/CloudShot"
         },
         {
+          "name": "QuickFscop4",
+          "description": "Utilidad de Windows que permite forzar el cierre de aplicaciones usando atajos de teclado",
+          "image": "https://raw.githubusercontent.com/borrageiros/QuickFscop4/master/media/quickfscop4.png",
+          "url": "https://borrageiros.github.io/QuickFscop4/"
+        },
+        {
           "name": "Windows Terminal Profile Selector",
           "description": "Aplicación de Windows Forms simple que muestra perfiles disponibles de Windows Terminal y permite lanzarlos con un solo clic.",
           "image": "https://raw.githubusercontent.com/borrageiros/WTProfile/refs/heads/main/icon.png",
@@ -198,6 +204,12 @@
           "description": "A modern, powerful, and lightweight screenshot application for Windows that combines advanced features like OCR and automatic uploading via SCP.",
           "image": "https://raw.githubusercontent.com/borrageiros/CloudShot/refs/heads/main/app.ico",
           "url": "https://github.com/borrageiros/CloudShot"
+        },
+        {
+          "name": "QuickFscop4",
+          "description": "A Windows utility that allows you to forcefully terminate applications using keyboard shortcuts",
+          "image": "https://raw.githubusercontent.com/borrageiros/QuickFscop4/master/media/quickfscop4.png",
+          "url": "https://borrageiros.github.io/QuickFscop4/"
         },
         {
           "name": "Windows Terminal Profile Selector",
