@@ -34,10 +34,10 @@
           "url": "https://github.com/borrageiros/CloudShot"
         },
         {
-          "name": "QuickFscop4",
+          "name": "F4ST",
           "description": "Utilidad de Windows que permite forzar el cierre de aplicaciones usando atajos de teclado",
-          "image": "https://raw.githubusercontent.com/borrageiros/QuickFscop4/master/media/quickfscop4.png",
-          "url": "https://borrageiros.github.io/QuickFscop4/"
+          "image": "https://raw.githubusercontent.com/borrageiros/F4ST/master/media/f4st.png",
+          "url": "https://borrageiros.github.io/F4ST/"
         },
         {
           "name": "Windows Terminal Profile Selector",
@@ -206,10 +206,10 @@
           "url": "https://github.com/borrageiros/CloudShot"
         },
         {
-          "name": "QuickFscop4",
+          "name": "F4ST",
           "description": "A Windows utility that allows you to forcefully terminate applications using keyboard shortcuts",
-          "image": "https://raw.githubusercontent.com/borrageiros/QuickFscop4/master/media/quickfscop4.png",
-          "url": "https://borrageiros.github.io/QuickFscop4/"
+          "image": "https://raw.githubusercontent.com/borrageiros/F4ST/master/media/f4st.png",
+          "url": "https://borrageiros.github.io/F4ST/"
         },
         {
           "name": "Windows Terminal Profile Selector",
