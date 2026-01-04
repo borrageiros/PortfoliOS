@@ -105,7 +105,13 @@ export const translations = {
 			socialNetworks: 'Connect with me',
 			sending: 'Sending...',
 			messageSent: 'Your message has been sent successfully.',
-			errorSending: 'There was an error sending your message. Please try again later.'
+			errorSending: 'There was an error sending your message. Please try again later.',
+			year: 'year',
+			years: 'years',
+			month: 'month',
+			months: 'months',
+			day: 'day',
+			days: 'days'
 		},
 		games: {
 			title: 'Games',
@@ -538,7 +544,13 @@ export const translations = {
 			socialNetworks: 'Conéctate conmigo',
 			sending: 'Enviando...',
 			messageSent: 'Tu mensaje se ha enviado correctamente.',
-			errorSending: 'Hubo un error al enviar tu mensaje. Por favor, inténtalo más tarde.'
+			errorSending: 'Hubo un error al enviar tu mensaje. Por favor, inténtalo más tarde.',
+			year: 'año',
+			years: 'años',
+			month: 'mes',
+			months: 'meses',
+			day: 'día',
+			days: 'días'
 		},
 		games: {
 			title: 'Juegos',

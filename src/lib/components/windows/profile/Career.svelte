@@ -4,6 +4,64 @@
 	export let career: any;
 
 	export let isMobileVersion = false;
+
+	function parseDate(dateStr: string): Date | null {
+		if (!dateStr || dateStr === 'Presente' || dateStr === 'Present') {
+			return new Date();
+		}
+		const parts = dateStr.split('/');
+		if (parts.length === 3) {
+			const day = parseInt(parts[0], 10);
+			const month = parseInt(parts[1], 10) - 1;
+			const year = parseInt(parts[2], 10);
+			return new Date(year, month, day);
+		}
+		return null;
+	}
+
+	function calculateDuration(from: string, to: string): { years: number; months: number; days: number } {
+		const fromDate = parseDate(from);
+		const toDate = parseDate(to);
+
+		if (!fromDate || !toDate) {
+			return { years: 0, months: 0, days: 0 };
+		}
+
+		let years = toDate.getFullYear() - fromDate.getFullYear();
+		let months = toDate.getMonth() - fromDate.getMonth();
+		let days = toDate.getDate() - fromDate.getDate();
+
+		if (days < 0) {
+			months--;
+			const lastMonth = new Date(toDate.getFullYear(), toDate.getMonth(), 0);
+			days += lastMonth.getDate();
+		}
+
+		if (months < 0) {
+			years--;
+			months += 12;
+		}
+
+		return { years, months, days };
+	}
+
+	function formatDuration(duration: { years: number; months: number; days: number }): string[] {
+		const badges: string[] = [];
+		
+		if (duration.years > 0) {
+			badges.push(`${duration.years} ${duration.years === 1 ? $t('profile.year') : $t('profile.years')}`);
+			
+			if (duration.months > 0) {
+				badges.push(`${duration.months} ${duration.months === 1 ? $t('profile.month') : $t('profile.months')}`);
+			}
+		} else if (duration.months > 0) {
+			badges.push(`${duration.months} ${duration.months === 1 ? $t('profile.month') : $t('profile.months')}`);
+		} else if (duration.days > 0) {
+			badges.push(`${duration.days} ${duration.days === 1 ? $t('profile.day') : $t('profile.days')}`);
+		}
+		
+		return badges;
+	}
 </script>
 
 <div class="career-section" class:mobile={isMobileVersion}>
@@ -35,12 +93,22 @@
 				>
 					<div class="timeline-content" class:mobile={isMobileVersion}>
 						<div class="timeline-header" class:mobile={isMobileVersion}>
-							<h3 class="timeline-title" class:mobile={isMobileVersion}>
-								{entry.where}
-							</h3>
-							<span class="timeline-date" class:mobile={isMobileVersion}
-								>{entry.from} - {entry.to}</span
-							>
+							<div class="timeline-title-container" class:mobile={isMobileVersion}>
+								{#if entry.logo}
+									<img src={entry.logo} alt={entry.where} class="timeline-logo" class:mobile={isMobileVersion} />
+								{/if}
+								<h3 class="timeline-title" class:mobile={isMobileVersion}>
+									{entry.where}
+								</h3>
+							</div>
+							<div class="timeline-date-container" class:mobile={isMobileVersion}>
+								<span class="timeline-date" class:mobile={isMobileVersion}
+									>{entry.from} - {entry.to}</span
+								>
+								{#each formatDuration(calculateDuration(entry.from, entry.to)) as badge}
+									<span class="duration-badge" class:mobile={isMobileVersion}>{badge}</span>
+								{/each}
+							</div>
 						</div>
 						<div class="timeline-body" class:mobile={isMobileVersion}>
 							<p class:mobile={isMobileVersion}>{entry.what}</p>
@@ -194,10 +262,32 @@
 		gap: 8px;
 	}
 
+	.timeline-title-container {
+		display: flex;
+		align-items: center;
+		gap: 10px;
+		flex: 1;
+	}
+
+	.timeline-logo {
+		width: 32px;
+		height: 32px;
+		object-fit: contain;
+		border-radius: 4px;
+		flex-shrink: 0;
+	}
+
 	.timeline-title {
 		margin: 0;
 		font-size: 1.1rem;
 		color: var(--text-primary);
+	}
+
+	.timeline-date-container {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 6px;
+		align-items: center;
 	}
 
 	.timeline-date {
@@ -206,6 +296,16 @@
 		background-color: var(--taskbar-active);
 		padding: 3px 8px;
 		border-radius: 4px;
+	}
+
+	.duration-badge {
+		color: var(--text-secondary);
+		font-size: 0.85rem;
+		background-color: var(--win-accent);
+		padding: 3px 8px;
+		border-radius: 4px;
+		color: white;
+		white-space: nowrap;
 	}
 
 	.timeline-body {
@@ -433,10 +533,32 @@
 		gap: 8px;
 	}
 
+	.timeline-title-container.mobile {
+		display: flex;
+		align-items: center;
+		gap: 10px;
+		flex: 1;
+	}
+
+	.timeline-logo.mobile {
+		width: 32px;
+		height: 32px;
+		object-fit: contain;
+		border-radius: 4px;
+		flex-shrink: 0;
+	}
+
 	.timeline-title.mobile {
 		margin: 0;
 		font-size: 1.1rem;
 		color: var(--text-primary);
+	}
+
+	.timeline-date-container.mobile {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 6px;
+		align-items: center;
 	}
 
 	.timeline-date.mobile {
@@ -445,6 +567,16 @@
 		background-color: var(--taskbar-active);
 		padding: 3px 8px;
 		border-radius: 4px;
+	}
+
+	.duration-badge.mobile {
+		color: var(--text-secondary);
+		font-size: 0.85rem;
+		background-color: var(--win-accent);
+		padding: 3px 8px;
+		border-radius: 4px;
+		color: white;
+		white-space: nowrap;
 	}
 
 	.timeline-body.mobile {
