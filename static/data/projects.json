@@ -22,10 +22,22 @@
           "url": "https://github.com/borrageiros/DiscordAudioUI"
         },
         {
+          "name": "DockerTokenViewer",
+          "description": "Alternativa al frontend de DockerHub, diseñada para permitir a los usuarios ver imágenes y sus respectivas etiquetas mediante un token de acceso",
+          "image": "https://raw.githubusercontent.com/borrageiros/DockerTokenViewer/refs/heads/main/screenshot.gif",
+          "url": "https://github.com/borrageiros/DockerTokenViewer"
+        },
+        {
           "name": "Draw",
           "description": "Una herramienta colaborativa en tiempo real para crear diagramas, esquemas y presentaciones interactivas. Ideal para planificar proyectos, visualizar estructuras y trabajar en equipo.",
           "image": "/data/images/projects/excalidraw.png",
           "url": "https://github.com/borrageiros/draw"
+        },
+        {
+          "name": "HeadBackpacks",
+          "description": "Un plugin de mochilas personalizable para servidores de Minecraft usando cabezas de jugadores.",
+          "image": "https://raw.githubusercontent.com/borrageiros/HeadBackpacks/refs/heads/main/README/logo.png",
+          "url": "https://github.com/borrageiros/HeadBackpacks"
         },
         {
           "name": "CloudShot",
@@ -74,12 +86,6 @@
           "description": "API básica para autenticación de usuarios, gestión y mantenimiento",
           "image": "https://camo.githubusercontent.com/4b0000b8e7a6449a924fe0212093b9f3936ef80cc8fdfbb770baad58f58b8c2c/68747470733a2f2f6e6573746a732e636f6d2f696d672f6c6f676f2d736d616c6c2e737667",
           "url": "https://github.com/borrageiros/auth-api"
-        },
-        {
-          "name": "DockerTokenViewer",
-          "description": "Alternativa al frontend de DockerHub, diseñada para permitir a los usuarios ver imágenes y sus respectivas etiquetas mediante un token de acceso",
-          "image": "https://raw.githubusercontent.com/borrageiros/DockerTokenViewer/refs/heads/main/screenshot.gif",
-          "url": "https://github.com/borrageiros/DockerTokenViewer"
         },
         {
           "name": "webhook-git-script",
@@ -194,10 +200,22 @@
           "url": "https://github.com/borrageiros/DiscordAudioUI"
         },
         {
+          "name": "DockerTokenViewer",
+          "description": "Alternative to the DockerHub frontend, designed to allow users to view images and their respective tags by access token ",
+          "image": "https://raw.githubusercontent.com/borrageiros/DockerTokenViewer/refs/heads/main/screenshot.gif",
+          "url": "https://github.com/borrageiros/DockerTokenViewer"
+        },
+        {
           "name": "Draw",
           "description": "A real-time collaborative tool for creating diagrams, flowcharts, and interactive presentations. Perfect for project planning, visualizing structures, and teamwork.",
           "image": "/data/images/projects/excalidraw.png",
           "url": "https://github.com/borrageiros/draw"
+        },
+        {
+          "name": "HeadBackpacks",
+          "description": "A complete customizable backpack plugin for Minecraft servers using player heads.",
+          "image": "https://raw.githubusercontent.com/borrageiros/HeadBackpacks/refs/heads/main/README/logo.png",
+          "url": "https://github.com/borrageiros/HeadBackpacks"
         },
         {
           "name": "CloudShot",
@@ -246,12 +264,6 @@
           "description": "Basic API for User Authentication, Management, and Maintenance",
           "image": "https://camo.githubusercontent.com/4b0000b8e7a6449a924fe0212093b9f3936ef80cc8fdfbb770baad58f58b8c2c/68747470733a2f2f6e6573746a732e636f6d2f696d672f6c6f676f2d736d616c6c2e737667",
           "url": "https://github.com/borrageiros/auth-api"
-        },
-        {
-          "name": "DockerTokenViewer",
-          "description": "Alternative to the DockerHub frontend, designed to allow users to view images and their respective tags by access token ",
-          "image": "https://raw.githubusercontent.com/borrageiros/DockerTokenViewer/refs/heads/main/screenshot.gif",
-          "url": "https://github.com/borrageiros/DockerTokenViewer"
         },
         {
           "name": "webhook-git-script",
