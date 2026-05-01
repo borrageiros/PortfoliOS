@@ -19,7 +19,8 @@ export const translations = {
 				stalker: 'Stalker',
 				adventurer: 'Adventurer'
 			},
-			welcomeMessage: 'Welcome, {user}'
+			welcomeMessage: 'Welcome, {user}',
+			switchToMobile: 'Switch to basic version'
 		},
 		mobile: {
 			desktopRecommendation: {
@@ -35,13 +36,16 @@ export const translations = {
 				theme: 'Theme',
 				light: 'Light',
 				dark: 'Dark',
-				continue: 'Continue'
+				continue: 'Continue',
+				switchToDesktop: 'Switch to full version'
 			}
 		},
 		taskbar: {
 			search: 'Search',
 			language: 'Language',
-			theme: 'Toggle theme'
+			theme: 'Toggle theme',
+			exitFullscreen: 'Exit fullscreen',
+			toggleFullscreen: 'Toggle fullscreen'
 		},
 		window: {
 			minimize: 'Minimize',
@@ -82,6 +86,7 @@ export const translations = {
 			professionalGoals: 'Professional Goals',
 			programmingLanguages: 'Programming Languages',
 			softwareTools: 'Software & Tools',
+			aiTools: 'Artificial Intelligence',
 			viewCredential: 'View credential',
 			loading: 'Loading data...',
 			oralComprehension: 'Oral Comprehension',
@@ -457,7 +462,8 @@ export const translations = {
 				stalker: 'Investigador',
 				adventurer: 'Aventurero'
 			},
-			welcomeMessage: 'Bienvenido, {user}'
+			welcomeMessage: 'Bienvenido, {user}',
+			switchToMobile: 'Cambiar a la versión básica'
 		},
 		mobile: {
 			desktopRecommendation: {
@@ -474,13 +480,16 @@ export const translations = {
 				theme: 'Tema',
 				light: 'Claro',
 				dark: 'Oscuro',
-				continue: 'Continuar'
+				continue: 'Continuar',
+				switchToDesktop: 'Volver a la versión completa'
 			}
 		},
 		taskbar: {
 			search: 'Buscar',
 			language: 'Idioma',
-			theme: 'Cambiar tema'
+			theme: 'Cambiar tema',
+			exitFullscreen: 'Salir de pantalla completa',
+			toggleFullscreen: 'Alternar pantalla completa'
 		},
 		window: {
 			minimize: 'Minimizar',
@@ -521,6 +530,7 @@ export const translations = {
 			professionalGoals: 'Objetivos Profesionales',
 			programmingLanguages: 'Lenguajes de Programación',
 			softwareTools: 'Software y Herramientas',
+			aiTools: 'Inteligencia Artificial',
 			viewCredential: 'Ver credencial',
 			loading: 'Cargando datos...',
 			oralComprehension: 'Comprensión Oral',

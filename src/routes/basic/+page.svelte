@@ -1,11 +1,13 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
-	import { loadData } from '$lib/helpers';
+	import { goto } from '$app/navigation';
+	import { page } from '$app/stores';
+	import { loadData, isMobile } from '$lib/helpers';
 	import { theme } from '$lib/theme/theme';
 	import { locale } from '$lib/i18n/i18n';
 	import { t } from '$lib/i18n/i18n';
 	import Icon from '$lib/components/Icon.svelte';
-	import { sendEmail } from '$lib/api';
+	import VersionSwitchButton from '$lib/components/VersionSwitchButton.svelte';
 	import { profileItems, type ProfileProps } from '$lib/interfaces/profileItems';
 	import Information from '$lib/components/windows/profile/Information.svelte';
 	import About from '$lib/components/windows/profile/About.svelte';
@@ -18,66 +20,73 @@
 	import Contact from '$lib/components/windows/profile/Contact.svelte';
 	import Reviews from '$lib/components/windows/profile/Reviews.svelte';
 	import Complementary from '$lib/components/windows/profile/Complementary.svelte';
-
-	export let initialTab: ProfileProps['initialTab'] = 'information';
+	import type {
+		Information as InformationData,
+		About as AboutData,
+		Career as CareerData,
+		Projects as ProjectsData,
+		Languages as LanguagesData,
+		Skills as SkillsData,
+		Informatic as InformaticData,
+		Certifications as CertificationsData,
+		Contact as ContactData,
+		Reviews as ReviewsData,
+		Complementary as ComplementaryData
+	} from '$lib/types/data';
 
 	// State to store loaded data
-	let information: any = null;
-	let about: any = null;
-	let projects: any = null;
-	let languages: any = null;
-	let skills: any = null;
-	let informatic: any = null;
-	let certifications: any = null;
-	let contact: any = null;
-	let reviews: any = null;
-	let complementary: any = null;
-	let career: any = null;
+	let information: InformationData | null = null;
+	let about: AboutData | null = null;
+	let projects: ProjectsData | null = null;
+	let languages: LanguagesData | null = null;
+	let skills: SkillsData | null = null;
+	let informatic: InformaticData | null = null;
+	let certifications: CertificationsData | null = null;
+	let contact: ContactData | null = null;
+	let reviews: ReviewsData | null = null;
+	let complementary: ComplementaryData | null = null;
+	let career: CareerData | null = null;
 
 	// State for the active menu
-	let activeMenu = initialTab;
+	let activeMenu: ProfileProps['initialTab'] = 'information';
 
 	// State for the collapsible menu
 	let menuOpen = false;
+
+	let isDesktop = false;
 
 	// Modal
 	let showWelcomeModal = true;
 	let selectedTheme = $theme;
 	let selectedLocale = $locale;
-
-	// Form data
-	let contactForm = {
-		name: '',
-		email: '',
-		phone: '',
-		company: '',
-		message: ''
-	};
-
-	let formSubmitting = false;
-	let formSuccess = false;
-	let formError = false;
-	let errorMessage = '';
+	const validProfileTabs = new Set(profileItems.map((item) => item.id));
 
 	// Function to load all data
 	async function loadAllData() {
-		information = await loadData('information');
-		about = await loadData('about');
-		projects = await loadData('projects');
-		languages = await loadData('languages');
-		skills = await loadData('skills');
-		informatic = await loadData('informatic');
-		certifications = await loadData('certifications');
-		contact = await loadData('contact');
-		reviews = await loadData('reviews');
-		complementary = await loadData('complementary');
-		career = await loadData('career');
+		information = await loadData<InformationData>('information');
+		about = await loadData<AboutData>('about');
+		projects = await loadData<ProjectsData>('projects');
+		languages = await loadData<LanguagesData>('languages');
+		skills = await loadData<SkillsData>('skills');
+		informatic = await loadData<InformaticData>('informatic');
+		certifications = await loadData<CertificationsData>('certifications');
+		contact = await loadData<ContactData>('contact');
+		reviews = await loadData<ReviewsData>('reviews');
+		complementary = await loadData<ComplementaryData>('complementary');
+		career = await loadData<CareerData>('career');
 	}
 
 	// Function to change the active menu
 	function setActiveMenu(menu: ProfileProps['initialTab']) {
 		activeMenu = menu;
-		menuOpen = false; // Close menu when selecting an option
+		const params = new URLSearchParams($page.url.searchParams);
+		params.set('profile', menu);
+		goto(`${$page.url.pathname}?${params.toString()}`, {
+			replaceState: true,
+			noScroll: true,
+			keepFocus: true
+		});
+		if (!isDesktop) menuOpen = false;
 	}
 
 	// Function to show/hide the menu
@@ -103,6 +112,13 @@
 	}
 
 	onMount(() => {
+		isDesktop = !isMobile();
+		if (isDesktop) showWelcomeModal = false;
+		const initialProfile = $page.url.searchParams.get('profile');
+		if (initialProfile && validProfileTabs.has(initialProfile)) {
+			activeMenu = initialProfile as ProfileProps['initialTab'];
+		}
+
 		loadAllData();
 
 		// Subscribe to language changes to reload data
@@ -121,49 +137,9 @@
 			//
 		}
 	}
-
-	// Handle form submission
-	const handleSubmit = async (e: Event) => {
-		e.preventDefault();
-		formSubmitting = true;
-		formSuccess = false;
-		formError = false;
-
-		try {
-			// Call the API function to send the email
-			const response = await sendEmail(
-				contactForm.name,
-				contactForm.message,
-				contactForm.email,
-				contactForm.phone,
-				contactForm.company
-			);
-
-			if (response.success) {
-				formSuccess = true;
-				// Reset form
-				contactForm = {
-					name: '',
-					email: '',
-					phone: '',
-					company: '',
-					message: ''
-				};
-			} else {
-				formError = true;
-				errorMessage = response.message || $t('profile.errorSending');
-			}
-		} catch (error) {
-			formError = true;
-			errorMessage = $t('profile.errorSending');
-			console.error('Error sending email:', error);
-		} finally {
-			formSubmitting = false;
-		}
-	};
 </script>
 
-<div class="mobile-profile">
+<div class="mobile-profile" class:desktop={isDesktop}>
 	{#if showWelcomeModal}
 		<div class="modal-overlay">
 			<div class="modal-container">
@@ -223,22 +199,17 @@
 		</div>
 	{/if}
 
-	<header class="profile-header">
-		<button class="menu-button" on:click={toggleMenu} aria-label="Menu">
-			<Icon name="menu" size="24" />
-		</button>
-		<h1>{$t(`profile.${activeMenu}`)}</h1>
-	</header>
-
-	<div class="sidebar" class:open={menuOpen}>
+	<div class="sidebar" class:open={menuOpen || isDesktop}>
 		<div class="menu-header">
-			<button class="menu-close" on:click={toggleMenu} aria-label="Close menu">
-				<Icon name="x" size="24" />
-			</button>
+			{#if !isDesktop}
+				<button class="menu-close" on:click={toggleMenu} aria-label="Close menu">
+					<Icon name="x" size="24" />
+				</button>
+			{/if}
 			<span>{(information && information.alias) || ''}</span>
 		</div>
 		<div class="menu-items">
-			{#each profileItems as item}
+			{#each profileItems as item (item.id)}
 				<div
 					class="menu-item {activeMenu === item.id ? 'active' : ''}"
 					on:click={() => setActiveMenu(item.id as ProfileProps['initialTab'])}
@@ -301,42 +272,64 @@
 						<span>{$t('mobile.preferences.spanish')}</span>
 					</button>
 				</div>
+
+				{#if isDesktop}
+					<div class="menu-separator" style="margin: 20px 0;"></div>
+					<VersionSwitchButton
+						label={$t('mobile.preferences.switchToDesktop')}
+						title={$t('mobile.preferences.switchToDesktop')}
+						destination="/login"
+						icon="monitor"
+						variant="menu"
+						fullWidth={true}
+					/>
+				{/if}
 			</div>
 		</div>
 	</div>
 
-	<div class="content-area">
-		{#if activeMenu === 'information' && information}
-			<Information {information} isMobileVersion={true} />
-		{:else if activeMenu === 'about' && about}
-			<About {about} isMobileVersion={true} />
-		{:else if activeMenu === 'career' && career}
-			<Career {career} isMobileVersion={true} />
-		{:else if activeMenu === 'projects' && projects}
-			<Projects {projects} isMobileVersion={true} />
-		{:else if activeMenu === 'languages' && languages}
-			<Languages {languages} />
-		{:else if activeMenu === 'skills' && skills}
-			<Skills {skills} />
-		{:else if activeMenu === 'informatic' && informatic}
-			<Informatic {informatic} />
-		{:else if activeMenu === 'certifications' && certifications}
-			<Certifications {certifications} />
-		{:else if activeMenu === 'contact' && contact}
-			<Contact {contact} />
-		{:else if activeMenu === 'reviews' && reviews}
-			<Reviews {reviews} isMobileVersion={true} />
-		{:else if activeMenu === 'complementary' && complementary}
-			<Complementary {complementary} />
-		{:else}
-			<div class="loading">
-				<span>{$t('profile.loading')}</span>
-			</div>
-		{/if}
+	<div class="main-content">
+		<header class="profile-header">
+			{#if !isDesktop}
+				<button class="menu-button" on:click={toggleMenu} aria-label="Menu">
+					<Icon name="menu" size="24" />
+				</button>
+			{/if}
+			<h1>{$t(`profile.${activeMenu}`)}</h1>
+		</header>
+
+		<div class="content-area">
+			{#if activeMenu === 'information' && information}
+				<Information {information} isMobileVersion={true} />
+			{:else if activeMenu === 'about' && about}
+				<About {about} isMobileVersion={true} isDesktopInMobileVersion={isDesktop} />
+			{:else if activeMenu === 'career' && career}
+				<Career {career} isMobileVersion={true} isDesktopInMobileVersion={isDesktop} />
+			{:else if activeMenu === 'projects' && projects}
+				<Projects {projects} isMobileVersion={true} />
+			{:else if activeMenu === 'languages' && languages}
+				<Languages {languages} />
+			{:else if activeMenu === 'skills' && skills}
+				<Skills {skills} />
+			{:else if activeMenu === 'informatic' && informatic}
+				<Informatic {informatic} />
+			{:else if activeMenu === 'certifications' && certifications}
+				<Certifications {certifications} />
+			{:else if activeMenu === 'contact' && contact}
+				<Contact {contact} />
+			{:else if activeMenu === 'reviews' && reviews}
+				<Reviews {reviews} isMobileVersion={true} />
+			{:else if activeMenu === 'complementary' && complementary}
+				<Complementary {complementary} />
+			{:else}
+				<div class="loading">
+					<span>{$t('profile.loading')}</span>
+				</div>
+			{/if}
+		</div>
 	</div>
 
-	<!-- Overlay para cerrar el menú cuando está abierto -->
-	{#if menuOpen}
+	{#if menuOpen && !isDesktop}
 		<div class="overlay" on:click={toggleMenu} aria-hidden="true"></div>
 	{/if}
 </div>
@@ -712,5 +705,32 @@
 		background-color: var(--win-accent);
 		color: white;
 		border-color: var(--win-accent);
+	}
+
+	.main-content {
+		flex: 1;
+		display: flex;
+		flex-direction: column;
+		overflow: hidden;
+	}
+
+	.mobile-profile.desktop {
+		flex-direction: row;
+	}
+
+	.mobile-profile.desktop .sidebar {
+		position: sticky;
+		top: 0;
+		left: 0;
+		height: 100vh;
+		flex-shrink: 0;
+		transition: none;
+		box-shadow: 2px 0 8px rgba(0, 0, 0, 0.1);
+	}
+
+	.mobile-profile.desktop .menu-header {
+		justify-content: flex-start;
+		padding: 0 20px;
+		font-size: 1rem;
 	}
 </style>

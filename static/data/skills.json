@@ -1,318 +1,157 @@
 {
-  "es": {
-    "skills": [
-      {
-        "name": "Trabajo en equipo",
-        "percentage": 95,
-        "items": [
-          "Comunicación",
-          "Colaboración"
-        ]
-      },
-      {
-        "name": "Resolución de problemas",
-        "percentage": 95,
-        "items": [
-          "Análisis",
-          "Síntesis",
-          "Evaluación",
-          "Diseño de soluciones"
-        ]
-      },
-      {
-        "name": "Adaptabilidad",
-        "percentage": 95,
-        "items": [
-          "Flexibilidad",
-          "Resiliencia",
-          "Capacidad de adaptación"
-        ]
-      },
-      {
-        "name": "Pensamiento crítico",
-        "percentage": 100,
-        "items": []
-      },
-      {
-        "name": "Creatividad",
-        "percentage": 97.3,
-        "items": [
-          "Generación de ideas",
-          "Innovación",
-          "Solución de problemas"
-        ]
-      },
-      {
-        "name": "Aprendizaje continuo",
-        "percentage": 100,
-        "items": [
-          "Curiosidad",
-          "Pasión/Vocación",
-          "Autodidacta"
-        ]
-      },
-      {
-        "name": "Organización",
-        "percentage": 95,
-        "items": [
-          "Herramientas de gestión"
-        ]
-      },
-      {
-        "name": "Responsabilidad",
-        "percentage": 100,
-        "items": [
-          "Compromiso"
-        ]
-      },
-      {
-        "name": "Manejo del tiempo",
-        "percentage": 60,
-        "items": [
-          "Picos de actividad"
-        ]
-      },
-      {
-        "name": "Desarrollo Backend",
-        "percentage": 90,
-        "items": [
-          "Node.js",
-          "Express",
-          "NestJS",
-          "SvelteKit",
-          "GO",
-          "Java",
-          "Python",
-          "Django",
-          "Flask"
-        ]
-      },
-      {
-        "name": "Desarrollo Frontend",
-        "percentage": 70,
-        "items": [
-          "HTML5",
-          "CSS3",
-          "JavaScript",
-          "TypeScript",
-          "React",
-          "Angular",
-          "Svelte"
-        ]
-      },
-      {
-        "name": "Bases de datos",
-        "percentage": 80,
-        "items": [
-          "MongoDB",
-          "PostgreSQL",
-          "MySQL",
-          "Firebase",
-          "Cassandra",
-          "SQLite",
-          "Redis"
-        ]
-      },
-      {
-        "name": "DevOps",
-        "percentage": 90,
-        "items": [
-          "Docker",
-          "Kubernetes",
-          "CI/CD",
-          "AWS",
-          "Azure"
-        ]
-      },
-      {
-        "name": "Metodologías ágiles",
-        "percentage": 85,
-        "items": [
-          "Kanban",
-          "Jira"
-        ]
-      },
-      {
-        "name": "Diseño UI/UX",
-        "percentage": 75,
-        "items": [
-          "Figma",
-          "Excalidraw",
-          "Adobe Photoshop",
-          "Sketch"
-        ]
-      },
-      {
-        "name": "Inteligencia Artificial",
-        "percentage": 100,
-        "items": [
-          "ChatGPT",
-          "Claude",
-          "Gemini",
-          "Llama",
-          "DeepSeek",
-          "Perplexity AI"
-        ]
-      }
-    ]
-  },
-  "en": {
-    "skills": [
-      {
-        "name": "Teamwork",
-        "percentage": 95,
-        "items": [
-          "Communication",
-          "Collaboration"
-        ]
-      },
-      {
-        "name": "Problem Solving",
-        "percentage": 95,
-        "items": [
-          "Analysis",
-          "Synthesis",
-          "Evaluation",
-          "Solution Design"
-        ]
-      },
-      {
-        "name": "Adaptability",
-        "percentage": 95,
-        "items": [
-          "Flexibility",
-          "Resilience",
-          "Adaptability"
-        ]
-      },
-      {
-        "name": "Critical Thinking",
-        "percentage": 100,
-        "items": []
-      },
-      {
-        "name": "Creativity",
-        "percentage": 97.3,
-        "items": [
-          "Idea Generation",
-          "Innovation",
-          "Problem Solving"
-        ]
-      },
-      {
-        "name": "Continuous Learning",
-        "percentage": 100,
-        "items": [
-          "Curiosity",
-          "Passion/Vocational",
-          "Self-taught"
-        ]
-      },
-      {
-        "name": "Organization",
-        "percentage": 95,
-        "items": [
-          "Management Tools"
-        ]
-      },
-      {
-        "name": "Responsibility",
-        "percentage": 100,
-        "items": [
-          "Commitment"
-        ]
-      },
-      {
-        "name": "Time Management",
-        "percentage": 60,
-        "items": [
-          "Activity Peaks"
-        ]
-      },
-      {
-        "name": "Backend Development",
-        "percentage": 90,
-        "items": [
-          "Node.js",
-          "Express",
-          "NestJS",
-          "SvelteKit",
-          "GO",
-          "Java",
-          "Python",
-          "Django",
-          "Flask"
-        ]
-      },
-      {
-        "name": "Frontend Development",
-        "percentage": 70,
-        "items": [
-          "HTML5",
-          "CSS3",
-          "JavaScript",
-          "TypeScript",
-          "React",
-          "Angular",
-          "Svelte"
-        ]
-      },
-      {
-        "name": "Databases",
-        "percentage": 80,
-        "items": [
-          "MongoDB",
-          "PostgreSQL",
-          "MySQL",
-          "Firebase",
-          "Cassandra",
-          "SQLite",
-          "Redis"
-        ]
-      },
-      {
-        "name": "DevOps",
-        "percentage": 90,
-        "items": [
-          "Docker",
-          "Kubernetes",
-          "CI/CD",
-          "AWS",
-          "Azure"
-        ]
-      },
-      {
-        "name": "Agile Methodologies",
-        "percentage": 85,
-        "items": [
-          "Kanban",
-          "Jira"
-        ]
-      },
-      {
-        "name": "UI/UX Design",
-        "percentage": 75,
-        "items": [
-          "Figma",
-          "Excalidraw",
-          "Adobe Photoshop",
-          "Sketch"
-        ]
-      },
-      {
-        "name": "Artificial Intelligence",
-        "percentage": 100,
-        "items": [
-          "ChatGPT",
-          "Cursor",
-          "GitHub Copilot",
-          "Claude",
-          "Gemini",
-          "Llama",
-          "DeepSeek",
-          "Perplexity AI"
-        ]
-      }
-    ]
-  }
+	"skills": [
+		{
+			"name": { "es": "Inteligencia Artificial", "en": "Artificial Intelligence" },
+			"items": [
+				"ChatGPT",
+				"Claude",
+				"Gemini",
+				"Llama",
+				"DeepSeek",
+				"Perplexity AI",
+				"Cursor",
+				"GitHub Copilot",
+				"Databricks"
+			]
+		},
+		{
+			"name": { "es": "Aprendizaje continuo", "en": "Continuous Learning" },
+			"items": {
+				"es": ["Curiosidad", "Autodidacta", "Pasión tecnológica"],
+				"en": ["Curiosity", "Self-taught", "Tech Enthusiasm"]
+			}
+		},
+		{
+			"name": { "es": "Trabajo en equipo", "en": "Teamwork" },
+			"items": {
+				"es": ["Comunicación", "Colaboración", "Empatía"],
+				"en": ["Communication", "Collaboration", "Empathy"]
+			}
+		},
+		{
+			"name": { "es": "Resolución de problemas", "en": "Problem Solving" },
+			"items": {
+				"es": ["Análisis", "Síntesis", "Evaluación", "Diseño de soluciones"],
+				"en": ["Analysis", "Synthesis", "Evaluation", "Solution Design"]
+			}
+		},
+		{
+			"name": { "es": "Adaptabilidad", "en": "Adaptability" },
+			"items": {
+				"es": ["Flexibilidad", "Resiliencia", "Aprendizaje rápido"],
+				"en": ["Flexibility", "Resilience", "Fast Learning"]
+			}
+		},
+		{
+			"name": { "es": "Pensamiento crítico", "en": "Critical Thinking" },
+			"items": {
+				"es": ["Toma de decisiones", "Razonamiento lógico", "Evaluación de riesgos"],
+				"en": ["Decision Making", "Logical Reasoning", "Risk Assessment"]
+			}
+		},
+		{
+			"name": { "es": "Creatividad", "en": "Creativity" },
+			"items": {
+				"es": ["Generación de ideas", "Innovación", "Solución creativa"],
+				"en": ["Idea Generation", "Innovation", "Creative Problem Solving"]
+			}
+		},
+		{
+			"name": { "es": "Organización", "en": "Organization" },
+			"items": {
+				"es": ["Gestión de tareas", "Priorización", "Documentación"],
+				"en": ["Task Management", "Prioritization", "Documentation"]
+			}
+		},
+		{
+			"name": { "es": "Desarrollo Backend", "en": "Backend Development" },
+			"items": [
+				"Node.js",
+				"Express",
+				"NestJS",
+				"SvelteKit",
+				"Go",
+				"Java",
+				"Python",
+				"Django",
+				"Flask",
+				"REST API",
+				"WebSockets",
+				"Discord API"
+			]
+		},
+		{
+			"name": { "es": "Desarrollo Frontend", "en": "Frontend Development" },
+			"items": [
+				"HTML5",
+				"CSS3",
+				"JavaScript",
+				"TypeScript",
+				"React",
+				"Angular",
+				"Svelte",
+				"Next.js",
+				"Vite",
+				"Electron"
+			]
+		},
+		{
+			"name": { "es": "Bases de datos", "en": "Databases" },
+			"items": ["MongoDB", "PostgreSQL", "MySQL", "SQLite", "Firebase", "Redis", "Cassandra"]
+		},
+		{
+			"name": "DevOps",
+			"items": [
+				"Docker",
+				"Kubernetes",
+				"GitHub Actions",
+				"GitLab CI",
+				"CI/CD",
+				"AWS",
+				"Azure",
+				"Google Cloud",
+				"Nginx",
+				"Apache"
+			]
+		},
+		{
+			"name": { "es": "Scripting & Automatización", "en": "Scripting & Automation" },
+			"items": ["Bash", "Python", "PowerShell", "cron", "Webhooks", "CLI tools"]
+		},
+		{
+			"name": { "es": "Redes & Sistemas", "en": "Networking & Systems" },
+			"items": [
+				"TCP/IP",
+				"DNS",
+				"SSH",
+				"Linux",
+				"Windows Server",
+				"Firewall",
+				"VPN",
+				"Packet Tracer"
+			]
+		},
+		{
+			"name": { "es": "Ciberseguridad", "en": "Cybersecurity" },
+			"items": [
+				"Endpoint Security",
+				"Network Security",
+				"OWASP",
+				"Threat Analysis",
+				"Incident Response"
+			]
+		},
+		{
+			"name": { "es": "Análisis de datos", "en": "Data Analysis" },
+			"items": ["Google Analytics", "SQL", "Data Visualization", "D3.js", "Databricks"]
+		},
+		{
+			"name": { "es": "Metodologías ágiles", "en": "Agile Methodologies" },
+			"items": ["Scrum", "Kanban", "Jira", "GitLab"]
+		},
+		{
+			"name": { "es": "Diseño UI/UX", "en": "UI/UX Design" },
+			"items": ["Figma", "Excalidraw", "Adobe Photoshop", "Sketch"]
+		}
+	]
 }

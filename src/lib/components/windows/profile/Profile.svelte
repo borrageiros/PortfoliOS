@@ -1,5 +1,7 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
+	import { goto } from '$app/navigation';
+	import { page } from '$app/stores';
 	import { loadData } from '../../../helpers';
 	import { locale } from '$lib/i18n/i18n';
 	import { t } from '$lib/i18n/i18n';
@@ -16,43 +18,67 @@
 	import Contact from './Contact.svelte';
 	import Reviews from './Reviews.svelte';
 	import Complementary from './Complementary.svelte';
+	import type {
+		Information as InformationData,
+		About as AboutData,
+		Career as CareerData,
+		Projects as ProjectsData,
+		Languages as LanguagesData,
+		Skills as SkillsData,
+		Informatic as InformaticData,
+		Certifications as CertificationsData,
+		Contact as ContactData,
+		Reviews as ReviewsData,
+		Complementary as ComplementaryData
+	} from '$lib/types/data';
 
 	export let initialTab: ProfileProps['initialTab'] = 'information';
+	const validProfileTabs = new Set(profileItems.map((item) => item.id));
 
 	// State to store loaded data
-	let information: any = null;
-	let about: any = null;
-	let career: any = null;
-	let projects: any = null;
-	let languages: any = null;
-	let skills: any = null;
-	let informatic: any = null;
-	let certifications: any = null;
-	let contact: any = null;
-	let reviews: any = null;
-	let complementary: any = null;
+	let information: InformationData | null = null;
+	let about: AboutData | null = null;
+	let career: CareerData | null = null;
+	let projects: ProjectsData | null = null;
+	let languages: LanguagesData | null = null;
+	let skills: SkillsData | null = null;
+	let informatic: InformaticData | null = null;
+	let certifications: CertificationsData | null = null;
+	let contact: ContactData | null = null;
+	let reviews: ReviewsData | null = null;
+	let complementary: ComplementaryData | null = null;
 
 	// State for the active menu
 	let activeMenu = initialTab;
+	$: if (initialTab && validProfileTabs.has(initialTab)) {
+		activeMenu = initialTab;
+	}
 
 	// Function to load all data
 	async function loadAllData() {
-		information = await loadData('information');
-		about = await loadData('about');
-		career = await loadData('career');
-		projects = await loadData('projects');
-		languages = await loadData('languages');
-		skills = await loadData('skills');
-		informatic = await loadData('informatic');
-		certifications = await loadData('certifications');
-		contact = await loadData('contact');
-		reviews = await loadData('reviews');
-		complementary = await loadData('complementary');
+		information = await loadData<InformationData>('information');
+		about = await loadData<AboutData>('about');
+		career = await loadData<CareerData>('career');
+		projects = await loadData<ProjectsData>('projects');
+		languages = await loadData<LanguagesData>('languages');
+		skills = await loadData<SkillsData>('skills');
+		informatic = await loadData<InformaticData>('informatic');
+		certifications = await loadData<CertificationsData>('certifications');
+		contact = await loadData<ContactData>('contact');
+		reviews = await loadData<ReviewsData>('reviews');
+		complementary = await loadData<ComplementaryData>('complementary');
 	}
 
 	// Function to change the active menu
 	function setActiveMenu(menu: ProfileProps['initialTab']) {
 		activeMenu = menu;
+		const params = new URLSearchParams($page.url.searchParams);
+		params.set('profile', menu);
+		goto(`${$page.url.pathname}?${params.toString()}`, {
+			replaceState: true,
+			noScroll: true,
+			keepFocus: true
+		});
 		const contentArea = document.querySelector('.content-area');
 		if (contentArea) {
 			contentArea.scrollTop = 0;
@@ -82,7 +108,7 @@
 			<span>{(information && information.alias) || ''}</span>
 		</div>
 		<div class="menu-items">
-			{#each profileItems as item}
+			{#each profileItems as item (item.id)}
 				<div
 					class="menu-item {activeMenu === item.id ? 'active' : ''}"
 					on:click={() => setActiveMenu(item.id as ProfileProps['initialTab'])}

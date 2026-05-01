@@ -3,7 +3,7 @@
 	import { theme, toggleTheme, getThemeIcon } from '$lib/theme/theme';
 	import { goto } from '$app/navigation';
 	import Icon from '$lib/components/Icon.svelte';
-	import { onMount } from 'svelte';
+	import VersionSwitchButton from '$lib/components/VersionSwitchButton.svelte';
 
 	const users = [
 		{ id: 'recruiter', fallbackIcon: '👔' },
@@ -11,6 +11,13 @@
 		{ id: 'stalker', fallbackIcon: '🕵️' },
 		{ id: 'adventurer', fallbackIcon: '🧭' }
 	];
+
+	function getBackgroundForProfile(profile: string): string {
+		const validProfiles = new Set(['recruiter', 'developer', 'stalker', 'adventurer']);
+		return validProfiles.has(profile)
+			? `/images/backgrounds/${profile}.jpg`
+			: '/images/backgrounds/general.jpg';
+	}
 
 	let loading = false;
 	let selectedUser = '';
@@ -34,7 +41,10 @@
 </script>
 
 <div class="login-container">
-	<div class="login-background"></div>
+	<div
+		class="login-background"
+		style="background-image: url('{getBackgroundForProfile(selectedUser)}')"
+	></div>
 
 	{#if loading}
 		<div class="loading-screen">
@@ -69,7 +79,7 @@
 			</div>
 
 			<div class="users-container">
-				{#each users as user}
+				{#each users as user (user.id)}
 					<div
 						class="user-card"
 						on:click={() => selectUser(user.id)}
@@ -111,8 +121,17 @@
 			</div>
 		</div>
 
-		<div class="power-button" role="button" tabindex="0">
-			<Icon name="power" size="24" />
+		<div class="bottom-actions">
+			<VersionSwitchButton
+				label={$t('login.switchToMobile')}
+				title={$t('login.switchToMobile')}
+				destination="/basic"
+				variant="pill"
+			/>
+
+			<div class="power-button" role="button" tabindex="0">
+				<Icon name="power" size="24" />
+			</div>
 		</div>
 	{/if}
 </div>
@@ -135,7 +154,6 @@
 		left: 0;
 		width: 100%;
 		height: 100vh;
-		background-image: url('/images/background.jpg');
 		background-size: cover;
 		background-position: center;
 		filter: blur(5px);
@@ -258,10 +276,16 @@
 		font-weight: bold;
 	}
 
-	.power-button {
+	.bottom-actions {
 		position: absolute;
 		bottom: 30px;
 		right: 30px;
+		display: flex;
+		align-items: center;
+		gap: 12px;
+	}
+
+	.power-button {
 		background-color: var(--taskbar-hover);
 		border-radius: 50%;
 		width: 50px;

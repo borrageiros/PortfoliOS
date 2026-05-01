@@ -11,6 +11,7 @@
 	}
 
 	interface DataObject {
+		// eslint-disable-next-line @typescript-eslint/no-explicit-any
 		[key: string]: any;
 	}
 
@@ -31,8 +32,8 @@
 	let isLoading = false;
 	let chatContainer: HTMLDivElement;
 	let inputElement: HTMLInputElement;
-	let dataLoaded = false;
-	let dataLoadError = '';
+	let _dataLoaded = false;
+	let _dataLoadError = '';
 	let conversationContext: {
 		lastTopic?: string;
 		mentionedTopics: Set<string>;
@@ -110,7 +111,7 @@
 			if (onHistoryUpdate) {
 				onHistoryUpdate(messages);
 			}
-		} catch (error) {
+		} catch {
 			const errorMessage = $t('chatbot.error');
 			messages = [...messages, { text: errorMessage, isUser: false }];
 
@@ -138,22 +139,10 @@
 	// Load data using the helper function
 	async function loadAllData() {
 		try {
-			// Load all data
 			data.information = await loadData('information');
 			data.about = await loadData('about');
 			data.career = await loadData('career');
-
-			// Load projects data directly using fetch to get full structure
-			try {
-				const projectsResponse = await fetch('/data/projects.json');
-				if (projectsResponse.ok) {
-					data.projects = await projectsResponse.json();
-				} else {
-					console.error('Failed to load projects data');
-				}
-			} catch (projectsError) {
-				console.error('Error loading projects:', projectsError);
-			}
+			data.projects = await loadData('projects');
 
 			data.languages = await loadData('languages');
 			data.skills = await loadData('skills');
@@ -167,11 +156,11 @@
 			if (data.information || data.about || data.projects) {
 				return true;
 			} else {
-				dataLoadError = 'Could not load main data';
+				_dataLoadError = 'Could not load main data';
 				return false;
 			}
 		} catch (error) {
-			dataLoadError = error instanceof Error ? error.message : 'Unknown error';
+			_dataLoadError = error instanceof Error ? error.message : 'Unknown error';
 			return false;
 		}
 	}
@@ -183,11 +172,6 @@
 				chatContainer.scrollTop = chatContainer.scrollHeight;
 			}, 100);
 		}
-	}
-
-	// Check if a topic was recently mentioned to avoid repetition
-	function wasMentioned(topic: string): boolean {
-		return conversationContext.mentionedTopics.has(topic);
 	}
 
 	// Add a topic to the mentioned list
@@ -283,236 +267,171 @@
 
 			// INFORMATIVE QUESTIONS
 
-			// General questions about Adrian
 			if (
 				doc.match(
 					'(quien es|cuéntame (sobre|acerca de)|háblame de|who is|tell me about|acerca|sobre) (adrian|adrián|él|el|him)'
 				).found
 			) {
 				if (data.about && data.information) {
-					const name = data.information[$locale]?.name || '';
-					const job = data.information[$locale]?.job || $t('profile.job');
-					const description = data.about[$locale]?.description?.split('\n')[0] || '';
-
+					const name = data.information.name || '';
+					const job = data.information.job || $t('profile.job');
+					const description = data.about.description?.split('\n')[0] || '';
 					return personalize(getRandomResponse('aboutPerson', { name, job, description }));
 				}
 			}
 
-			// Name detection or personal
 			if (doc.match('(nombre|name|who are you|quien eres)').found) {
-				return data.information?.[$locale]?.name || '';
+				return data.information?.name || '';
 			}
 
-			// Contact or email
 			if (doc.match('(contact|email|correo|mail)').found) {
 				addToMentioned('contact');
 				return personalize(
 					getRandomResponse('contactInfo', {
-						email: data.information?.[$locale]?.email || ''
+						email: data.information?.email || ''
 					})
 				);
 			}
 
-			// Location
 			if (doc.match('(where|dónde|location|ubicación|vive|live)').found) {
 				return personalize(
 					getRandomResponse('location', {
-						location: data.information?.[$locale]?.location || ''
+						location: data.information?.location || ''
 					})
 				);
 			}
 
-			// Current job
 			if (doc.match('(trabajo actual|current job|job|empresa|company|trabaja|work)').found) {
 				addToMentioned('experience');
-				const job = data.information?.[$locale]?.currentJob;
+				const job = data.information?.currentJob;
 				if (job) {
 					return personalize(getRandomResponse('currentJob', { company: job.label, url: job.url }));
-				} else {
-					return getRandomResponse('defaultJob');
 				}
+				return getRandomResponse('defaultJob');
 			}
 
-			// About him or description
 			if (doc.match('(about|sobre|descripción|description)').found) {
-				const description = data.about?.[$locale]?.description;
+				const description = data.about?.description;
 				if (description) {
-					// Return only first paragraph to avoid being too long
 					return personalize(
 						getRandomResponse('aboutDescription', {
 							description: description.split('\n')[0]
 						})
 					);
-				} else {
-					return getRandomResponse('defaultAbout');
 				}
+				return getRandomResponse('defaultAbout');
 			}
 
-			// SKILLS
-
-			// Skills search
 			if (doc.match('(skills|habilidades|technologies|tecnologías|sabe hacer|can do)').found) {
 				addToMentioned('skills');
-				if (data.skills?.[$locale]?.categories) {
-					const categories = data.skills[$locale].categories;
-					const skillsList = categories.map((cat: { name: string }) => cat.name).join(', ');
-					return personalize(getRandomResponse('skills', { skills: skillsList }));
-				} else if (data.skills?.[$locale]?.skills) {
-					const skills = data.skills[$locale].skills;
+				const skills = data.skills?.skills || [];
+				if (skills.length > 0) {
 					const topSkills = skills
-						.slice(0, 5)
-						.map((skill: any) => skill.name)
+						.slice(0, 6)
+						.map((skill: { name: string }) => skill.name)
 						.join(', ');
 					return personalize(getRandomResponse('topSkills', { skills: topSkills }));
-				} else {
-					return getRandomResponse('defaultSkills');
 				}
+				return getRandomResponse('defaultSkills');
 			}
 
-			// Programming languages search
 			if (doc.match('(lenguajes|programming|programación|code|código)').found) {
 				addToMentioned('programming');
-				if (data.informatic?.[$locale]?.programming) {
-					const languages = data.informatic[$locale].programming;
+				const languages = data.informatic?.programming || [];
+				if (languages.length > 0) {
 					const langList = languages
-						.slice(0, 5)
-						.map((l: any) => l.name)
+						.slice(0, 6)
+						.map((l: { name: string }) => l.name)
 						.join(', ');
 					return personalize(getRandomResponse('programmingLanguages', { languages: langList }));
-				} else {
-					return getRandomResponse('defaultProgramming');
 				}
+				return getRandomResponse('defaultProgramming');
 			}
 
-			// PROJECTS
-
-			// Questions about projects
 			if (doc.match('(proyecto|proyectos|project|projects)').found) {
-				// Force showing real project data every time
 				try {
-					// Direct access to data structure without filtering by locale first
-					const relevantProjects =
-						data.projects?.[$locale]?.relevant?.projects ||
-						data.projects?.es?.relevant?.projects ||
-						[];
+					const relevantProjects = data.projects?.relevant?.projects || [];
+					const personalProjects = data.projects?.personal?.projects || [];
+					const professionalProjects = data.projects?.professional?.projects || [];
+					const allProjects = [...relevantProjects, ...personalProjects, ...professionalProjects];
 
-					if (relevantProjects && relevantProjects.length > 0) {
-						// Get total projects count across all categories
-						let totalCount = 0;
-						let allProjects = [];
-
-						// Count & collect relevant projects
-						totalCount += relevantProjects.length || 0;
-						allProjects.push(...relevantProjects);
-
-						// Count & collect personal projects
-						const personalProjects =
-							data.projects?.[$locale]?.personal?.projects ||
-							data.projects?.es?.personal?.projects ||
-							[];
-						totalCount += personalProjects.length || 0;
-						allProjects.push(...personalProjects);
-
-						// Count & collect professional projects
-						const professionalProjects =
-							data.projects?.[$locale]?.professional?.projects ||
-							data.projects?.es?.professional?.projects ||
-							[];
-						totalCount += professionalProjects.length || 0;
-						allProjects.push(...professionalProjects);
-
-						// Randomly select 3 different projects to show variety
+					if (allProjects.length > 0) {
 						const shuffledProjects = [...allProjects].sort(() => 0.5 - Math.random());
 						const selectedProjects = shuffledProjects.slice(0, 3);
-						const projectsList = selectedProjects.map((p: any) => p.name).join(', ');
-
-						// Don't use wasMentioned check to always show real data
+						const projectsList = selectedProjects.map((p: { name: string }) => p.name).join(', ');
 						const randomSelector = Math.random();
+
 						if (randomSelector < 0.33) {
 							return personalize(
 								getRandomResponse('projects', {
-									count: String(totalCount),
+									count: String(allProjects.length),
 									projects: projectsList
-								})
-							);
-						} else if (randomSelector < 0.66) {
-							return personalize(
-								getRandomResponse('featuredProjects', {
-									projects: projectsList
-								})
-							);
-						} else {
-							// Get a random project to highlight from the full collection
-							const randomProject = shuffledProjects[0];
-							return personalize(
-								getRandomResponse('singleProject', {
-									name: randomProject.name,
-									description: randomProject.description
 								})
 							);
 						}
+
+						if (randomSelector < 0.66) {
+							return personalize(getRandomResponse('featuredProjects', { projects: projectsList }));
+						}
+
+						const randomProject = shuffledProjects[0];
+						return personalize(
+							getRandomResponse('singleProject', {
+								name: randomProject.name,
+								description: randomProject.description
+							})
+						);
 					}
 				} catch (error) {
 					console.error('Error processing projects question:', error);
 				}
 
-				// Fallback to default response if above fails
 				return getRandomResponse('defaultProjects');
 			}
-
-			// LANGUAGES
 
 			if (
 				doc.match('(languages|idiomas|lenguajes)').found &&
 				!doc.match('(programming|programación|code|código)').found
 			) {
 				addToMentioned('languages');
-				if (data.languages?.[$locale]?.languages) {
-					const languagesList = data.languages[$locale].languages
-						.map((l: Language) => `${l.name} (${l.level})`)
-						.join(', ');
+				const languages = data.languages?.languages || [];
+				if (languages.length > 0) {
+					const languagesList = languages.map((l: Language) => `${l.name} (${l.level})`).join(', ');
 					return personalize(getRandomResponse('languages', { languages: languagesList }));
-				} else {
-					return getRandomResponse('defaultLanguages');
 				}
+				return getRandomResponse('defaultLanguages');
 			}
-
-			// CERTIFICATIONS
 
 			if (doc.match('(certificates|certifications|certificados|certificaciones)').found) {
 				addToMentioned('certifications');
-				if (data.certifications?.[$locale]?.certificates) {
-					const certCount = data.certifications[$locale].certificates.length;
-					const certList = data.certifications[$locale].certificates
+				const certificationsByIssuer = data.certifications?.certifications || {};
+				const certs = Object.values(certificationsByIssuer).flat() as Array<{ name: string }>;
+				if (certs.length > 0) {
+					const certList = certs
 						.slice(0, 3)
-						.map((cert: any) => cert.name)
+						.map((cert) => cert.name)
 						.join(', ');
-
 					return personalize(
-						getRandomResponse('certifications', { count: certCount, certs: certList })
+						getRandomResponse('certifications', { count: String(certs.length), certs: certList })
 					);
-				} else {
-					return getRandomResponse('defaultCertifications');
 				}
+				return getRandomResponse('defaultCertifications');
 			}
-
-			// EXPERIENCE
 
 			if (doc.match('(career|careera|experience|experiencia|trabajos|jobs)').found) {
 				addToMentioned('experience');
-				if (data.career?.[$locale]?.jobs) {
-					const jobs = data.career[$locale].jobs || [];
-					const lastJob = jobs[0];
-					if (lastJob) {
-						return personalize(
-							getRandomResponse('currentPosition', {
-								company: lastJob.company,
-								position: lastJob.what
-							})
-						);
-					}
+				const workSteps = (data.career?.steps || []).filter(
+					(step: { type: string }) => step.type === 'work'
+				);
+				const lastJob = workSteps[workSteps.length - 1];
+				if (lastJob) {
+					return personalize(
+						getRandomResponse('currentPosition', {
+							company: lastJob.where,
+							position: lastJob.what
+						})
+					);
 				}
-
 				return getRandomResponse('defaultPosition');
 			}
 
@@ -555,36 +474,35 @@
 			// Keyword search if no specific match was found
 			const keywords = normalizedQuestion.split(/\s+/).filter((word) => word.length > 3);
 			for (const keyword of keywords) {
-				// Search in general information
-				if (data.about?.[$locale]?.description?.toLowerCase().includes(keyword)) {
-					return data.about[$locale].description.split('\n')[0];
+				if (data.about?.description?.toLowerCase().includes(keyword)) {
+					return data.about.description.split('\n')[0];
 				}
 
-				// Search in skills
-				if (data.skills?.[$locale]?.categories) {
-					for (const category of data.skills[$locale].categories) {
+				if (data.skills?.skills) {
+					for (const category of data.skills.skills) {
 						if (category.name.toLowerCase().includes(keyword)) {
 							return personalize(getRandomResponse('skillCategory', { category: category.name }));
 						}
 					}
 				}
 
-				// Search in projects
-				if (data.projects?.[$locale]?.categories) {
-					for (const category of data.projects[$locale].categories) {
-						for (const project of category.projects || []) {
-							if (
-								project.name.toLowerCase().includes(keyword) ||
-								(project.description && project.description.toLowerCase().includes(keyword))
-							) {
-								return personalize(
-									getRandomResponse('projectDescription', {
-										name: project.name,
-										description: project.description
-									})
-								);
-							}
-						}
+				const projectBuckets = [
+					...(data.projects?.relevant?.projects || []),
+					...(data.projects?.personal?.projects || []),
+					...(data.projects?.professional?.projects || [])
+				];
+
+				for (const project of projectBuckets) {
+					if (
+						project.name.toLowerCase().includes(keyword) ||
+						(project.description && project.description.toLowerCase().includes(keyword))
+					) {
+						return personalize(
+							getRandomResponse('projectDescription', {
+								name: project.name,
+								description: project.description
+							})
+						);
 					}
 				}
 			}
@@ -609,7 +527,7 @@
 
 			// Default response
 			return getRandomResponse('defaultResponse');
-		} catch (error) {
+		} catch {
 			return $t('chatbot.error');
 		}
 	}
@@ -627,7 +545,7 @@
 
 	onMount(async () => {
 		try {
-			dataLoaded = await loadAllData();
+			_dataLoaded = await loadAllData();
 
 			// Welcome message
 			messages = [
@@ -666,7 +584,7 @@
 
 <div class="chatbot-container">
 	<div class="chat-messages" bind:this={chatContainer}>
-		{#each messages as message}
+		{#each messages as message, i (i)}
 			<div class="message {message.isUser ? 'user-message' : 'bot-message'}">
 				<div class="message-content">
 					{message.text}

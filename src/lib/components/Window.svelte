@@ -35,7 +35,7 @@
 	let previousMinimizedState = { width, height, x, y }; // To restore after minimizing
 
 	// Shake detection variables
-	let lastDragTime = 0;
+	let _lastDragTime = 0;
 	let dragPoints: { x: number; time: number }[] = [];
 	let shakeThreshold = 3;
 	let shakeTimeout: NodeJS.Timeout | null = null;
@@ -45,10 +45,10 @@
 
 	// Deformation variables
 	let lastX = 0;
-	let lastY = 0;
+	let _lastY = 0;
 	let velocityX = 0;
 	let skewAmount = 0;
-	let lastMoveTime = 0;
+	let _lastMoveTime = 0;
 	let deformationTimeout: NodeJS.Timeout | null = null;
 
 	// Snap zones
@@ -218,8 +218,8 @@
 			}
 
 			lastX = currentX;
-			lastY = currentY;
-			lastMoveTime = currentTime;
+			_lastY = currentY;
+			_lastMoveTime = currentTime;
 
 			// Reset deformation if the mouse stops
 			if (deformationTimeout) {
@@ -231,7 +231,7 @@
 			detectShake(currentX, currentTime);
 		} else if (isResizing) {
 			// Calculate the original aspect ratio for a more natural resizing
-			const aspectRatio = resizeStartWidth / resizeStartHeight;
+			const _aspectRatio = resizeStartWidth / resizeStartHeight;
 
 			// Calculate the change in X and Y since the resizing started
 			const deltaX = event.clientX - resizeStartX;

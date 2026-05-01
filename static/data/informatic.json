@@ -1,194 +1,72 @@
 {
-  "es": {
-    "programming": [
-      {
-        "name": "TypeScript",
-        "level": "Avanzado",
-        "percentage": 95,
-        "icon": "typescript"
-      },
-      {
-        "name": "JavaScript",
-        "level": "Avanzado",
-        "percentage": 95,
-        "icon": "javascript"
-      },
-      {
-        "name": "Bash",
-        "level": "Avanzado",
-        "percentage": 95,
-        "icon": "bash"
-      },
-      {
-        "name": "HTML",
-        "level": "Avanzado",
-        "percentage": 95,
-        "icon": "html"
-      },
-      {
-        "name": "CSS",
-        "level": "Avanzado",
-        "percentage": 95,
-        "icon": "css"
-      },
-      {
-        "name": "Python",
-        "level": "Intermedio",
-        "percentage": 80,
-        "icon": "python"
-      },
-      {
-        "name": "Java",
-        "level": "Intermedio",
-        "percentage": 70,
-        "icon": "java"
-      },
-      {
-        "name": "C#",
-        "level": "Básico",
-        "percentage": 60,
-        "icon": "csharp"
-      },
-      {
-        "name": "PHP",
-        "level": "Intermedio",
-        "percentage": 60,
-        "icon": "php"
-      }
-    ],
-    "software": [
-      {
-        "name": "Visual Studio Code",
-        "level": "Avanzado",
-        "percentage": 95,
-        "icon": "vscode"
-      },
-      {
-        "name": "Cursor",
-        "level": "Avanzado",
-        "percentage": 95,
-        "icon": "cursor"
-      },
-      {
-        "name": "Git",
-        "level": "Avanzado",
-        "percentage": 95,
-        "icon": "git"
-      },
-      {
-        "name": "JIRA",
-        "level": "Avanzado",
-        "percentage": 90,
-        "icon": "jira"
-      },
-      {
-        "name": "Adobe Photoshop",
-        "level": "Intermedio",
-        "percentage": 70,
-        "icon": "photoshop"
-      },
-      {
-        "name": "Microsoft Office",
-        "level": "Avanzado",
-        "percentage": 85,
-        "icon": "office"
-      }
-    ]
-  },
-  "en": {
-    "programming": [
-      {
-        "name": "TypeScript",
-        "level": "Advanced",
-        "percentage": 95,
-        "icon": "typescript"
-      },
-      {
-        "name": "JavaScript",
-        "level": "Advanced",
-        "percentage": 95,
-        "icon": "javascript"
-      },
-      {
-        "name": "Bash",
-        "level": "Advanced",
-        "percentage": 95,
-        "icon": "bash"
-      },
-      {
-        "name": "HTML",
-        "level": "Advanced",
-        "percentage": 95,
-        "icon": "html"
-      },
-      {
-        "name": "CSS",
-        "level": "Advanced",
-        "percentage": 95,
-        "icon": "css"
-      },
-      {
-        "name": "Python",
-        "level": "Intermediate",
-        "percentage": 80,
-        "icon": "python"
-      },
-      {
-        "name": "Java",
-        "level": "Intermediate",
-        "percentage": 70,
-        "icon": "java"
-      },
-      {
-        "name": "C#",
-        "level": "Basic",
-        "percentage": 60,
-        "icon": "csharp"
-      },
-      {
-        "name": "PHP",
-        "level": "Intermediate",
-        "percentage": 60,
-        "icon": "php"
-      }
-    ],
-    "software": [
-      {
-        "name": "Visual Studio Code",
-        "level": "Advanced",
-        "percentage": 95,
-        "icon": "vscode"
-      },
-      {
-        "name": "Cursor",
-        "level": "Advanced",
-        "percentage": 95,
-        "icon": "cursor"
-      },
-      {
-        "name": "Git",
-        "level": "Advanced",
-        "percentage": 95,
-        "icon": "git"
-      },
-      {
-        "name": "JIRA",
-        "level": "Advanced",
-        "percentage": 90,
-        "icon": "jira"
-      },
-      {
-        "name": "Adobe Photoshop",
-        "level": "Intermediate",
-        "percentage": 70,
-        "icon": "photoshop"
-      },
-      {
-        "name": "Microsoft Office",
-        "level": "Advanced",
-        "percentage": 85,
-        "icon": "office"
-      }
-    ]
-  }
+	"programming": [
+		{ "name": "TypeScript", "level": { "es": "Avanzado", "en": "Advanced" }, "icon": "typescript" },
+		{ "name": "JavaScript", "level": { "es": "Avanzado", "en": "Advanced" }, "icon": "javascript" },
+		{ "name": "Bash", "level": { "es": "Avanzado", "en": "Advanced" }, "icon": "bash" },
+		{ "name": "HTML", "level": { "es": "Avanzado", "en": "Advanced" }, "icon": "html" },
+		{ "name": "CSS", "level": { "es": "Avanzado", "en": "Advanced" }, "icon": "css" },
+		{ "name": "SQL", "level": { "es": "Avanzado", "en": "Advanced" }, "icon": "sql" },
+		{ "name": "Python", "level": { "es": "Intermedio", "en": "Intermediate" }, "icon": "python" },
+		{ "name": "Java", "level": { "es": "Intermedio", "en": "Intermediate" }, "icon": "java" },
+		{
+			"name": "PowerShell",
+			"level": { "es": "Intermedio", "en": "Intermediate" },
+			"icon": "powershell"
+		},
+		{ "name": "PHP", "level": { "es": "Intermedio", "en": "Intermediate" }, "icon": "php" },
+		{ "name": "Go", "level": { "es": "Básico", "en": "Basic" }, "icon": "go" },
+		{ "name": "C#", "level": { "es": "Básico", "en": "Basic" }, "icon": "csharp" }
+	],
+	"ai": [
+		{ "name": "Cursor", "level": { "es": "Avanzado", "en": "Advanced" }, "icon": "cursor" },
+		{ "name": "Claude", "level": { "es": "Avanzado", "en": "Advanced" }, "icon": "claude" },
+		{ "name": "Gemini", "level": { "es": "Avanzado", "en": "Advanced" }, "icon": "gemini" },
+		{ "name": "Llama", "level": { "es": "Avanzado", "en": "Advanced" }, "icon": "llama" },
+		{ "name": "ChatGPT", "level": { "es": "Avanzado", "en": "Advanced" }, "icon": "chatgpt" },
+		{
+			"name": "GitHub Copilot",
+			"level": { "es": "Intermedio", "en": "Intermediate" },
+			"icon": "copilot"
+		},
+		{
+			"name": "DeepSeek",
+			"level": { "es": "Intermedio", "en": "Intermediate" },
+			"icon": "deepseek"
+		},
+		{
+			"name": "Perplexity AI",
+			"level": { "es": "Intermedio", "en": "Intermediate" },
+			"icon": "perplexity"
+		}
+	],
+	"software": [
+		{ "name": "Git", "level": { "es": "Avanzado", "en": "Advanced" }, "icon": "git" },
+		{ "name": "GitHub", "level": { "es": "Avanzado", "en": "Advanced" }, "icon": "github" },
+		{ "name": "GitLab", "level": { "es": "Avanzado", "en": "Advanced" }, "icon": "gitlab" },
+		{ "name": "Docker", "level": { "es": "Avanzado", "en": "Advanced" }, "icon": "docker" },
+		{
+			"name": "Visual Studio Code",
+			"level": { "es": "Avanzado", "en": "Advanced" },
+			"icon": "vscode"
+		},
+		{ "name": "Cursor", "level": { "es": "Avanzado", "en": "Advanced" }, "icon": "cursor" },
+		{ "name": "JIRA", "level": { "es": "Avanzado", "en": "Advanced" }, "icon": "jira" },
+		{ "name": "Postman", "level": { "es": "Avanzado", "en": "Advanced" }, "icon": "postman" },
+		{ "name": "Figma", "level": { "es": "Intermedio", "en": "Intermediate" }, "icon": "figma" },
+		{
+			"name": "Excalidraw",
+			"level": { "es": "Intermedio", "en": "Intermediate" },
+			"icon": "excalidraw"
+		},
+		{
+			"name": "Adobe Photoshop",
+			"level": { "es": "Intermedio", "en": "Intermediate" },
+			"icon": "photoshop"
+		},
+		{
+			"name": "Microsoft Office",
+			"level": { "es": "Avanzado", "en": "Advanced" },
+			"icon": "office"
+		}
+	]
 }

@@ -13,6 +13,9 @@ export const icons: Record<string, string> = {
 	user: '<path d="M20 21v-1a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v1"/><circle cx="12" cy="7" r="4"/>',
 	globe:
 		'<circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>',
+	youtube:
+		'<path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 0 0-1.95 1.96A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58a2.78 2.78 0 0 0 1.95 1.96C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.96A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58"/><polygon points="10,15 16,12 10,9"/>',
+	code: '<polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/>',
 	paint:
 		'<path xmlns="http://www.w3.org/2000/svg" d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"/>',
 	calculator:
@@ -23,6 +26,10 @@ export const icons: Record<string, string> = {
 	power: '<path d="M18.36 6.64a9 9 0 1 1-12.73 0"/><line x1="12" y1="2" x2="12" y2="12"/>',
 	monitor:
 		'<rect xmlns="http://www.w3.org/2000/svg" x="2" y="3" width="20" height="14" rx="2" ry="2"/><line xmlns="http://www.w3.org/2000/svg" x1="8" y1="21" x2="16" y2="21"/><line xmlns="http://www.w3.org/2000/svg" x1="12" y1="17" x2="12" y2="21"/>',
+	'fullscreen-enter':
+		'<polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/>',
+	'fullscreen-exit':
+		'<line x1="3" y1="21" x2="10" y2="14"/><polyline points="10 20 10 14 4 14"/><line x1="21" y1="3" x2="14" y2="10"/><polyline points="14 4 14 10 20 10"/>',
 	send: '<path d="M22 2L11 13"/><path d="M22 2L15 22L11 13L2 9L22 2z"/>',
 	'check-circle':
 		'<path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/>',
@@ -91,5 +98,13 @@ export const icons: Record<string, string> = {
 		'<path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>',
 	target:
 		'<circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle>',
-	tool: '<path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path>'
+	tool: '<path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path>',
+
+	// Flags
+	flag_es:
+		'<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 60 40"><rect width="60" height="40" fill="#c60b1e"/><rect y="10" width="60" height="20" fill="#ffc400"/></svg>',
+	flag_gl:
+		'<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 60 40"><rect width="60" height="40" fill="#ffffff"/><polygon points="0,40 14,40 60,0 46,0" fill="#2c6db5"/></svg>',
+	flag_en:
+		'<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 60 40"><rect width="60" height="40" fill="#012169"/><line x1="0" y1="0" x2="60" y2="40" stroke="#ffffff" stroke-width="10"/><line x1="60" y1="0" x2="0" y2="40" stroke="#ffffff" stroke-width="10"/><line x1="0" y1="0" x2="60" y2="40" stroke="#c8102e" stroke-width="4"/><line x1="60" y1="0" x2="0" y2="40" stroke="#c8102e" stroke-width="4"/><rect x="24" y="0" width="12" height="40" fill="#ffffff"/><rect x="0" y="14" width="60" height="12" fill="#ffffff"/><rect x="26" y="0" width="8" height="40" fill="#c8102e"/><rect x="0" y="16" width="60" height="8" fill="#c8102e"/></svg>'
 };

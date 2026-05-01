@@ -1,100 +1,67 @@
 {
-  "es": {
-    "steps": [
-      {
-        "type": "school",
-        "where": "IES Fernando Wirtz Suarez",
-        "url": "https://www.fernandowirtz.com/",
-        "what": "Sistemas microinformáticos y redes",
-        "logo": "/data/images/career/ies_fernando_wirtz_suarez.png",
-        "from": "11/09/2018",
-        "to": "20/06/2020"
-      },
-      {
-        "type": "school",
-        "where": "Centro de Formación Profesional Afundación",
-        "url": "https://www.afundacion.org/es/centros/centro/sede_afundacion_a_coruna",
-        "what": "Desarrollo de Aplicaciones Web",
-        "logo": "/data/images/career/afundacion.png",
-        "from": "11/09/2021",
-        "to": "20/06/2023"
-      },
-      {
-        "type": "work",
-        "where": "NetexLearning",
-        "url": "https://www.netexlearning.com/",
-        "what": "Beca - Desarrollador Full Stack en prácticas",
-        "logo": "/data/images/career/netexlearning.png",
-        "from": "01/03/2023",
-        "to": "01/01/2024"
-      },
-      {
-        "type": "work",
-        "where": "NetexLearning",
-        "url": "https://www.netexlearning.com/",
-        "what": "Desarrollador Full Stack",
-        "logo": "/data/images/career/netexlearning.png",
-        "from": "01/01/2024",
-        "to": "01/01/2026"
-      },
-      {
-        "type": "work",
-        "where": "Smarted Soluciones Educativas - Sarela",
-        "url": "https://www.netexlearning.com/sarela/",
-        "what": "Desarrollador Full Stack",
-        "logo": "/data/images/career/sarela.ico",
-        "from": "01/01/2026",
-        "to": "Presente"
-      }
-    ]
-  },
-  "en": {
-    "steps": [
-      {
-        "type": "school",
-        "where": "IES Fernando Wirtz Suarez",
-        "url": "https://www.fernandowirtz.com/",
-        "what": "Microcomputer Systems and Networks",
-        "logo": "/data/images/career/ies_fernando_wirtz_suarez.png",
-        "from": "11/09/2018",
-        "to": "20/06/2020"
-      },
-      {
-        "type": "school",
-        "where": "Centro de Formación Profesional Afundación",
-        "url": "https://www.afundacion.org/es/centros/centro/sede_afundacion_a_coruna",
-        "what": "Web Development Applications",
-        "logo": "/data/images/career/afundacion.png",
-        "from": "11/09/2021",
-        "to": "20/06/2023"
-      },
-      {
-        "type": "work",
-        "where": "NetexLearning",
-        "url": "https://www.netexlearning.com/",
-        "what": "Scholarship - Full Stack Developer in practice",
-        "logo": "/data/images/career/netexlearning.png",
-        "from": "01/03/2023",
-        "to": "01/01/2024"
-      },
-      {
-        "type": "work",
-        "where": "NetexLearning",
-        "url": "https://www.netexlearning.com/",
-        "what": "Full Stack Developer",
-        "logo": "/data/images/career/netexlearning.png",
-        "from": "01/01/2024",
-        "to": "01/01/2026"
-      },
-      {
-        "type": "work",
-        "where": "Smarted Soluciones Educativas - Sarela",
-        "url": "https://www.netexlearning.com/sarela/",
-        "what": "Full Stack Developer",
-        "logo": "/data/images/career/sarela.ico",
-        "from": "01/01/2026",
-        "to": "Present"
-      }
-    ]
-  }
+	"steps": [
+		{
+			"type": "school",
+			"where": "IES Fernando Wirtz Suarez",
+			"url": "https://www.fernandowirtz.com/",
+			"what": {
+				"es": "Sistemas microinformáticos y redes",
+				"en": "Microcomputer Systems and Networks"
+			},
+			"logo": "/data/images/career/ies_fernando_wirtz_suarez.png",
+			"from": "11/09/2018",
+			"to": "20/06/2020"
+		},
+		{
+			"type": "school",
+			"where": "Centro de Formación Profesional Afundación",
+			"url": "https://www.afundacion.org/es/centros/centro/sede_afundacion_a_coruna",
+			"what": {
+				"es": "Desarrollo de Aplicaciones Web",
+				"en": "Web Development Applications"
+			},
+			"logo": "/data/images/career/afundacion.png",
+			"from": "11/09/2021",
+			"to": "20/06/2023"
+		},
+		{
+			"type": "work",
+			"where": "NetexLearning",
+			"url": "https://www.netexlearning.com/",
+			"what": {
+				"es": "Beca - Desarrollador Full Stack en prácticas",
+				"en": "Scholarship - Full Stack Developer in practice"
+			},
+			"logo": "/data/images/career/netexlearning.png",
+			"from": "01/03/2023",
+			"to": "01/01/2024"
+		},
+		{
+			"type": "work",
+			"where": "NetexLearning",
+			"url": "https://www.netexlearning.com/",
+			"what": {
+				"es": "Desarrollador Full Stack",
+				"en": "Full Stack Developer"
+			},
+			"logo": "/data/images/career/netexlearning.png",
+			"from": "01/01/2024",
+			"to": "01/01/2026"
+		},
+		{
+			"type": "work",
+			"where": "Smarted Soluciones Educativas - Sarela",
+			"url": "https://www.netexlearning.com/sarela/",
+			"what": {
+				"es": "Desarrollador Full Stack",
+				"en": "Full Stack Developer"
+			},
+			"logo": "/data/images/career/sarela.ico",
+			"from": "01/01/2026",
+			"to": {
+				"es": "Presente",
+				"en": "Present"
+			}
+		}
+	]
 }

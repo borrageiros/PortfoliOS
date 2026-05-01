@@ -1,12 +1,19 @@
 <script lang="ts">
 	import Icon from '$lib/components/Icon.svelte';
 	import { t } from '$lib/i18n/i18n';
-	export let projects: any;
+	import type { Projects as ProjectsData, Project } from '$lib/types/data';
+	export let projects: ProjectsData;
 
 	export let isMobileVersion = false;
 
+	type ProjectCategoryMapped = { key: string; title: string; items: Project[] };
+
+	function isImageUrl(value: string): boolean {
+		return value.startsWith('/') || value.startsWith('http');
+	}
+
 	// Helper to get project categories dynamically
-	const getProjectCategories = (proj: any) => {
+	const getProjectCategories = (proj: ProjectsData): ProjectCategoryMapped[] => {
 		return Object.keys(proj).map((key) => ({
 			key,
 			title: proj[key].title,
@@ -22,13 +29,13 @@
 	</h2>
 
 	<div class="projects-container" class:mobile={isMobileVersion}>
-		{#each getProjectCategories(projects) as category}
+		{#each getProjectCategories(projects) as category, i (i)}
 			{#if category.items && category.items.length > 0}
 				<h2 class="project-category-title" class:mobile={isMobileVersion}>
 					{category.title}
 				</h2>
 				<div class="projects-list" class:mobile={isMobileVersion}>
-					{#each category.items as project}
+					{#each category.items as project, j (j)}
 						<a
 							href={project.url}
 							target="_blank"
@@ -38,7 +45,11 @@
 						>
 							<div class="project-card" class:mobile={isMobileVersion}>
 								<div class="project-image" class:mobile={isMobileVersion}>
-									<img src={project.image} alt={project.name} class:mobile={isMobileVersion} />
+									{#if project.image && isImageUrl(project.image)}
+										<img src={project.image} alt={project.name} class:mobile={isMobileVersion} />
+									{:else if project.image}
+										<span class="project-emoji">{project.image}</span>
+									{/if}
 								</div>
 								<div class="project-details" class:mobile={isMobileVersion}>
 									<h3 class:mobile={isMobileVersion}>{project.name}</h3>
@@ -128,6 +139,16 @@
 	}
 
 	.project-card:hover .project-image img {
+		transform: scale(1.05);
+	}
+
+	.project-emoji {
+		font-size: 72px;
+		line-height: 1;
+		transition: transform 0.3s ease;
+	}
+
+	.project-card:hover .project-emoji {
 		transform: scale(1.05);
 	}
 

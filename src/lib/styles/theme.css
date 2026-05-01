@@ -1,67 +1,68 @@
-:root, .dark-theme {
-  /* Dark Theme Colors */
-  --win-blue: #0078D7;
-  --win-accent: #0078D7;
-  --win-start-hover: #2b5797;
-  
-  /* Interface Colors */
-  --taskbar-bg: #202020;
-  --taskbar-bg-rgb: 32, 32, 32;
-  --taskbar-hover: #303030;
-  --taskbar-active: #383838;
-  --start-menu-bg: #202020;
-  --app-tile-hover: #333333;
-  --window-bg: #1F1F1F;
-  --window-header: #2D2D2D;
-  
-  /* Input Elements */
-  --input-bg: #2D2D2D;
-  --input-text: #FFFFFF;
-  --overlay-bg: rgba(32, 32, 32, 0.9);
-  --border-light: #444444;
-  
-  /* Text Colors */
-  --text-primary: #FFFFFF;
-  --text-secondary: #BBBBBB;
-  --text-disabled: #888888;
-  
-  /* Alert Colors */
-  --alert-error: #E81123;
-  --alert-warning: #FFB900;
-  --alert-success: #10893E;
-  --alert-info: #0078D7;
+:root,
+.dark-theme {
+	/* Dark Theme Colors */
+	--win-blue: #0078d7;
+	--win-accent: #0078d7;
+	--win-start-hover: #2b5797;
+
+	/* Interface Colors */
+	--taskbar-bg: #202020;
+	--taskbar-bg-rgb: 32, 32, 32;
+	--taskbar-hover: #303030;
+	--taskbar-active: #383838;
+	--start-menu-bg: #202020;
+	--app-tile-hover: #333333;
+	--window-bg: #1f1f1f;
+	--window-header: #2d2d2d;
+
+	/* Input Elements */
+	--input-bg: #2d2d2d;
+	--input-text: #ffffff;
+	--overlay-bg: rgba(32, 32, 32, 0.9);
+	--border-light: #444444;
+
+	/* Text Colors */
+	--text-primary: #ffffff;
+	--text-secondary: #bbbbbb;
+	--text-disabled: #888888;
+
+	/* Alert Colors */
+	--alert-error: #e81123;
+	--alert-warning: #ffb900;
+	--alert-success: #10893e;
+	--alert-info: #0078d7;
 }
 
 .light-theme {
-  /* Light Theme Colors */
-  --win-blue: #0078D7;
-  --win-accent: #0078D7;
-  --win-start-hover: #2b5797;
-  
-  /* Interface Colors */
-  --taskbar-bg: #F0F0F0;
-  --taskbar-bg-rgb: 240, 240, 240;
-  --taskbar-hover: #E0E0E0;
-  --taskbar-active: #D0D0D0;
-  --start-menu-bg: #FFFFFF;
-  --app-tile-hover: #F5F5F5;
-  --window-bg: #FFFFFF;
-  --window-header: #F0F0F0;
-  
-  /* Input Elements */
-  --input-bg: #FFFFFF;
-  --input-text: #333333;
-  --overlay-bg: rgba(255, 255, 255, 0.9);
-  --border-light: #DDDDDD;
-  
-  /* Text Colors */
-  --text-primary: #333333;
-  --text-secondary: #666666;
-  --text-disabled: #999999;
-  
-  /* Alert Colors */
-  --alert-error: #E81123;
-  --alert-warning: #FFB900;
-  --alert-success: #10893E;
-  --alert-info: #0078D7;
-} 
+	/* Light Theme Colors */
+	--win-blue: #0078d7;
+	--win-accent: #0078d7;
+	--win-start-hover: #2b5797;
+
+	/* Interface Colors */
+	--taskbar-bg: #f0f0f0;
+	--taskbar-bg-rgb: 240, 240, 240;
+	--taskbar-hover: #e0e0e0;
+	--taskbar-active: #d0d0d0;
+	--start-menu-bg: #ffffff;
+	--app-tile-hover: #f5f5f5;
+	--window-bg: #ffffff;
+	--window-header: #f0f0f0;
+
+	/* Input Elements */
+	--input-bg: #ffffff;
+	--input-text: #333333;
+	--overlay-bg: rgba(255, 255, 255, 0.9);
+	--border-light: #dddddd;
+
+	/* Text Colors */
+	--text-primary: #333333;
+	--text-secondary: #666666;
+	--text-disabled: #999999;
+
+	/* Alert Colors */
+	--alert-error: #e81123;
+	--alert-warning: #ffb900;
+	--alert-success: #10893e;
+	--alert-info: #0078d7;
+}

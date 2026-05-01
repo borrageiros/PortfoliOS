@@ -1,42 +1,29 @@
 {
-  "es": {
-    "photo": "/data/images/personal_photo.jpg",
-    "name": "Adrián Borrageiros Mourelos",
-    "alias": "borrageiros",
-    "birthDate": "26/04/1999",
-    "country": "España",
-    "job": "Desarrollador full stack",
-    "email": "adrianborrageirosmourelos@gmail.com",
-    "currentJob": {
-      "url": "https://netexlearning.com",
-      "label": "NetexLearning"
-    },
-    "phone": "+34 *********",
-    "location": "O Grove, Galicia, España",
-    "coordinates": {
-      "location": "O Grove",
-      "lat": 42.496332,
-      "lng": -8.8652147
-    }
-  },
-  "en": {
-    "photo": "/data/images/personal_photo.jpg",
-    "name": "Adrián Borrageiros Mourelos",
-    "alias": "borrageiros",
-    "birthDate": "26/04/1999",
-    "country": "Spain",
-    "job": "Full stack developer",
-    "email": "adrianborrageirosmourelos@gmail.com",
-    "currentJob": {
-      "url": "https://netexlearning.com",
-      "label": "NetexLearning"
-    },
-    "phone": "+34 *********",
-    "location": "O Grove, Galicia, Spain",
-    "coordinates": {
-      "location": "O Grove",
-      "lat": 42.496332,
-      "lng": -8.8652147
-    }
-  }
+	"photo": "/data/images/personal_photo.jpg",
+	"name": "Adrián Borrageiros Mourelos",
+	"alias": "borrageiros",
+	"birthDate": "26/04/1999",
+	"country": { "es": "España", "en": "Spain" },
+	"job": { "es": "Desarrollador full stack", "en": "Full stack developer" },
+	"email": "adrianborrageirosmourelos@gmail.com",
+	"currentJob": {
+		"url": {
+			"es": "https://sarelaeditorial.com/",
+			"en": "https://netexlearning.com"
+		},
+		"label": {
+			"es": "Sarela Editorial - La Voz De Galicia & NetexLearning",
+			"en": "NetexLearning"
+		}
+	},
+	"phone": "+34 *********",
+	"location": {
+		"es": "O Grove, Galicia, España",
+		"en": "O Grove, Galicia, Spain"
+	},
+	"coordinates": {
+		"location": "O Grove",
+		"lat": 42.496332,
+		"lng": -8.8652147
+	}
 }

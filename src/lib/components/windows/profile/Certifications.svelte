@@ -1,22 +1,9 @@
 <script lang="ts">
 	import Icon from '$lib/components/Icon.svelte';
 	import { t } from '$lib/i18n/i18n';
+	import type { Certifications as CertificationsData } from '$lib/types/data';
 
-	interface Certification {
-		name: string;
-		issuer: string;
-		date: string;
-		expires?: string;
-		url: string;
-		icon: string;
-		important?: boolean;
-	}
-
-	interface CertificationData {
-		certifications: Record<string, Certification[]>;
-	}
-
-	export let certifications: CertificationData;
+	export let certifications: CertificationsData;
 
 	let previewImage: string | null = null;
 
@@ -54,11 +41,11 @@
 	</h2>
 
 	{#if certifications.certifications}
-		{#each Object.entries(certifications.certifications) as [company, companyCerts]}
+		{#each Object.entries(certifications.certifications) as [company, companyCerts] (company)}
 			<div class="company-certifications">
 				<h3 class="company-title">{company}</h3>
 				<div class="certifications-grid">
-					{#each companyCerts as cert}
+					{#each companyCerts as cert, i (i)}
 						<div class="certification-card-link">
 							<div class="certification-card">
 								<div class="certification-icon">

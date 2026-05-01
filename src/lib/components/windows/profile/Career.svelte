@@ -1,9 +1,13 @@
 <script lang="ts">
 	import Icon from '$lib/components/Icon.svelte';
 	import { t } from '$lib/i18n/i18n';
-	export let career: any;
+	import type { Career as CareerData } from '$lib/types/data';
+	export let career: CareerData;
 
 	export let isMobileVersion = false;
+	export let isDesktopInMobileVersion = false;
+
+	$: useMobileSingleColumn = isMobileVersion && !isDesktopInMobileVersion;
 
 	function parseDate(dateStr: string): Date | null {
 		if (!dateStr || dateStr === 'Presente' || dateStr === 'Present') {
@@ -19,7 +23,10 @@
 		return null;
 	}
 
-	function calculateDuration(from: string, to: string): { years: number; months: number; days: number } {
+	function calculateDuration(
+		from: string,
+		to: string
+	): { years: number; months: number; days: number } {
 		const fromDate = parseDate(from);
 		const toDate = parseDate(to);
 
@@ -47,39 +54,47 @@
 
 	function formatDuration(duration: { years: number; months: number; days: number }): string[] {
 		const badges: string[] = [];
-		
+
 		if (duration.years > 0) {
-			badges.push(`${duration.years} ${duration.years === 1 ? $t('profile.year') : $t('profile.years')}`);
-			
+			badges.push(
+				`${duration.years} ${duration.years === 1 ? $t('profile.year') : $t('profile.years')}`
+			);
+
 			if (duration.months > 0) {
-				badges.push(`${duration.months} ${duration.months === 1 ? $t('profile.month') : $t('profile.months')}`);
+				badges.push(
+					`${duration.months} ${duration.months === 1 ? $t('profile.month') : $t('profile.months')}`
+				);
 			}
 		} else if (duration.months > 0) {
-			badges.push(`${duration.months} ${duration.months === 1 ? $t('profile.month') : $t('profile.months')}`);
+			badges.push(
+				`${duration.months} ${duration.months === 1 ? $t('profile.month') : $t('profile.months')}`
+			);
 		} else if (duration.days > 0) {
-			badges.push(`${duration.days} ${duration.days === 1 ? $t('profile.day') : $t('profile.days')}`);
+			badges.push(
+				`${duration.days} ${duration.days === 1 ? $t('profile.day') : $t('profile.days')}`
+			);
 		}
-		
+
 		return badges;
 	}
 </script>
 
-<div class="career-section" class:mobile={isMobileVersion}>
-	<h2 class:mobile={isMobileVersion}>
+<div class="career-section" class:mobile={useMobileSingleColumn}>
+	<h2 class:mobile={useMobileSingleColumn}>
 		<Icon name="profile_career" size="22" />
 		<span>{$t('profile.career')}</span>
 	</h2>
 
-	<div class="timeline-container" class:mobile={isMobileVersion}>
-		{#each career.steps as entry, index}
+	<div class="timeline-container" class:mobile={useMobileSingleColumn}>
+		{#each career.steps as entry, index (index)}
 			<div
 				class="timeline-item {index % 2 === 0 ? 'left' : 'right'}"
-				class:mobile={isMobileVersion}
+				class:mobile={useMobileSingleColumn}
 			>
-				<div class="timeline-marker" class:mobile={isMobileVersion}>
+				<div class="timeline-marker" class:mobile={useMobileSingleColumn}>
 					<div
 						class="timeline-icon {entry.type === 'school' ? 'school' : 'work'}"
-						class:mobile={isMobileVersion}
+						class:mobile={useMobileSingleColumn}
 					>
 						<Icon name={entry.type === 'school' ? 'school' : 'briefcase'} size="18" />
 					</div>
@@ -89,29 +104,34 @@
 					target="_blank"
 					rel="noopener noreferrer"
 					class="timeline-content-link"
-					class:mobile={isMobileVersion}
+					class:mobile={useMobileSingleColumn}
 				>
-					<div class="timeline-content" class:mobile={isMobileVersion}>
-						<div class="timeline-header" class:mobile={isMobileVersion}>
-							<div class="timeline-title-container" class:mobile={isMobileVersion}>
+					<div class="timeline-content" class:mobile={useMobileSingleColumn}>
+						<div class="timeline-header" class:mobile={useMobileSingleColumn}>
+							<div class="timeline-title-container" class:mobile={useMobileSingleColumn}>
 								{#if entry.logo}
-									<img src={entry.logo} alt={entry.where} class="timeline-logo" class:mobile={isMobileVersion} />
+									<img
+										src={entry.logo}
+										alt={entry.where}
+										class="timeline-logo"
+										class:mobile={useMobileSingleColumn}
+									/>
 								{/if}
-								<h3 class="timeline-title" class:mobile={isMobileVersion}>
+								<h3 class="timeline-title" class:mobile={useMobileSingleColumn}>
 									{entry.where}
 								</h3>
 							</div>
-							<div class="timeline-date-container" class:mobile={isMobileVersion}>
-								<span class="timeline-date" class:mobile={isMobileVersion}
+							<div class="timeline-date-container" class:mobile={useMobileSingleColumn}>
+								<span class="timeline-date" class:mobile={useMobileSingleColumn}
 									>{entry.from} - {entry.to}</span
 								>
-								{#each formatDuration(calculateDuration(entry.from, entry.to)) as badge}
-									<span class="duration-badge" class:mobile={isMobileVersion}>{badge}</span>
+								{#each formatDuration(calculateDuration(entry.from, entry.to)) as badge, i (i)}
+									<span class="duration-badge" class:mobile={useMobileSingleColumn}>{badge}</span>
 								{/each}
 							</div>
 						</div>
-						<div class="timeline-body" class:mobile={isMobileVersion}>
-							<p class:mobile={isMobileVersion}>{entry.what}</p>
+						<div class="timeline-body" class:mobile={useMobileSingleColumn}>
+							<p class:mobile={useMobileSingleColumn}>{entry.what}</p>
 						</div>
 					</div>
 				</a>
