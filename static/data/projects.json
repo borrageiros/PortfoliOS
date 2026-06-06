@@ -62,8 +62,8 @@
 					"es": "Aplicación de captura de pantalla moderna, potente y liviana para Windows que combina funciones avanzadas como OCR y subida automática mediante SCP.",
 					"en": "A modern, powerful, and lightweight screenshot application for Windows that combines advanced features like OCR and automatic uploading via SCP."
 				},
-				"image": "📷",
-				"url": "https://github.com/borrageiros/CloudShot"
+				"image": "https://raw.githubusercontent.com/borrageiros/CloudShot/refs/heads/main/icon.svg",
+				"url": "https://borrageiros.github.io/CloudShot/"
 			},
 			{
 				"name": "F4ST",
