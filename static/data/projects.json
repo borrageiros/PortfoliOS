@@ -53,7 +53,7 @@
 					"es": "Mod de minecraft que levanta un servidor web para mostrar estadisticas de todos los jugadores de la partida y comprarlos.",
 					"en": "Minecraft mod that runs a web server to display and compare statistics for all players in the game."
 				},
-				"image": "https://raw.githubusercontent.com/borrageiros/mc-stats-webui/main/screenshot.png",
+				"image": "https://raw.githubusercontent.com/borrageiros/mc-stats-webui/main/screenshots/screenshot.png",
 				"url": "https://github.com/borrageiros/mc-stats-webui"
 			},
 			{
