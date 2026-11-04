@@ -1,7 +1,8 @@
 FROM node:26.13.0
 WORKDIR /app
+COPY package*.json ./
+RUN npm ci
 COPY . .
-RUN yarn
-RUN yarn build
+RUN npm run build
 EXPOSE 3000
-CMD ["yarn", "start"]
+CMD ["npm", "start"]
