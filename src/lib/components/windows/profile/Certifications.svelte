@@ -1,6 +1,7 @@
 <script lang="ts">
 	import Icon from '$lib/components/Icon.svelte';
-	import { t } from '$lib/i18n/i18n';
+	import { resolveLocalizedText } from '$lib/helpers';
+	import { locale, t } from '$lib/i18n/i18n';
 	import type { Certifications as CertificationsData } from '$lib/types/data';
 
 	export let certifications: CertificationsData;
@@ -13,12 +14,8 @@
 		previewImage = imageUrl;
 	}
 
-	function closePreview(event: MouseEvent | KeyboardEvent) {
-		const target = event.target as HTMLElement;
-		const container = target.closest('.image-preview-container');
-		if (event.target === event.currentTarget || !container) {
-			previewImage = null;
-		}
+	function closePreview() {
+		previewImage = null;
 	}
 
 	function handleKeydown(event: KeyboardEvent) {
@@ -49,10 +46,10 @@
 						<div class="certification-card-link">
 							<div class="certification-card">
 								<div class="certification-icon">
-									<img src={cert.icon} alt={cert.name} />
+									<img src={cert.icon} alt={resolveLocalizedText(cert.name, $locale)} />
 								</div>
 								<div class="certification-details">
-									<h3 class="certification-name">{cert.name}</h3>
+									<h3 class="certification-name">{resolveLocalizedText(cert.name, $locale)}</h3>
 									<div class="certification-meta">
 										<div class="certification-date">
 											<Icon name="calendar" size="14" />
@@ -112,16 +109,16 @@
 		tabindex="0"
 		aria-label="Close preview"
 	>
+		<button
+			class="close-preview-button"
+			on:click={() => (previewImage = null)}
+			title="Close preview"
+			aria-label="Close preview"
+		>
+			<Icon name="x" size="24" />
+		</button>
 		<div class="image-preview-container" role="img" aria-label="Certificate preview">
 			<img src={previewImage} alt="Certificate preview" />
-			<button
-				class="close-preview-button"
-				on:click={() => (previewImage = null)}
-				title="Close preview"
-				aria-label="Close preview"
-			>
-				<Icon name="x" size="24" />
-			</button>
 		</div>
 	</div>
 {/if}
@@ -263,80 +260,90 @@
 
 	.image-preview-overlay {
 		position: fixed;
-		top: 0;
-		left: 0;
-		width: 100%;
-		height: 100%;
-		background-color: rgba(0, 0, 0, 0.85);
+		inset: 0;
+		box-sizing: border-box;
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		z-index: 10000;
+		padding: max(56px, calc(12px + env(safe-area-inset-top, 0px)))
+			max(16px, env(safe-area-inset-right, 0px)) max(16px, env(safe-area-inset-bottom, 0px))
+			max(16px, env(safe-area-inset-left, 0px));
+		background-color: rgba(0, 0, 0, 0.88);
+		z-index: 20000;
 		cursor: pointer;
 	}
 
 	.image-preview-container {
 		position: relative;
-		width: 30vw;
-		height: 30vh;
-		min-width: 300px;
-		min-height: 300px;
-		max-width: 90%;
-		max-height: 90%;
-		cursor: default;
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		background-color: rgba(255, 255, 255, 0.05);
-		border-radius: 8px;
-		padding: 20px;
+		width: min(96vw, 1600px);
+		height: min(calc(100vh - 80px), calc(100dvh - 80px));
+		max-width: 100%;
+		max-height: 100%;
+		cursor: pointer;
 	}
 
 	.image-preview-container img {
+		display: block;
 		width: 100%;
 		height: 100%;
 		object-fit: contain;
 		border-radius: 8px;
-		box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
-	}
-
-	@media (max-width: 768px) {
-		.image-preview-container {
-			width: 80vw;
-			height: 40vh;
-			min-width: 250px;
-			min-height: 250px;
-		}
-	}
-
-	@media (max-width: 480px) {
-		.image-preview-container {
-			width: 90vw;
-			height: 35vh;
-			min-width: 200px;
-			min-height: 200px;
-		}
+		box-shadow: 0 8px 32px rgba(0, 0, 0, 0.55);
 	}
 
 	.close-preview-button {
 		position: absolute;
-		top: -50px;
-		right: 0;
+		top: max(12px, env(safe-area-inset-top, 0px));
+		right: max(12px, env(safe-area-inset-right, 0px));
 		background-color: rgba(255, 255, 255, 0.2);
 		border: 1px solid rgba(255, 255, 255, 0.3);
 		border-radius: 50%;
-		width: 36px;
-		height: 36px;
+		width: 44px;
+		height: 44px;
 		display: flex;
 		align-items: center;
 		justify-content: center;
 		cursor: pointer;
 		transition: background-color 0.2s;
 		color: white;
+		z-index: 1;
 	}
 
 	.close-preview-button:hover {
 		background-color: rgba(255, 255, 255, 0.3);
+	}
+
+	@media (max-width: 768px) {
+		.image-preview-overlay {
+			padding: max(52px, calc(8px + env(safe-area-inset-top, 0px)))
+				max(8px, env(safe-area-inset-right, 0px)) max(8px, env(safe-area-inset-bottom, 0px))
+				max(8px, env(safe-area-inset-left, 0px));
+		}
+
+		.image-preview-container {
+			width: 96vw;
+			height: min(calc(100vh - 64px), calc(100dvh - 64px));
+		}
+	}
+
+	@media (max-height: 500px) {
+		.image-preview-overlay {
+			padding: max(48px, calc(8px + env(safe-area-inset-top, 0px)))
+				max(8px, env(safe-area-inset-right, 0px)) max(8px, env(safe-area-inset-bottom, 0px))
+				max(8px, env(safe-area-inset-left, 0px));
+		}
+
+		.image-preview-container {
+			height: min(calc(100vh - 56px), calc(100dvh - 56px));
+		}
+
+		.close-preview-button {
+			width: 40px;
+			height: 40px;
+		}
 	}
 
 	.company-certifications {

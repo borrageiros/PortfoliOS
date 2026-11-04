@@ -20,7 +20,7 @@ export const translations = {
 				adventurer: 'Adventurer'
 			},
 			welcomeMessage: 'Welcome, {user}',
-			switchToMobile: 'Switch to basic version'
+			switchToMobile: 'View the simple version, without the desktop'
 		},
 		mobile: {
 			desktopRecommendation: {
@@ -463,7 +463,7 @@ export const translations = {
 				adventurer: 'Aventurero'
 			},
 			welcomeMessage: 'Bienvenido, {user}',
-			switchToMobile: 'Cambiar a la versión básica'
+			switchToMobile: 'Ver la versión simple, sin el escritorio'
 		},
 		mobile: {
 			desktopRecommendation: {

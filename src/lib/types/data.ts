@@ -1,3 +1,7 @@
+import type { Locale } from '$lib/i18n/translations';
+
+export type LocalizedText = string | Partial<Record<Locale, string>>;
+
 export interface CurrentJob {
 	url: string;
 	label: string;
@@ -93,7 +97,7 @@ export interface Informatic {
 }
 
 export interface Certification {
-	name: string;
+	name: LocalizedText;
 	issuer?: string;
 	date: string;
 	url: string;

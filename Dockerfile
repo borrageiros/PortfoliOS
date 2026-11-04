@@ -1,4 +1,4 @@
-FROM node:22
+FROM node:26.13.0
 WORKDIR /app
 COPY . .
 RUN yarn

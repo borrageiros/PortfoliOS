@@ -1,20 +1,29 @@
 <script lang="ts">
-	import { onMount } from 'svelte';
+	import { onDestroy, onMount } from 'svelte';
 	import { isMobile } from '$lib/helpers';
 	import { goto } from '$app/navigation';
 	import Icon from '$lib/components/Icon.svelte';
+	import VersionSwitchButton from '$lib/components/VersionSwitchButton.svelte';
 	import { t } from '$lib/i18n/i18n';
+
+	let bootTimeout: ReturnType<typeof setTimeout> | undefined;
 
 	onMount(() => {
 		if (isMobile()) {
 			goto('/basic');
 			return;
 		}
-		setTimeout(() => {
+		bootTimeout = setTimeout(() => {
 			if (!isMobile()) {
 				goto('/login');
 			}
 		}, 3000);
+	});
+
+	onDestroy(() => {
+		if (bootTimeout) {
+			clearTimeout(bootTimeout);
+		}
 	});
 </script>
 
@@ -37,6 +46,15 @@
 
 			<div class="loading-text">
 				{$t('system.loading')}
+			</div>
+
+			<div class="loading-actions">
+				<VersionSwitchButton
+					label={$t('login.switchToMobile')}
+					title={$t('login.switchToMobile')}
+					destination="/basic"
+					variant="pill"
+				/>
 			</div>
 		</div>
 	</div>
@@ -139,6 +157,20 @@
 		margin-top: 30px;
 		font-size: 18px;
 		font-weight: 300;
+		color: white;
+	}
+
+	.loading-actions {
+		margin-top: 28px;
+	}
+
+	.loading-actions :global(.version-switch-button.pill) {
+		background-color: rgba(255, 255, 255, 0.18);
+		color: white;
+	}
+
+	.loading-actions :global(.version-switch-button.pill:hover) {
+		background-color: rgba(255, 255, 255, 0.3);
 		color: white;
 	}
 </style>

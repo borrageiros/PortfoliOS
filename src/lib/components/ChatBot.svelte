@@ -2,7 +2,8 @@
 	import { onMount } from 'svelte';
 	import nlp from 'compromise';
 	import { locale, t } from '$lib/i18n/i18n';
-	import { loadData } from '$lib/helpers';
+	import { loadData, resolveLocalizedText } from '$lib/helpers';
+	import type { LocalizedText } from '$lib/types/data';
 
 	// Interfaces for data
 	interface Message {
@@ -405,11 +406,13 @@
 			if (doc.match('(certificates|certifications|certificados|certificaciones)').found) {
 				addToMentioned('certifications');
 				const certificationsByIssuer = data.certifications?.certifications || {};
-				const certs = Object.values(certificationsByIssuer).flat() as Array<{ name: string }>;
+				const certs = Object.values(certificationsByIssuer).flat() as Array<{
+					name: LocalizedText;
+				}>;
 				if (certs.length > 0) {
 					const certList = certs
 						.slice(0, 3)
-						.map((cert) => cert.name)
+						.map((cert) => resolveLocalizedText(cert.name))
 						.join(', ');
 					return personalize(
 						getRandomResponse('certifications', { count: String(certs.length), certs: certList })

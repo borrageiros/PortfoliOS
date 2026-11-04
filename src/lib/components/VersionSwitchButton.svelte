@@ -40,10 +40,14 @@
 	}
 
 	.version-switch-button.pill {
+		border: none;
 		border-radius: 20px;
 		padding: 0 16px;
-		height: 50px;
-		font-size: 13px;
+		height: 40px;
+		font-family: inherit;
+		font-size: 14px;
+		color: var(--text-primary);
+		transition: background-color 0.2s;
 	}
 
 	.version-switch-button.menu {

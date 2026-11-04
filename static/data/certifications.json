@@ -57,6 +57,25 @@
 				"icon": "/data/images/certifications/gitlab/remote-foundation.jpg"
 			}
 		],
+		"IBM": [
+			{
+				"name": "Artificial Intelligence Fundamentals",
+				"date": "04/11/2026",
+				"url": "https://www.credly.com/badges/510fe48c-6a1f-416e-b0b9-afb26ee649af",
+				"icon": "/data/images/certifications/ibm/artificial-intelligence-fundamentals.png"
+			}
+		],
+		"Santander": [
+			{
+				"name": {
+					"es": "Reglas de la IA: cómo usarla sin correr riesgos legales",
+					"en": "Rules of AI: how to use it without running legal risks"
+				},
+				"date": "04/11/2026",
+				"url": "/data/images/certifications/santander/ia-rules.jpg",
+				"icon": "/data/images/certifications/santander/ia-rules.jpg"
+			}
+		],
 		"Databricks": [
 			{
 				"name": "Generative AI Fundamentals",

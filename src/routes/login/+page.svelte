@@ -118,17 +118,17 @@
 				>
 					<span>{getLocaleText($locale)}</span>
 				</div>
+
+				<VersionSwitchButton
+					label={$t('login.switchToMobile')}
+					title={$t('login.switchToMobile')}
+					destination="/basic"
+					variant="pill"
+				/>
 			</div>
 		</div>
 
 		<div class="bottom-actions">
-			<VersionSwitchButton
-				label={$t('login.switchToMobile')}
-				title={$t('login.switchToMobile')}
-				destination="/basic"
-				variant="pill"
-			/>
-
 			<div class="power-button" role="button" tabindex="0">
 				<Icon name="power" size="24" />
 			</div>
@@ -249,6 +249,9 @@
 
 	.login-actions {
 		display: flex;
+		align-items: center;
+		justify-content: center;
+		flex-wrap: wrap;
 		gap: 15px;
 	}
 

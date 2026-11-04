@@ -1,4 +1,5 @@
 import { locale } from '$lib/i18n/i18n';
+import type { Locale } from '$lib/i18n/translations';
 import { get } from 'svelte/store';
 
 function isMobileUserAgent() {
@@ -23,10 +24,24 @@ function isLocaleMap(value: unknown): value is Record<string, unknown> {
 	return keys.length > 0 && keys.every((k) => LOCALE_KEYS.has(k));
 }
 
+function pickLocalizedValue(map: Record<string, unknown>, loc: string): unknown {
+	return map[loc] ?? map['en'] ?? map['es'] ?? Object.values(map)[0];
+}
+
+export function resolveLocalizedText(value: unknown, loc: Locale | string = get(locale)): string {
+	if (typeof value === 'string') {
+		return value;
+	}
+	if (!isLocaleMap(value)) {
+		return '';
+	}
+	const resolved = pickLocalizedValue(value, loc);
+	return typeof resolved === 'string' ? resolved : '';
+}
+
 function resolveValue(value: unknown, loc: string): unknown {
 	if (isLocaleMap(value)) {
-		const map = value as Record<string, unknown>;
-		return map[loc] ?? map['en'];
+		return pickLocalizedValue(value, loc);
 	}
 	if (Array.isArray(value)) {
 		return value.map((item) => resolveValue(item, loc));
