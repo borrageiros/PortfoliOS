@@ -1,12 +1,6 @@
 import { json } from '@sveltejs/kit';
 import nodemailer from 'nodemailer';
-import {
-	GMAIL_USER,
-	GMAIL_APP_PASSWORD,
-	EMAIL_TO,
-	TELEGRAM_TOKEN,
-	PHONE_TO
-} from '$env/static/private';
+import { env } from '$env/dynamic/private';
 import { writeFileSync, mkdirSync, existsSync } from 'fs';
 import { join } from 'path';
 
@@ -72,14 +66,14 @@ export const POST = async ({ request }) => {
 		const transporter = nodemailer.createTransport({
 			service: 'gmail',
 			auth: {
-				user: GMAIL_USER,
-				pass: GMAIL_APP_PASSWORD
+				user: env.GMAIL_USER,
+				pass: env.GMAIL_APP_PASSWORD
 			}
 		});
 
 		const mailOptions = {
-			from: GMAIL_USER,
-			to: EMAIL_TO,
+			from: env.GMAIL_USER,
+			to: env.EMAIL_TO,
 			subject: `Portfolio Review: ${name}`,
 			text: `
 New Review Submission
@@ -101,7 +95,7 @@ ${
 	avatarPath
 		? `
 <p><strong>Avatar:</strong></p>
-<p><img src="${process.env.ORIGIN || 'http://localhost:5173'}${avatarPath}" alt="User Avatar" style="max-width: 200px; max-height: 200px;"></p>
+<p><img src="${env.ORIGIN || process.env.ORIGIN || 'http://localhost:5173'}${avatarPath}" alt="User Avatar" style="max-width: 200px; max-height: 200px;"></p>
 <p>Path: ${avatarPath}</p>
 `
 		: '<p><strong>No avatar uploaded</strong></p>'
@@ -113,16 +107,16 @@ ${
 
 		await transporter.sendMail(mailOptions);
 
-		if (TELEGRAM_TOKEN && PHONE_TO) {
+		if (env.TELEGRAM_TOKEN && env.PHONE_TO) {
 			const telegramText = `⭐ New portfolio review:\n\n*Name:* ${name}\n${job ? `*Job:* ${job}\n` : ''}${url ? `*LinkedIn/URL:* ${url}\n` : ''}${avatarPath ? `*Avatar:* Uploaded (${avatarPath})\n` : '*No avatar uploaded*\n'}\n*Review:*\n${review}`;
 
-			await fetch(`https://api.telegram.org/bot${TELEGRAM_TOKEN}/sendMessage`, {
+			await fetch(`https://api.telegram.org/bot${env.TELEGRAM_TOKEN}/sendMessage`, {
 				method: 'POST',
 				headers: {
 					'Content-Type': 'application/json'
 				},
 				body: JSON.stringify({
-					chat_id: PHONE_TO,
+					chat_id: env.PHONE_TO,
 					text: telegramText,
 					parse_mode: 'Markdown'
 				})
@@ -132,7 +126,7 @@ ${
 		return json({
 			success: true,
 			message:
-				TELEGRAM_TOKEN && PHONE_TO
+				env.TELEGRAM_TOKEN && env.PHONE_TO
 					? 'Review submitted successfully via email and Telegram'
 					: 'Review submitted successfully via email'
 		});
