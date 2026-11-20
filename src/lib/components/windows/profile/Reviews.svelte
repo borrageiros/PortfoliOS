@@ -1,5 +1,6 @@
 <script lang="ts">
 	import Icon from '$lib/components/Icon.svelte';
+	import Turnstile from '$lib/components/Turnstile.svelte';
 	import { t } from '$lib/i18n/i18n';
 	import { sendReview } from '$lib/api';
 	import type { Reviews as ReviewsData } from '$lib/types/data';
@@ -13,13 +14,15 @@
 		job: '',
 		review: '',
 		url: '',
-		avatar: null as File | null
+		website: ''
 	};
 
 	let formSubmitting = false;
 	let formSuccess = false;
 	let formError = false;
 	let errorMessage = '';
+	let turnstileToken = '';
+	let formKey = 0;
 
 	// Handle review submission
 	const handleSubmit = async (e: Event) => {
@@ -29,16 +32,11 @@
 		formError = false;
 
 		try {
-			const formData = new FormData();
-			formData.append('name', reviewForm.name);
-			formData.append('review', reviewForm.review);
-
-			if (reviewForm.job) formData.append('job', reviewForm.job);
-			if (reviewForm.url) formData.append('url', reviewForm.url);
-			if (reviewForm.avatar) formData.append('avatar', reviewForm.avatar);
-
 			// Call the API function to send the review
-			const response = await sendReview(formData);
+			const response = await sendReview({
+				...reviewForm,
+				turnstileToken
+			});
 
 			if (response.success) {
 				formSuccess = true;
@@ -48,12 +46,8 @@
 					job: '',
 					review: '',
 					url: '',
-					avatar: null
+					website: ''
 				};
-
-				// Clear file input
-				const fileInput = document.getElementById('avatar') as HTMLInputElement;
-				if (fileInput) fileInput.value = '';
 			} else {
 				formError = true;
 				errorMessage = response.message || $t('profile.errorSending');
@@ -64,14 +58,8 @@
 			console.error('Error sending review:', error);
 		} finally {
 			formSubmitting = false;
-		}
-	};
-
-	// Handle file selection
-	const handleFileSelect = (e: Event) => {
-		const input = e.target as HTMLInputElement;
-		if (input.files && input.files.length > 0) {
-			reviewForm.avatar = input.files[0];
+			turnstileToken = '';
+			formKey += 1;
 		}
 	};
 </script>
@@ -156,18 +144,6 @@
 				</div>
 
 				<div class="form-group">
-					<label for="avatar">{$t('profile.avatar')}</label>
-					<input
-						type="file"
-						id="avatar"
-						name="avatar"
-						accept="image/*"
-						on:change={handleFileSelect}
-					/>
-					<span class="input-help">{$t('profile.avatarHelp')}</span>
-				</div>
-
-				<div class="form-group">
 					<label for="review">{$t('profile.review')} *</label>
 					<textarea
 						id="review"
@@ -178,6 +154,23 @@
 						bind:value={reviewForm.review}
 					></textarea>
 				</div>
+
+				<!-- Honeypot anti-spam (hidden from users, visible to bots) -->
+				<div class="honeypot" aria-hidden="true">
+					<label for="review-website">Website</label>
+					<input
+						type="text"
+						id="review-website"
+						name="website"
+						tabindex="-1"
+						autocomplete="off"
+						bind:value={reviewForm.website}
+					/>
+				</div>
+
+				{#key formKey}
+					<Turnstile onToken={(token) => (turnstileToken = token)} />
+				{/key}
 
 				<div class="form-footer">
 					<p class="required-fields">{$t('profile.requiredFields')}</p>
@@ -480,6 +473,16 @@
 	.mobile .chat-received,
 	.mobile .chat-sent {
 		gap: 8px;
+	}
+
+	.honeypot {
+		position: absolute;
+		left: -9999px;
+		opacity: 0;
+		pointer-events: none;
+		height: 0;
+		width: 0;
+		overflow: hidden;
 	}
 
 	@media (max-width: 768px) {

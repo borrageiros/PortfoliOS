@@ -1,5 +1,6 @@
 <script lang="ts">
 	import Icon from '$lib/components/Icon.svelte';
+	import Turnstile from '$lib/components/Turnstile.svelte';
 	import { t } from '$lib/i18n/i18n';
 	import { sendEmail } from '$lib/api';
 	import type { Contact as ContactData } from '$lib/types/data';
@@ -11,13 +12,16 @@
 		email: '',
 		phone: '',
 		company: '',
-		message: ''
+		message: '',
+		website: ''
 	};
 
 	let formSubmitting = false;
 	let formSuccess = false;
 	let formError = false;
 	let errorMessage = '';
+	let turnstileToken = '';
+	let formKey = 0;
 
 	// Handle form submission
 	const handleSubmit = async (e: Event) => {
@@ -28,13 +32,10 @@
 
 		try {
 			// Call the API function to send the email
-			const response = await sendEmail(
-				contactForm.name,
-				contactForm.message,
-				contactForm.email,
-				contactForm.phone,
-				contactForm.company
-			);
+			const response = await sendEmail({
+				...contactForm,
+				turnstileToken
+			});
 
 			if (response.success) {
 				formSuccess = true;
@@ -44,7 +45,8 @@
 					email: '',
 					phone: '',
 					company: '',
-					message: ''
+					message: '',
+					website: ''
 				};
 			} else {
 				formError = true;
@@ -56,6 +58,8 @@
 			console.error('Error sending email:', error);
 		} finally {
 			formSubmitting = false;
+			turnstileToken = '';
+			formKey += 1;
 		}
 	};
 </script>
@@ -140,6 +144,23 @@
 						bind:value={contactForm.message}
 					></textarea>
 				</div>
+
+				<!-- Honeypot anti-spam (hidden from users, visible to bots) -->
+				<div class="honeypot" aria-hidden="true">
+					<label for="contact-website">Website</label>
+					<input
+						type="text"
+						id="contact-website"
+						name="website"
+						tabindex="-1"
+						autocomplete="off"
+						bind:value={contactForm.website}
+					/>
+				</div>
+
+				{#key formKey}
+					<Turnstile onToken={(token) => (turnstileToken = token)} />
+				{/key}
 
 				<div class="form-footer">
 					<p class="required-fields">{$t('profile.requiredFields')}</p>
@@ -337,6 +358,16 @@
 		align-items: center;
 		justify-content: center;
 		color: white;
+	}
+
+	.honeypot {
+		position: absolute;
+		left: -9999px;
+		opacity: 0;
+		pointer-events: none;
+		height: 0;
+		width: 0;
+		overflow: hidden;
 	}
 
 	@media (max-width: 768px) {

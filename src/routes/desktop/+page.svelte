@@ -12,6 +12,7 @@
 	import Terminal from '$lib/components/windows/softwares/Terminal.svelte';
 	import type { SvelteComponent } from 'svelte';
 	import { t } from '$lib/i18n/i18n';
+	import { browser } from '$app/environment';
 	import { page } from '$app/stores';
 	import Minesweeper from '$lib/components/windows/games/Minesweeper.svelte';
 	import Snake from '$lib/components/windows/games/Snake.svelte';
@@ -266,11 +267,13 @@
 
 	let windows: WindowData[] = [profileWindow];
 	const validProfiles = new Set(['recruiter', 'developer', 'stalker', 'adventurer']);
-	$: sessionProfile = $page.url.searchParams.get('session') || '';
+	$: sessionProfile = browser ? $page.url.searchParams.get('session') || '' : '';
 	$: desktopBackground = validProfiles.has(sessionProfile)
 		? `/images/backgrounds/${sessionProfile}.jpg`
 		: '/images/backgrounds/general.jpg';
-	$: profileTabFromQuery = resolveProfileTab($page.url.searchParams.get('profile'));
+	$: profileTabFromQuery = browser
+		? resolveProfileTab($page.url.searchParams.get('profile'))
+		: 'information';
 	$: if (windows[0] && windows[0].content === (Profile as typeof SvelteComponent)) {
 		windows[0].props = { initialTab: profileTabFromQuery };
 	}

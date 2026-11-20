@@ -38,7 +38,7 @@
 	let _lastDragTime = 0;
 	let dragPoints: { x: number; time: number }[] = [];
 	let shakeThreshold = 3;
-	let shakeTimeout: NodeJS.Timeout | null = null;
+	let shakeTimeout: ReturnType<typeof setTimeout> | null = null;
 
 	// Add new state variable for shaking
 	let isShaking = false;
@@ -49,7 +49,7 @@
 	let velocityX = 0;
 	let skewAmount = 0;
 	let _lastMoveTime = 0;
-	let deformationTimeout: NodeJS.Timeout | null = null;
+	let deformationTimeout: ReturnType<typeof setTimeout> | null = null;
 
 	// Snap zones
 	const SNAP_THRESHOLD = 20; // Pixels from the top/bottom to trigger maximize/minimize

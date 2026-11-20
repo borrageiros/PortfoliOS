@@ -1,0 +1,8 @@
+# Copia este fichero a .dev.vars (no se versiona) y rellena los valores.
+RESEND_API_KEY=
+EMAIL_FROM=contacto@borrageiros.com
+EMAIL_TO=
+TELEGRAM_BOT_TOKEN=
+TELEGRAM_CHAT_ID=
+TURNSTILE_SECRET=
+ALLOWED_ORIGINS=http://localhost:5173,http://127.0.0.1:5173

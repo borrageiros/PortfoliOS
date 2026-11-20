@@ -1,6 +1,8 @@
 # Package Managers
 package-lock.json
+worker/package-lock.json
 pnpm-lock.yaml
 yarn.lock
 bun.lock
 bun.lockb
+worker/.wrangler

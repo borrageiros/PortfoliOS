@@ -15,8 +15,12 @@ Thumbs.db
 # Env
 .env
 .env.*
+.dev.vars
 !.env.example
 !.env.test
+
+# Cloudflare Workers
+worker/.wrangler
 
 # Vite
 vite.config.js.timestamp-*

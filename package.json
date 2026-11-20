@@ -5,9 +5,12 @@
 	"type": "module",
 	"scripts": {
 		"dev": "vite dev",
-		"start": "node build",
 		"build": "vite build",
 		"preview": "vite preview",
+		"worker:dev": "npm --prefix worker run dev",
+		"worker:deploy": "npm --prefix worker run deploy",
+		"worker:check": "npm --prefix worker run check",
+		"worker:test": "npm --prefix worker run test",
 		"prepare": "svelte-kit sync || echo ''",
 		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
 		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
@@ -17,8 +20,6 @@
 	"devDependencies": {
 		"@eslint/compat": "^1.2.5",
 		"@eslint/js": "^9.18.0",
-		"@sveltejs/adapter-auto": "^6.0.0",
-		"@sveltejs/adapter-node": "^5.2.12",
 		"@sveltejs/adapter-static": "^3.0.8",
 		"@sveltejs/kit": "^2.16.0",
 		"@sveltejs/vite-plugin-svelte": "^5.0.0",
@@ -35,8 +36,6 @@
 		"vite": "^6.2.6"
 	},
 	"dependencies": {
-		"@types/nodemailer": "^6.4.17",
-		"compromise": "^14.14.4",
-		"nodemailer": "^7.0.3"
+		"compromise": "^14.14.4"
 	}
 }

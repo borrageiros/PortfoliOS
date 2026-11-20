@@ -1,26 +1,35 @@
-export async function sendEmail(
-	name: string,
-	message: string,
-	email?: string,
-	phone?: string,
-	company?: string
-) {
-	const response = await fetch(`/api/sendEmail`, {
-		method: 'POST',
-		headers: {
-			'Content-Type': 'application/json'
-		},
-		body: JSON.stringify({ name, message, email, phone, company })
-	});
+import { PUBLIC_API_BASE_URL } from '$env/static/public';
+import type { ApiResponse, ContactPayload, ReviewPayload } from '../../shared/contracts';
 
-	return await response.json();
+const API_BASE_URL = (PUBLIC_API_BASE_URL ?? '').replace(/\/$/, '');
+
+async function post(path: string, payload: unknown): Promise<ApiResponse> {
+	try {
+		const response = await fetch(`${API_BASE_URL}${path}`, {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json'
+			},
+			body: JSON.stringify(payload)
+		});
+
+		const data = (await response.json().catch(() => null)) as ApiResponse | null;
+
+		if (!data || typeof data.success !== 'boolean') {
+			return { success: false, message: `Request failed (${response.status})` };
+		}
+
+		return data;
+	} catch (error) {
+		console.error(`API request to ${path} failed`, error);
+		return { success: false, message: 'Network error' };
+	}
 }
 
-export async function sendReview(formData: FormData) {
-	const response = await fetch(`/api/sendReview`, {
-		method: 'POST',
-		body: formData
-	});
+export async function sendEmail(payload: ContactPayload): Promise<ApiResponse> {
+	return post('/api/contact', payload);
+}
 
-	return await response.json();
+export async function sendReview(payload: ReviewPayload): Promise<ApiResponse> {
+	return post('/api/review', payload);
 }

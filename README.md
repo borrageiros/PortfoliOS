@@ -20,29 +20,32 @@ PortfoliOS is a creative web portfolio inspired by operating system design. It o
 ## 🛠️ Installation
 
 ```bash
-yarn
+npm install
 ```
 
 ## 🚀 Development
 
-Start a development server:
+The contact forms are handled by the Cloudflare Worker in `worker/`. Run both processes:
 
 ```bash
-yarn dev
+# Terminal 1: API
+npm run worker:dev
 
-# Or start the server and open the app in a new browser tab
-yarn dev --open
+# Terminal 2: site
+npm run dev
 ```
+
+The Vite dev server proxies `/api` to `http://127.0.0.1:8787`.
 
 ## 📦 Building
 
 Create a production version:
 
 ```bash
-yarn build
+npm run build
 ```
 
-You can preview the production build with `yarn preview`.
+The static output is written to `build/`. You can preview it with `npm run preview`.
 
 ## 🤝 Contributions
 
